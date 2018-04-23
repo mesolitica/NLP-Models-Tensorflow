@@ -9,18 +9,6 @@ Solve NLP problems using Machine learning and Deep learning models
   * scipy
   * Python 3.X
 
-## NLP Problems
-
-1. Text classification
-2. Chatbot
-3. Language translation
-4. Supervised summarization
-5. Unsupervised summarization
-6. Semantic Analysis
-7. Vectorization
-8. Text generator
-9. POS Tagging
-
 ## Text classification
 
 #### Deep learning
