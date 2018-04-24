@@ -46,3 +46,7 @@ Solve NLP problems using Machine learning and Deep learning models
 31. LSTM Seq2Seq + Beam Decoder
 32. LSTM Bidirectional Seq2Seq
 33. Pointer Net
+34. LSTM cell RNN + Bahdanau Attention
+35. LSTM cell RNN + Luong Attention
+36. LSTM cell RNN + Stack Bahdanau Luong Attention
+37. Bytenet
