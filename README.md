@@ -49,4 +49,7 @@ Solve NLP problems using Machine learning and Deep learning models
 34. LSTM cell RNN + Bahdanau Attention
 35. LSTM cell RNN + Luong Attention
 36. LSTM cell RNN + Stack Bahdanau Luong Attention
-37. Bytenet
+37. LSTM cell Bidirectional RNN + backward Bahdanau + forward Luong
+38. Bytenet
+39. Fast-slow LSTM
+40. Siamese Network
