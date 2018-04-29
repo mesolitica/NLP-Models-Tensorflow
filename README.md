@@ -88,6 +88,7 @@ Solve NLP problems using Machine learning and Deep learning models
 28. GRU Seq2Seq-API Greedy + Bahdanau Attention
 29. LSTM Seq2Seq-API Beam Decoder
 30. GRU Seq2Seq-API Beam Decoder
-31. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Beam Decoder
-32. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Beam Decoder
-33. Bytenet
+31. LSTM Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
