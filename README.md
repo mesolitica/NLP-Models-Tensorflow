@@ -92,3 +92,42 @@ Solve NLP problems using Machine learning and Deep learning models
 32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
 33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+35. Bytenet
+
+## Neural Machine Translation (English to Vietnam)
+
+1. Basic cell Seq2Seq-manual
+2. LSTM Seq2Seq-manual
+3. GRU Seq2Seq-manual
+4. Basic cell Seq2Seq-API Greedy
+5. LSTM Seq2Seq-API Greedy
+6. GRU Seq2Seq-API Greedy
+7. Basic cell Bidirectional Seq2Seq-manual
+8. LSTM Bidirectional Seq2Seq-manual
+9. GRU Bidirectional Seq2Seq-manual
+10. Basic cell Bidirectional Seq2Seq-API Greedy
+11. LSTM Bidirectional Seq2Seq-API Greedy
+12. GRU Bidirectional Seq2Seq-API Greedy
+13. Basic cell Seq2Seq-manual + Luong Attention
+14. LSTM Seq2Seq-manual + Luong Attention
+15. GRU Seq2Seq-manual + Luong Attention
+16. Basic cell Seq2Seq-manual + Bahdanau Attention
+17. LSTM Seq2Seq-manual + Bahdanau Attention
+18. GRU Seq2Seq-manual + Bahdanau Attention
+19. LSTM Bidirectional Seq2Seq-manual + Luong Attention
+20. GRU Bidirectional Seq2Seq-manual + Luong Attention
+21. LSTM Bidirectional Seq2Seq-manual + Bahdanau Attention
+22. GRU Bidirectional Seq2Seq-manual + Bahdanau Attention
+23. LSTM Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+24. GRU Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+25. LSTM Seq2Seq-API Greedy + Luong Attention
+26. GRU Seq2Seq-API Greedy + Luong Attention
+27. LSTM Seq2Seq-API Greedy + Bahdanau Attention
+28. GRU Seq2Seq-API Greedy + Bahdanau Attention
+29. LSTM Seq2Seq-API Beam Decoder
+30. GRU Seq2Seq-API Beam Decoder
+31. LSTM Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+35. Bytenet
