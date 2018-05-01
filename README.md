@@ -53,6 +53,7 @@ Solve NLP problems using Machine learning and Deep learning models
 38. Bytenet
 39. Fast-slow LSTM
 40. Siamese Network
+41. LSTM Seq2Seq + tf.estimator
 
 ## Chatbot
 
@@ -93,6 +94,7 @@ Solve NLP problems using Machine learning and Deep learning models
 33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 35. Bytenet
+36. LSTM Seq2Seq + tf.estimator
 
 ## Neural Machine Translation (English to Vietnam)
 
@@ -131,3 +133,4 @@ Solve NLP problems using Machine learning and Deep learning models
 33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 35. Bytenet
+36. LSTM Seq2Seq + tf.estimator
