@@ -55,7 +55,7 @@ Solve NLP problems using Machine learning and Deep learning models
 40. Siamese Network
 41. LSTM Seq2Seq + tf.estimator
 
-## Chatbot as
+## Chatbot
 
 #### Deep learning
 
