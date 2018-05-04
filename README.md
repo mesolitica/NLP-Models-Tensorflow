@@ -98,6 +98,8 @@ Solve NLP problems using Machine learning and Deep learning models
 34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 35. Bytenet
 36. LSTM Seq2Seq + tf.estimator
+37. Capsule layers + LSTM Seq2Seq-API Greedy
+38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 
 ## Neural Machine Translation (English to Vietnam)
 
