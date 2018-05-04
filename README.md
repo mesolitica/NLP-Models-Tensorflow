@@ -54,6 +54,9 @@ Solve NLP problems using Machine learning and Deep learning models
 39. Fast-slow LSTM
 40. Siamese Network
 41. LSTM Seq2Seq + tf.estimator
+42. Capsule layers + RNN LSTM
+43. Capsule layers + LSTM Seq2Seq
+44. Capsule layers + LSTM Bidirectional Seq2Seq
 
 ## Chatbot
 
