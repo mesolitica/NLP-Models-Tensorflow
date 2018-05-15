@@ -140,3 +140,8 @@ Solve NLP problems using Machine learning and Deep learning models
 34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 35. Bytenet
 36. LSTM Seq2Seq + tf.estimator
+
+## Embedded
+
+1. Word Vector using CBOW sample softmax
+2. Word Vector using CBOW noise contrastive estimation
