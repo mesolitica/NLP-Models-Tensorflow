@@ -145,3 +145,5 @@ Solve NLP problems using Machine learning and Deep learning models
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
+3. Word Vector using skipgram sample softmax
+4. Word Vector using skipgram noise contrastive estimation
