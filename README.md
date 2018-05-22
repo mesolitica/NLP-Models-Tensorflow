@@ -7,17 +7,17 @@ Solve NLP problems using Machine learning and Deep learning models
   * TensorFlow >= 1.2
   * matplotlib
   * scipy
+  * gensim
   * Python 3.X
 
-## Supports
-1. [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
-2. [Chatbot](https://github.com/huseinzol05/NLP-Models#chatbot)
-3. [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models#neural-machine-translation-english-to-vietnam)
-4. [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
+## Table of contents
+  * [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
+  * [Chatbot](https://github.com/huseinzol05/NLP-Models#chatbot)
+  * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models#neural-machine-translation-english-to-vietnam)
+  * [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
 
+## Models
 ### Text classification
-------
-
 #### Deep learning
 
 1. Basic cell RNN
@@ -67,7 +67,6 @@ Solve NLP problems using Machine learning and Deep learning models
 45. Nested LSTM
 
 ### Chatbot
-
 #### Deep learning
 
 1. Basic cell Seq2Seq-manual
