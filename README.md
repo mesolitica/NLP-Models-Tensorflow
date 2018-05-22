@@ -9,7 +9,13 @@ Solve NLP problems using Machine learning and Deep learning models
   * scipy
   * Python 3.X
 
-## Text classification
+## Supports
+1. [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
+2. [Chatbot](https://github.com/huseinzol05/NLP-Models#chatbot)
+3. [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models#neural-machine-translation-english-to-vietnam)
+4. [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
+
+### Text classification
 
 #### Deep learning
 
@@ -59,7 +65,7 @@ Solve NLP problems using Machine learning and Deep learning models
 44. Capsule layers + LSTM Bidirectional Seq2Seq
 45. Nested LSTM
 
-## Chatbot
+### Chatbot
 
 #### Deep learning
 
@@ -102,7 +108,7 @@ Solve NLP problems using Machine learning and Deep learning models
 37. Capsule layers + LSTM Seq2Seq-API Greedy
 38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 
-## Neural Machine Translation (English to Vietnam)
+### Neural Machine Translation (English to Vietnam)
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -141,7 +147,7 @@ Solve NLP problems using Machine learning and Deep learning models
 35. Bytenet
 36. LSTM Seq2Seq + tf.estimator
 
-## Embedded
+### Embedded
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
