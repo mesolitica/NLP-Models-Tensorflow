@@ -16,6 +16,7 @@ Solve NLP problems using Machine learning and Deep learning models
 4. [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
 
 ### Text classification
+------
 
 #### Deep learning
 
