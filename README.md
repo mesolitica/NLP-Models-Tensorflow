@@ -15,6 +15,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Chatbot](https://github.com/huseinzol05/NLP-Models#chatbot)
   * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models#neural-machine-translation-english-to-vietnam)
   * [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
+  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models#POS-Tagging)
 
 ## Models
 ### Text classification
@@ -155,3 +156,8 @@ Solve NLP problems using Machine learning and Deep learning models
 3. Word Vector using skipgram sample softmax
 4. Word Vector using skipgram noise contrastive estimation
 5. Lda2Vec Tensorflow
+
+### POS-Tagging
+
+1. GRU Bidirectional + CRF
+2. LSTM Bidirectional + CRF
