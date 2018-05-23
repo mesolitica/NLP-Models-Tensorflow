@@ -65,6 +65,7 @@ Solve NLP problems using Machine learning and Deep learning models
 43. Capsule layers + LSTM Seq2Seq
 44. Capsule layers + LSTM Bidirectional Seq2Seq
 45. Nested LSTM
+46. LSTM Seq2Seq + Highway
 
 ### Chatbot
 #### Deep learning
