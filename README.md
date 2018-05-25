@@ -161,3 +161,5 @@ Solve NLP problems using Machine learning and Deep learning models
 
 1. GRU Bidirectional + CRF
 2. LSTM Bidirectional + CRF
+3. LSTM Seq2Seq-manual
+4. CNN + CRF
