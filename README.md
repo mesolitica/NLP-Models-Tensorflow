@@ -16,6 +16,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models#neural-machine-translation-english-to-vietnam)
   * [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models#POS-Tagging)
+  * [Text Matching](https://github.com/huseinzol05/NLP-Models#text-matching)
 
 ## Models
 ### Text classification
