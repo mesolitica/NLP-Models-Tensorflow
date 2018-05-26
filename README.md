@@ -163,3 +163,7 @@ Solve NLP problems using Machine learning and Deep learning models
 2. LSTM Bidirectional + CRF
 3. LSTM Seq2Seq-manual
 4. CNN + CRF
+
+### Text Matching
+
+1. Movielens dataset using Tensorflow
