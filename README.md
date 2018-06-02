@@ -17,6 +17,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models#POS-Tagging)
   * [Text Matching](https://github.com/huseinzol05/NLP-Models#text-matching)
+  * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
 
 ## Models
 ### Text classification
@@ -168,3 +169,11 @@ Solve NLP problems using Machine learning and Deep learning models
 ### Text Matching
 
 1. Movielens dataset using Tensorflow
+
+### Summarization
+#### Deep learning
+
+1. LSTM Seq2Seq
+2. LSTM Seq2Seq + Luong Attention
+3. LSTM Seq2Seq + Beam Decoder
+4. LSTM Bidirectional + Luong Attention + Beam Decoder
