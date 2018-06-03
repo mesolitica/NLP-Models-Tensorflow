@@ -158,6 +158,7 @@ Solve NLP problems using Machine learning and Deep learning models
 3. Word Vector using skipgram sample softmax
 4. Word Vector using skipgram noise contrastive estimation
 5. Lda2Vec Tensorflow
+6. Supervised Embedded
 
 ### POS-Tagging
 
