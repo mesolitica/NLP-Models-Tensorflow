@@ -178,3 +178,9 @@ Solve NLP problems using Machine learning and Deep learning models
 2. LSTM Seq2Seq + Luong Attention
 3. LSTM Seq2Seq + Beam Decoder
 4. LSTM Bidirectional + Luong Attention + Beam Decoder
+
+#### Decomposition
+
+1. Latent Dirichlet Allocation
+2. Latent Semantic Analysis
+3. NMF
