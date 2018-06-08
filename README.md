@@ -160,6 +160,7 @@ Solve NLP problems using Machine learning and Deep learning models
 4. Word Vector using skipgram noise contrastive estimation
 5. Lda2Vec Tensorflow
 6. Supervised Embedded
+7. Triplet-loss + LSTM
 
 ### POS-Tagging
 
