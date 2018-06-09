@@ -15,8 +15,8 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Chatbot](https://github.com/huseinzol05/NLP-Models#chatbot)
   * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models#neural-machine-translation-english-to-vietnam)
   * [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
-  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models#POS-Tagging)
-  * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models#Entity-Tagging)
+  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models#pos-tagging)
+  * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models#entity-tagging)
   * [Text Matching](https://github.com/huseinzol05/NLP-Models#text-matching)
   * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
 
