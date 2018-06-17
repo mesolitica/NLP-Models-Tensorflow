@@ -71,6 +71,7 @@ Solve NLP problems using Machine learning and Deep learning models
 45. Nested LSTM
 46. LSTM Seq2Seq + Highway
 47. Triplet loss + LSTM
+48. DNC (Differentiable Neural Computer)
 
 ### Chatbot
 #### Deep learning
