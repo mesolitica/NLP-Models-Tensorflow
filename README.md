@@ -194,3 +194,6 @@ Solve NLP problems using Machine learning and Deep learning models
 1. Latent Dirichlet Allocation
 2. Latent Semantic Analysis
 3. NMF
+
+### Misc
+1. Attention heatmap
