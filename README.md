@@ -114,6 +114,8 @@ Solve NLP problems using Machine learning and Deep learning models
 36. LSTM Seq2Seq + tf.estimator
 37. Capsule layers + LSTM Seq2Seq-API Greedy
 38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
+40. DNC Seq2Seq
 
 ### Neural Machine Translation (English to Vietnam)
 
