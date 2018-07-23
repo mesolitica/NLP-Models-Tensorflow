@@ -198,4 +198,5 @@ Solve NLP problems using Machine learning and Deep learning models
 3. NMF
 
 ### Misc
-1. Attention heatmap
+1. Attention heatmap on Bahdanau Attention
+2. Attention heatmap on Luong Attention
