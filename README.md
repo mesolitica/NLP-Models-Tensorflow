@@ -19,6 +19,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models#entity-tagging)
   * [Text Matching](https://github.com/huseinzol05/NLP-Models#text-matching)
   * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
+  * [Attention](https://github.com/huseinzol05/NLP-Models#attention)
 
 ## Models
 ### Text classification
@@ -196,6 +197,16 @@ Solve NLP problems using Machine learning and Deep learning models
 1. Latent Dirichlet Allocation
 2. Latent Semantic Analysis
 3. NMF
+
+### Attention
+1. Bahdanau
+2. Luong
+3. Hierarchical
+4. Additive
+5. Soft
+6. Attention-over-Attention
+7. Bahdanau API
+8. Luong API
 
 ### Misc
 1. Attention heatmap on Bahdanau Attention
