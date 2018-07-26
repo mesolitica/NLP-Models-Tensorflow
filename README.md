@@ -17,6 +17,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models#pos-tagging)
   * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models#entity-tagging)
+  * [Question-Answers](https://github.com/huseinzol05/NLP-Models#question-answers)
   * [Text Matching](https://github.com/huseinzol05/NLP-Models#text-matching)
   * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
   * [Attention](https://github.com/huseinzol05/NLP-Models#attention)
@@ -179,6 +180,11 @@ Solve NLP problems using Machine learning and Deep learning models
 
 1. LSTM Bidirectional + Char embedded + Static + CRF
 2. LSTM Bidirectional + Char embedded + Dynamic + CRF
+
+### Question-Answers
+
+1. End-to-End + Basic
+2. End-to-End + GRU
 
 ### Text Matching
 
