@@ -185,6 +185,7 @@ Solve NLP problems using Machine learning and Deep learning models
 
 1. End-to-End + Basic
 2. End-to-End + GRU
+3. End-to-End + LSTM
 
 ### Text Matching
 
