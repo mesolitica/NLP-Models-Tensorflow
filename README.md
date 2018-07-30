@@ -21,6 +21,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Text Matching](https://github.com/huseinzol05/NLP-Models#text-matching)
   * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
   * [Attention](https://github.com/huseinzol05/NLP-Models#attention)
+  * [Stemming](https://github.com/huseinzol05/NLP-Models#stemming)
 
 ## Models
 ### Text classification
@@ -188,6 +189,14 @@ Solve NLP problems using Machine learning and Deep learning models
 1. End-to-End + Basic
 2. End-to-End + GRU
 3. End-to-End + LSTM
+
+### Stemming
+
+1. LSTM + Seq2Seq + Beam
+2. GRU + Seq2Seq + Beam
+3. LSTM + BiRNN + Seq2Seq + Beam
+4. GRU + BiRNN + Seq2Seq + Beam
+5. DNC + Seq2Seq + Greedy
 
 ### Text Matching
 
