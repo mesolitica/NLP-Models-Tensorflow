@@ -77,6 +77,7 @@ Solve NLP problems using Machine learning and Deep learning models
 48. DNC (Differentiable Neural Computer)
 49. ConvLSTM
 50. Temporal Convd Net
+51. Batch-all Triplet-loss + LSTM
 
 ### Chatbot
 #### Deep learning
