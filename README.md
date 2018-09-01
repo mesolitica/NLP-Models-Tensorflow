@@ -171,6 +171,7 @@ Solve NLP problems using Machine learning and Deep learning models
 6. Supervised Embedded
 7. Triplet-loss + LSTM
 8. LSTM Auto-Encoder
+9. Batch-All Triplet-loss LSTM
 
 ### POS-Tagging
 
