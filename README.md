@@ -23,9 +23,9 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Attention](https://github.com/huseinzol05/NLP-Models#attention)
   * [Stemming](https://github.com/huseinzol05/NLP-Models#stemming)
 
-## Models
-### Text classification
-#### Deep learning
+## Text classification
+
+<details><summary>Deep learning</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -79,8 +79,11 @@ Solve NLP problems using Machine learning and Deep learning models
 50. Temporal Convd Net
 51. Batch-all Triplet-loss + LSTM
 
-### Chatbot
-#### Deep learning
+</details>
+
+## Chatbot
+
+<details><summary>Deep learning</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -123,7 +126,11 @@ Solve NLP problems using Machine learning and Deep learning models
 39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
 40. DNC Seq2Seq
 
-### Neural Machine Translation (English to Vietnam)
+</details>
+
+## Neural Machine Translation (English to Vietnam)
+
+<details><summary>Deep learning</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -162,7 +169,11 @@ Solve NLP problems using Machine learning and Deep learning models
 35. Bytenet
 36. LSTM Seq2Seq + tf.estimator
 
-### Embedded
+</details>
+
+## Embedded
+
+<details><summary>Deep learning</summary>
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
@@ -174,25 +185,41 @@ Solve NLP problems using Machine learning and Deep learning models
 8. LSTM Auto-Encoder
 9. Batch-All Triplet-loss LSTM
 
-### POS-Tagging
+</details>
+
+## POS-Tagging
+
+<details><summary>Deep learning</summary>
 
 1. GRU Bidirectional + CRF
 2. LSTM Bidirectional + CRF
 3. LSTM Seq2Seq-manual
 4. CNN + CRF
 
+</details>
+
 ### Entity-Tagging
+
+<details><summary>Deep learning</summary>
 
 1. LSTM Bidirectional + Char embedded + Static + CRF
 2. LSTM Bidirectional + Char embedded + Dynamic + CRF
 
-### Question-Answers
+</details>
+
+## Question-Answers
+
+<details><summary>Deep learning</summary>
 
 1. End-to-End + Basic
 2. End-to-End + GRU
 3. End-to-End + LSTM
 
-### Stemming
+</details>
+
+## Stemming
+
+<details><summary>Deep learning</summary>
 
 1. LSTM + Seq2Seq + Beam
 2. GRU + Seq2Seq + Beam
@@ -200,25 +227,39 @@ Solve NLP problems using Machine learning and Deep learning models
 4. GRU + BiRNN + Seq2Seq + Beam
 5. DNC + Seq2Seq + Greedy
 
+</details>
+
 ### Text Matching
+
+<details><summary>Deep learning</summary>
 
 1. Movielens dataset using Tensorflow
 
-### Summarization
-#### Deep learning
+</details>
+
+## Summarization
+
+<details><summary>Deep learning</summary>
 
 1. LSTM Seq2Seq
 2. LSTM Seq2Seq + Luong Attention
 3. LSTM Seq2Seq + Beam Decoder
 4. LSTM Bidirectional + Luong Attention + Beam Decoder
 
-#### Decomposition
+</details>
+
+<details><summary>Decomposition</summary>
 
 1. Latent Dirichlet Allocation
 2. Latent Semantic Analysis
 3. NMF
 
-### Attention
+</details>
+
+## Attention
+
+<details><summary>Deep learning</summary>
+
 1. Bahdanau
 2. Luong
 3. Hierarchical
@@ -228,6 +269,13 @@ Solve NLP problems using Machine learning and Deep learning models
 7. Bahdanau API
 8. Luong API
 
-### Misc
+</details>
+
+## Misc
+
+<details><summary>Deep learning</summary>
+
 1. Attention heatmap on Bahdanau Attention
 2. Attention heatmap on Luong Attention
+
+</details>
