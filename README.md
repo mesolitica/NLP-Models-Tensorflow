@@ -1,14 +1,7 @@
 # NLP-Models
 Solve NLP problems using Machine learning and Deep learning models
 
-## Requirements
-  * NumPy
-  * scikit-learn
-  * TensorFlow >= 1.2
-  * matplotlib
-  * scipy
-  * gensim
-  * Python 3.X
+![alt text](https://img.shields.io/badge/total%20notebooks-168--notebooks-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
