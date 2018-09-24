@@ -1,7 +1,7 @@
 # NLP-Models
 Solve NLP problems using Machine learning and Deep learning models
 
-![alt text](https://img.shields.io/badge/total%20notebooks-169--notebooks-blue.svg)
+![alt text](https://img.shields.io/badge/total%20notebooks-170--notebooks-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
@@ -72,6 +72,7 @@ Solve NLP problems using Machine learning and Deep learning models
 50. Temporal Convd Net
 51. Batch-all Triplet-loss + LSTM
 52. Fast-text
+53. Gated Convolution Network
 
 </details>
 
