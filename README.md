@@ -15,6 +15,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
   * [Attention](https://github.com/huseinzol05/NLP-Models#attention)
   * [Stemming](https://github.com/huseinzol05/NLP-Models#stemming)
+  * [OCR](https://github.com/huseinzol05/NLP-Models#ocr)
 
 ## Text classification
 
@@ -263,6 +264,12 @@ Solve NLP problems using Machine learning and Deep learning models
 6. Attention-over-Attention
 7. Bahdanau API
 8. Luong API
+
+## OCR
+
+<details><summary>Deep learning</summary>
+
+1. CNN + LSTM RNN
 
 </details>
 
