@@ -1,7 +1,7 @@
 # NLP-Models
 Solve NLP problems using Machine learning and Deep learning models
 
-![alt text](https://img.shields.io/badge/total%20notebooks-170--notebooks-blue.svg)
+![alt text](https://img.shields.io/badge/total%20notebooks-171--notebooks-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
