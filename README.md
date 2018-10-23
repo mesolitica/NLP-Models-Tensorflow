@@ -194,7 +194,7 @@ Solve NLP problems using Machine learning and Deep learning models
 
 </details>
 
-### Entity-Tagging
+## Entity-Tagging
 
 <details><summary>Deep learning</summary>
 
