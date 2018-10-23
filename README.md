@@ -265,6 +265,8 @@ Solve NLP problems using Machine learning and Deep learning models
 7. Bahdanau API
 8. Luong API
 
+</details>
+
 ## OCR
 
 <details><summary>Deep learning</summary>
