@@ -1,5 +1,6 @@
 # NLP-Models
-Solve NLP problems using Machine learning and Deep learning models
+
+Reimplementing deep learning models using Tensorflow to solve NLP problems with minimum code implementation. Everything is Jupyter Notebook.
 
 ![alt text](https://img.shields.io/badge/total%20notebooks-171--notebooks-blue.svg)
 
@@ -15,7 +16,7 @@ Solve NLP problems using Machine learning and Deep learning models
   * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
   * [Attention](https://github.com/huseinzol05/NLP-Models#attention)
   * [Stemming](https://github.com/huseinzol05/NLP-Models#stemming)
-  * [OCR](https://github.com/huseinzol05/NLP-Models#ocr)
+  * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models#ocr)
 
 ## Text classification
 
@@ -267,7 +268,7 @@ Solve NLP problems using Machine learning and Deep learning models
 
 </details>
 
-## OCR
+## OCR (optical character recognition)
 
 <details><summary>Deep learning</summary>
 
