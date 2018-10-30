@@ -1,4 +1,4 @@
-# Tensorflow-Tensorflow-NLP-Models
+# NLP-Models-Tensorflow
 
 Gathers machine learning and tensorflow deep learning models for NLP problems.
 
@@ -7,19 +7,19 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 ![alt text](https://img.shields.io/badge/total%20notebooks-172--notebooks-blue.svg)
 
 ## Table of contents
-  * [Text classification](https://github.com/huseinzol05/Tensorflow-NLP-Models#text-classification)
-  * [Chatbot](https://github.com/huseinzol05/Tensorflow-NLP-Models#chatbot)
-  * [Neural Machine Translation](https://github.com/huseinzol05/Tensorflow-NLP-Models#neural-machine-translation-english-to-vietnam)
-  * [Embedded](https://github.com/huseinzol05/Tensorflow-NLP-Models#embedded)
-  * [POS-Tagging](https://github.com/huseinzol05/Tensorflow-NLP-Models#pos-tagging)
-  * [Entity-Tagging](https://github.com/huseinzol05/Tensorflow-NLP-Models#entity-tagging)
-  * [Question-Answers](https://github.com/huseinzol05/Tensorflow-NLP-Models#question-answers)
-  * [Text Matching](https://github.com/huseinzol05/Tensorflow-NLP-Models#text-matching)
-  * [Summarization](https://github.com/huseinzol05/Tensorflow-NLP-Models#summarization)
-  * [Attention](https://github.com/huseinzol05/Tensorflow-NLP-Models#attention)
-  * [Stemming](https://github.com/huseinzol05/Tensorflow-NLP-Models#stemming)
-  * [OCR (optical character recognition)](https://github.com/huseinzol05/Tensorflow-NLP-Models#ocr)
-  * [Miscellaneous](https://github.com/huseinzol05/Tensorflow-NLP-Models#Miscellaneous)
+  * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
+  * [Chatbot](https://github.com/huseinzol05/NLP-Models-Tensorflow#chatbot)
+  * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models-Tensorflow#neural-machine-translation-english-to-vietnam)
+  * [Embedded](https://github.com/huseinzol05/NLP-Models-Tensorflow#embedded)
+  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
+  * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#entity-tagging)
+  * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
+  * [Text Matching](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-matching)
+  * [Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#summarization)
+  * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
+  * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
+  * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr)
+  * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
 
 ### Text classification
 
