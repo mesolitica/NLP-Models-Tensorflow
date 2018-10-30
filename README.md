@@ -1,4 +1,4 @@
-# Tensorflow-NLP-Models
+# Tensorflow-Tensorflow-NLP-Models
 
 Gathers machine learning and tensorflow deep learning models for NLP problems.
 
@@ -7,20 +7,21 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 ![alt text](https://img.shields.io/badge/total%20notebooks-172--notebooks-blue.svg)
 
 ## Table of contents
-  * [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
-  * [Chatbot](https://github.com/huseinzol05/NLP-Models#chatbot)
-  * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models#neural-machine-translation-english-to-vietnam)
-  * [Embedded](https://github.com/huseinzol05/NLP-Models#embedded)
-  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models#pos-tagging)
-  * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models#entity-tagging)
-  * [Question-Answers](https://github.com/huseinzol05/NLP-Models#question-answers)
-  * [Text Matching](https://github.com/huseinzol05/NLP-Models#text-matching)
-  * [Summarization](https://github.com/huseinzol05/NLP-Models#summarization)
-  * [Attention](https://github.com/huseinzol05/NLP-Models#attention)
-  * [Stemming](https://github.com/huseinzol05/NLP-Models#stemming)
-  * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models#ocr)
+  * [Text classification](https://github.com/huseinzol05/Tensorflow-NLP-Models#text-classification)
+  * [Chatbot](https://github.com/huseinzol05/Tensorflow-NLP-Models#chatbot)
+  * [Neural Machine Translation](https://github.com/huseinzol05/Tensorflow-NLP-Models#neural-machine-translation-english-to-vietnam)
+  * [Embedded](https://github.com/huseinzol05/Tensorflow-NLP-Models#embedded)
+  * [POS-Tagging](https://github.com/huseinzol05/Tensorflow-NLP-Models#pos-tagging)
+  * [Entity-Tagging](https://github.com/huseinzol05/Tensorflow-NLP-Models#entity-tagging)
+  * [Question-Answers](https://github.com/huseinzol05/Tensorflow-NLP-Models#question-answers)
+  * [Text Matching](https://github.com/huseinzol05/Tensorflow-NLP-Models#text-matching)
+  * [Summarization](https://github.com/huseinzol05/Tensorflow-NLP-Models#summarization)
+  * [Attention](https://github.com/huseinzol05/Tensorflow-NLP-Models#attention)
+  * [Stemming](https://github.com/huseinzol05/Tensorflow-NLP-Models#stemming)
+  * [OCR (optical character recognition)](https://github.com/huseinzol05/Tensorflow-NLP-Models#ocr)
+  * [Miscellaneous](https://github.com/huseinzol05/Tensorflow-NLP-Models#Miscellaneous)
 
-## Text classification
+### Text classification
 
 1. Basic cell RNN
 2. Bidirectional RNN
@@ -92,7 +93,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 </details>
 
-## Chatbot
+### Chatbot
 
 <details><summary>Deep learning</summary>
 
@@ -139,9 +140,17 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 </details>
 
-## Neural Machine Translation (English to Vietnam)
+### Neural Machine Translation (English to Vietnam)
 
-<details><summary>Deep learning</summary>
+1. Seq2Seq-manual
+2. Seq2Seq-API Greedy
+3. Bidirectional Seq2Seq-manual
+4. Bidirectional Seq2Seq-API Greedy
+5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+7. Bytenet
+
+<details><summary>Complete list</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -182,9 +191,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 </details>
 
-## Embedded
-
-<details><summary>Deep learning</summary>
+### Embedded
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
@@ -196,41 +203,25 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 8. LSTM Auto-Encoder
 9. Batch-All Triplet-loss LSTM
 
-</details>
-
-## POS-Tagging
-
-<details><summary>Deep learning</summary>
+### POS-Tagging
 
 1. GRU Bidirectional + CRF
 2. LSTM Bidirectional + CRF
 3. LSTM Seq2Seq-manual
 4. CNN + CRF
 
-</details>
-
-## Entity-Tagging
-
-<details><summary>Deep learning</summary>
+### Entity-Tagging
 
 1. LSTM Bidirectional + Char embedded + Static + CRF
 2. LSTM Bidirectional + Char embedded + Dynamic + CRF
 
-</details>
-
-## Question-Answers
-
-<details><summary>Deep learning</summary>
+### Question-Answers
 
 1. End-to-End + Basic
 2. End-to-End + GRU
 3. End-to-End + LSTM
 
-</details>
-
-## Stemming
-
-<details><summary>Deep learning</summary>
+### Stemming
 
 1. LSTM + Seq2Seq + Beam
 2. GRU + Seq2Seq + Beam
@@ -238,38 +229,21 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 4. GRU + BiRNN + Seq2Seq + Beam
 5. DNC + Seq2Seq + Greedy
 
-</details>
-
-## Text Matching
-
-<details><summary>Deep learning</summary>
+### Text Matching
 
 1. Movielens dataset using Tensorflow
 
-</details>
-
-## Summarization
-
-<details><summary>Deep learning</summary>
+### Summarization
 
 1. LSTM Seq2Seq
 2. LSTM Seq2Seq + Luong Attention
 3. LSTM Seq2Seq + Beam Decoder
 4. LSTM Bidirectional + Luong Attention + Beam Decoder
+5. Latent Dirichlet Allocation
+6. Latent Semantic Analysis
+7. NMF
 
-</details>
-
-<details><summary>Decomposition</summary>
-
-1. Latent Dirichlet Allocation
-2. Latent Semantic Analysis
-3. NMF
-
-</details>
-
-## Attention
-
-<details><summary>Deep learning</summary>
+### Attention
 
 1. Bahdanau
 2. Luong
@@ -280,21 +254,11 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 7. Bahdanau API
 8. Luong API
 
-</details>
-
-## OCR (optical character recognition)
-
-<details><summary>Deep learning</summary>
+### OCR (optical character recognition)
 
 1. CNN + LSTM RNN
 
-</details>
-
-## Misc
-
-<details><summary>Deep learning</summary>
+### Miscellaneous
 
 1. Attention heatmap on Bahdanau Attention
 2. Attention heatmap on Luong Attention
-
-</details>
