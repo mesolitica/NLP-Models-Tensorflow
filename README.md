@@ -1,8 +1,10 @@
-# NLP-Models
+# Tensorflow-NLP-Models
 
-Reimplementing deep learning models using Tensorflow to solve NLP problems with minimum code implementation. Everything is Jupyter Notebook.
+Gathers machine learning and tensorflow deep learning models for NLP problems.
 
-![alt text](https://img.shields.io/badge/total%20notebooks-171--notebooks-blue.svg)
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
+
+![alt text](https://img.shields.io/badge/total%20notebooks-172--notebooks-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models#text-classification)
@@ -20,7 +22,18 @@ Reimplementing deep learning models using Tensorflow to solve NLP problems with 
 
 ## Text classification
 
-<details><summary>Deep learning</summary>
+1. Basic cell RNN
+2. Bidirectional RNN
+3. LSTM cell RNN
+4. GRU cell RNN
+5. LSTM RNN + Conv2D
+6. K-max Conv1d
+7. LSTM RNN + Conv1D + Highway
+8. LSTM RNN with Attention
+9. Neural Turing Machine
+10. Seq2Seq
+
+<details><summary>Complete list</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -75,6 +88,7 @@ Reimplementing deep learning models using Tensorflow to solve NLP problems with 
 51. Batch-all Triplet-loss + LSTM
 52. Fast-text
 53. Gated Convolution Network
+54. Simple Recurrent Unit
 
 </details>
 
