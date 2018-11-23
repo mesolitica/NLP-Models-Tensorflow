@@ -34,7 +34,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 9. Neural Turing Machine
 10. Seq2Seq
 
-<details><summary>Complete list</summary>
+<details><summary>Complete list (55 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -96,7 +96,16 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 ### Chatbot
 
-<details><summary>Deep learning</summary>
+1. Seq2Seq-manual
+2. Seq2Seq-API Greedy
+3. Bidirectional Seq2Seq-manual
+4. Bidirectional Seq2Seq-API Greedy
+5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+7. Bytenet
+8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+
+<details><summary>Complete list (40 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -151,7 +160,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 7. Bytenet
 
-<details><summary>Complete list</summary>
+<details><summary>Complete list (36 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
