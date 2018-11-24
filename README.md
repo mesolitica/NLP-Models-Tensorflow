@@ -249,9 +249,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 2. LSTM Seq2Seq + Luong Attention
 3. LSTM Seq2Seq + Beam Decoder
 4. LSTM Bidirectional + Luong Attention + Beam Decoder
-5. Latent Dirichlet Allocation
-6. Latent Semantic Analysis
-7. NMF
+5. Skip-thought Vector
 
 ### Attention
 
