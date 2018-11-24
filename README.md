@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20notebooks-173--notebooks-blue.svg)
+![alt text](https://img.shields.io/badge/total%20notebooks-189--notebooks-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -270,3 +270,8 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 1. Attention heatmap on Bahdanau Attention
 2. Attention heatmap on Luong Attention
+
+### Not-deep-learning
+
+1. Markov chatbot
+2. Decomposition summarization (3 notebooks)
