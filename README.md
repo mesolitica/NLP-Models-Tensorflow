@@ -11,15 +11,16 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
   * [Chatbot](https://github.com/huseinzol05/NLP-Models-Tensorflow#chatbot)
   * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models-Tensorflow#neural-machine-translation-english-to-vietnam)
   * [Embedded](https://github.com/huseinzol05/NLP-Models-Tensorflow#embedded)
-  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
   * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#entity-tagging)
+  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
   * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
-  * [Text Matching](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-matching)
   * [Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#summarization)
-  * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
+  * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
   * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr)
+  * [Text Matching](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-matching)
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
+  * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
 
 ### Text classification
 
@@ -239,10 +240,6 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 4. GRU + BiRNN + Seq2Seq + Beam
 5. DNC + Seq2Seq + Greedy
 
-### Text Matching
-
-1. Movielens dataset using Tensorflow
-
 ### Summarization
 
 1. LSTM Seq2Seq
@@ -250,6 +247,14 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 3. LSTM Seq2Seq + Beam Decoder
 4. LSTM Bidirectional + Luong Attention + Beam Decoder
 5. Skip-thought Vector
+
+### OCR (optical character recognition)
+
+1. CNN + LSTM RNN
+
+### Generator
+
+1. Character-wise RNN + LSTM
 
 ### Attention
 
@@ -262,9 +267,9 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 7. Bahdanau API
 8. Luong API
 
-### OCR (optical character recognition)
+### Text Matching
 
-1. CNN + LSTM RNN
+1. Movielens dataset using Tensorflow
 
 ### Miscellaneous
 
