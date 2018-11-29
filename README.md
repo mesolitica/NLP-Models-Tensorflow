@@ -18,7 +18,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
   * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
   * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr)
-  * [Text Matching](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-matching)
+  * [Text Similarity](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-similarity)
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
   * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
 
@@ -267,9 +267,10 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 7. Bahdanau API
 8. Luong API
 
-### Text Matching
+### Text Similarity
 
-1. Movielens dataset using Tensorflow
+1. Character wise similarity + LSTM + Bidirectional
+2. Word wise similarity + LSTM + Bidirectional
 
 ### Miscellaneous
 
