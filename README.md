@@ -256,6 +256,13 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 1. Character-wise RNN + LSTM
 
+### Text Similarity
+
+1. Character wise similarity + LSTM + Bidirectional
+2. Word wise similarity + LSTM + Bidirectional
+3. Character wise similarity Triplet loss + LSTM
+4. Word wise similarity Triplet loss + LSTM
+
 ### Attention
 
 1. Bahdanau
@@ -266,13 +273,6 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 6. Attention-over-Attention
 7. Bahdanau API
 8. Luong API
-
-### Text Similarity
-
-1. Character wise similarity + LSTM + Bidirectional
-2. Word wise similarity + LSTM + Bidirectional
-3. Character wise similarity Triplet loss + LSTM
-4. Word wise similarity Triplet loss + LSTM
 
 ### Miscellaneous
 
