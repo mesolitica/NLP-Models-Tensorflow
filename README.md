@@ -34,6 +34,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 8. LSTM RNN with Attention
 9. Neural Turing Machine
 10. Seq2Seq
+11. Bidirectional Transformers
 
 <details><summary>Complete list (55 notebooks)</summary>
 
@@ -92,6 +93,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 53. Gated Convolution Network
 54. Simple Recurrent Unit
 55. LSTM Hierarchical Attention Network
+56. Bidirectional Transformers
 
 </details>
 
