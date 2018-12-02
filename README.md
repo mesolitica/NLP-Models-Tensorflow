@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20notebooks-192--notebooks-blue.svg)
+![alt text](https://img.shields.io/badge/total%20notebooks-195--notebooks-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -35,6 +35,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 9. Neural Turing Machine
 10. Seq2Seq
 11. Bidirectional Transformers
+12. Dynamic Memory Network
 
 <details><summary>Complete list (55 notebooks)</summary>
 
@@ -94,6 +95,8 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 54. Simple Recurrent Unit
 55. LSTM Hierarchical Attention Network
 56. Bidirectional Transformers
+57. Dynamic Memory Network
+58. Entity Network
 
 </details>
 
