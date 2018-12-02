@@ -37,7 +37,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 11. Bidirectional Transformers
 12. Dynamic Memory Network
 
-<details><summary>Complete list (55 notebooks)</summary>
+<details><summary>Complete list (58 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
