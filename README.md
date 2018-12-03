@@ -260,6 +260,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 ### Generator
 
 1. Character-wise RNN + LSTM
+2. Character-wise RNN + Beam search
 
 ### Text Similarity
 
