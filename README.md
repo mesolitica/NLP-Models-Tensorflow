@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20notebooks-196--notebooks-blue.svg)
+![alt text](https://img.shields.io/badge/total%20notebooks-197--models-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -257,6 +257,10 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 ### OCR (optical character recognition)
 
 1. CNN + LSTM RNN
+
+### Speech to Text
+
+1. Tacotron
 
 ### Generator
 
