@@ -1,7 +1,5 @@
 ## How-to
 
-1. Download training dataset from [https://github.com/synalp/NER/blob/master/corpus/CoNLL-2003/eng.train](https://github.com/synalp/NER/blob/master/corpus/CoNLL-2003/eng.train).
+Data provided inside this directory, [entities-data-v3.json](entities-data-v3.json)
 
-2. Download testing dataset from [https://github.com/synalp/NER/blob/master/corpus/CoNLL-2003/eng.testa](https://github.com/synalp/NER/blob/master/corpus/CoNLL-2003/eng.testa).
-
-3. Run any notebooks.
+1. Run any notebooks.
