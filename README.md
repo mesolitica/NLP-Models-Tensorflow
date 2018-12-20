@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20models-202--models-blue.svg)
+![alt text](https://img.shields.io/badge/total%20models-204--models-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -154,6 +154,8 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
 40. DNC Seq2Seq
+41. LSTM Bidirectional Seq2Seq-API + Luong Monotic Attention + Beam Decoder
+42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
 
 </details>
 
