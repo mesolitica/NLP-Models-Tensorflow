@@ -1,5 +1,5 @@
 ## How-to
 
-1. Make sure `data` folder in the same directory of the notebooks.
+1. Unzip [dataset.tar.gz](dataset.tar.gz)
 
 2. Run any notebooks.
