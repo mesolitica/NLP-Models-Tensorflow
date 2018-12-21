@@ -18,7 +18,7 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 6.gru-seq2seq-greedy                                       | 0.839214 |
 | 7.basic-birnn-seq2seq-manual                               | 0.944960 |
 | 8.lstm-birnn-seq2seq-manual                                | 0.315659 |
-| 9. lstm-rnn-huber                                          | 0.73     |
+| 9. lstm-rnn-huber                                          | 0.839214 |
 | 10.basic-birnn-seq2seq-greedy                              | 0.939953 |
 | 11.lstm-birnn-seq2seq-greedy                               | 0.906821 |
 | 12.gru-birnn-seq2seq-greedy                                | 0.941129 |
