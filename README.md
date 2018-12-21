@@ -112,7 +112,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 7. Bytenet
 8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 
-<details><summary>Complete list (40 notebooks)</summary>
+<details><summary>Complete list (42 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
