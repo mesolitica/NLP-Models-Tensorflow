@@ -224,15 +224,15 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 ### POS-Tagging
 
-1. GRU Bidirectional + CRF
-2. LSTM Bidirectional + CRF
-3. LSTM Seq2Seq-manual
-4. CNN + CRF
+1. Character and Word embedded concat + Bahdanau Attention + CRF
+2. Character and Word embedded concat + Luong Attention + CRF
+3. Character and Word embedded concat + CRF
 
 ### Entity-Tagging
 
-1. LSTM Bidirectional + Char embedded + Static + CRF
-2. LSTM Bidirectional + Char embedded + Dynamic + CRF
+1. Character and Word embedded concat + Bahdanau Attention + CRF
+2. Character and Word embedded concat + Luong Attention + CRF
+3. Character and Word embedded concat + CRF
 
 ### Question-Answers
 
