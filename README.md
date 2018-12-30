@@ -17,6 +17,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
   * [Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#summarization)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
   * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
+  * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
   * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr)
   * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
   * [Text Similarity](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-similarity)
@@ -274,6 +275,10 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 1. Character-wise RNN + LSTM
 2. Character-wise RNN + Beam search
+
+### Language-detection
+
+1. Fast-text N-Grams
 
 ### Text Similarity
 
