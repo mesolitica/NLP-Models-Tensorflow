@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20models-208--models-blue.svg)
+![alt text](https://img.shields.io/badge/total%20models-209--models-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -99,6 +99,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 56. Bidirectional Transformers
 57. Dynamic Memory Network
 58. Entity Network
+59. End-to-End Memory Network
 
 </details>
 

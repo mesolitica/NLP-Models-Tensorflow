@@ -68,3 +68,4 @@ Based on 20% validation. The results will be different on different dataset. Tra
 | 56. bert                         | 0.73     | 6.31015        |
 | 57. dynamic-memory-network       | 0.71     | 3.25820        |
 | 58. entity-network               | 0.74     | 1.10458        |
+| 59. memory-network               | 0.58     | 1.157306       |
