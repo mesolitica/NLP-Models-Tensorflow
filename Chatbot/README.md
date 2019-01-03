@@ -52,3 +52,5 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 40.dnc-seq2seq-bahdanau-greedy                             | 0.898824 |
 | 41.lstm-birnn-seq2seq-beam-luongmonotic                    | 0.680444 |
 | 42.lstm-birnn-seq2seq-beam-bahdanaumonotic                 | 0.748656 |
+| 43.memory-network-basic                                    | 0.429129 |
+| 44.memory-network-lstm                                     | 0.325484 |
