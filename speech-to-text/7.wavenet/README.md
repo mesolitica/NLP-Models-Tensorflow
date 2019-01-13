@@ -9,13 +9,13 @@ python3 wavenet.py
 
 Training output,
 ```text
-minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 40.63it/s, cost=11.1]
-minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 40.62it/s, cost=11.9]
-minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 40.66it/s, cost=11.6]
-minibatch loop: 100%|██████████████████| 88/88 [00:02<00:00, 40.62it/s, cost=11]
-minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 40.59it/s, cost=11.4]
-minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 41.09it/s, cost=11.3]
-minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 41.05it/s, cost=13.1]
-real: say the word pole
-predicted: say the word toate
+minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 39.81it/s, cost=9.89]
+minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 39.88it/s, cost=9.81]
+minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 39.89it/s, cost=9.73]
+minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 39.72it/s, cost=9.92]
+minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 39.84it/s, cost=9.77]
+minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 39.74it/s, cost=9.71]
+minibatch loop: 100%|████████████████| 88/88 [00:02<00:00, 39.85it/s, cost=9.45]
+real: say the word third
+predicted: say the word hae
 ```
