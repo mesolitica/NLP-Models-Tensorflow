@@ -70,3 +70,5 @@ Based on 20% validation. The results will be different on different dataset. Tra
 | 58. entity-network               | 0.74     | 1.10458        |
 | 59. memory-network               | 0.58     | 1.157306       |
 | 60. char-sparse                  | 0.76     | 2.350096       |
+| 61. residual-network             | 0.72     | 9.557085       |
+| 62. residual-network-bahdanau    | 0.71     | 11.53799       |

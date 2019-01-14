@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20models-210--models-blue.svg)
+![alt text](https://img.shields.io/badge/total%20models-212--models-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -38,8 +38,9 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 10. Seq2Seq
 11. Bidirectional Transformers
 12. Dynamic Memory Network
+13. Residual Network using Atrous CNN + Bahdanau Attention
 
-<details><summary>Complete list (60 notebooks)</summary>
+<details><summary>Complete list (62 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -101,6 +102,8 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 58. Entity Network
 59. End-to-End Memory Network
 60. BOW-Chars Deep sparse Network
+61. Residual Network using Atrous CNN
+62. Residual Network using Atrous CNN + Bahdanau Attention
 
 </details>
 
