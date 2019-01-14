@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20models-209--models-blue.svg)
+![alt text](https://img.shields.io/badge/total%20models-210--models-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -24,7 +24,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
   * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
 
-### Text classification
+### [Text classification](text-classification)
 
 1. Basic cell RNN
 2. Bidirectional RNN
@@ -39,7 +39,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 11. Bidirectional Transformers
 12. Dynamic Memory Network
 
-<details><summary>Complete list (58 notebooks)</summary>
+<details><summary>Complete list (60 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -100,10 +100,11 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 57. Dynamic Memory Network
 58. Entity Network
 59. End-to-End Memory Network
+60. BOW-Chars Deep sparse Network
 
 </details>
 
-### Chatbot
+### [Chatbot](chatbot)
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
@@ -164,7 +165,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 </details>
 
-### Neural Machine Translation (English to Vietnam)
+### [Neural Machine Translation (English to Vietnam)](neural-machine-translation)
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
@@ -215,7 +216,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 </details>
 
-### Embedded
+### [Embedded](embedded)
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
@@ -227,25 +228,25 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 8. LSTM Auto-Encoder
 9. Batch-All Triplet-loss LSTM
 
-### POS-Tagging
+### [POS-Tagging](pos-tagging)
 
 1. Character and Word embedded concat + Bahdanau Attention + CRF
 2. Character and Word embedded concat + Luong Attention + CRF
 3. Character and Word embedded concat + CRF
 
-### Entity-Tagging
+### [Entity-Tagging](entity-tagging)
 
 1. Character and Word embedded concat + Bahdanau Attention + CRF
 2. Character and Word embedded concat + Luong Attention + CRF
 3. Character and Word embedded concat + CRF
 
-### Question-Answers
+### [Question-Answers](question-answers)
 
 1. End-to-End Memory Network + Basic cell
 2. End-to-End Memory Network + GRU cell
 3. End-to-End Memory Network + LSTM cell
 
-### Stemming
+### [Stemming](stemming)
 
 1. LSTM + Seq2Seq + Beam
 2. GRU + Seq2Seq + Beam
@@ -253,7 +254,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 4. GRU + BiRNN + Seq2Seq + Beam
 5. DNC + Seq2Seq + Greedy
 
-### Summarization
+### [Summarization](summarization)
 
 1. LSTM Seq2Seq
 2. LSTM Seq2Seq + Luong Attention
@@ -261,11 +262,11 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 4. LSTM Bidirectional + Luong Attention + Beam Decoder
 5. Skip-thought Vector (unsupervised)
 
-### OCR (optical character recognition)
+### [OCR (optical character recognition)](ocr)
 
 1. CNN + LSTM RNN
 
-### Speech to Text
+### [Speech to Text](speech-to-text)
 
 1. Tacotron
 2. Bidirectional RNN + Greedy CTC
@@ -275,23 +276,23 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 6. Bidirectional RNN + Attention + Beam CTC
 7. Wavenet
 
-### Generator
+### [Generator](generator)
 
 1. Character-wise RNN + LSTM
 2. Character-wise RNN + Beam search
 
-### Language-detection
+### [Language-detection](language-detection)
 
-1. Fast-text N-Grams
+1. Fast-text Char N-Grams
 
-### Text Similarity
+### [Text Similarity](text-similarity)
 
 1. Character wise similarity + LSTM + Bidirectional
 2. Word wise similarity + LSTM + Bidirectional
 3. Character wise similarity Triplet loss + LSTM
 4. Word wise similarity Triplet loss + LSTM
 
-### Attention
+### [Attention](attention)
 
 1. Bahdanau
 2. Luong
@@ -302,12 +303,12 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 7. Bahdanau API
 8. Luong API
 
-### Miscellaneous
+### [Miscellaneous](misc)
 
 1. Attention heatmap on Bahdanau Attention
 2. Attention heatmap on Luong Attention
 
-### Not-deep-learning
+### [Not-deep-learning](not-deep-learning)
 
 1. Markov chatbot
 2. Decomposition summarization (3 notebooks)
