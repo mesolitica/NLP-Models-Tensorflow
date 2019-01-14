@@ -243,7 +243,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 2. Character and Word embedded concat + Luong Attention + CRF
 3. Character and Word embedded concat + CRF
 
-### [Question-Answers](question-answers)
+### [Question-Answers](question-answer)
 
 1. End-to-End Memory Network + Basic cell
 2. End-to-End Memory Network + GRU cell
