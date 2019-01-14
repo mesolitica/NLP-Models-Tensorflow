@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20models-212--models-blue.svg)
+![alt text](https://img.shields.io/badge/total%20models-214--models-blue.svg)
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -264,6 +264,8 @@ Gathers machine learning and tensorflow deep learning models for NLP problems.
 3. LSTM Seq2Seq + Beam Decoder
 4. LSTM Bidirectional + Luong Attention + Beam Decoder
 5. Skip-thought Vector (unsupervised)
+6. Residual Network using Atrous CNN (unsupervised)
+7. Residual Network using Atrous CNN + Bahdanau Attention (unsupervised)
 
 ### [OCR (optical character recognition)](ocr)
 
