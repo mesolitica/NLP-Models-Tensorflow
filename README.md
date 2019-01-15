@@ -25,6 +25,12 @@ Gathers machine learning and tensorflow deep learning models for NLP problems, w
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
   * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
 
+## Objective
+
+Original implementations are quite complex and not really beginner friendly. So I tried to simplify most of it. Also, there are a tons of not-yet release papers implementation. So feel free to use it for your own research!
+
+## Contents
+
 ### [Text classification](text-classification)
 
 1. Basic cell RNN
