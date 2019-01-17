@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems, w
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20models-214--models-blue.svg)
+![alt text](https://img.shields.io/badge/total%20models-218--models-blue.svg)
 ![alt text](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Table of contents
@@ -14,6 +14,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems, w
   * [Embedded](https://github.com/huseinzol05/NLP-Models-Tensorflow#embedded)
   * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#entity-tagging)
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
+  * [Dependency-Parser](https://github.com/huseinzol05/NLP-Models-Tensorflow#dependency-parser)
   * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
   * [Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#summarization)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
@@ -249,6 +250,13 @@ Original implementations are quite complex and not really beginner friendly. So 
 1. Character and Word embedded concat + Bahdanau Attention + CRF
 2. Character and Word embedded concat + Luong Attention + CRF
 3. Character and Word embedded concat + CRF
+
+### [Dependency-Parser](dependency-parser)
+
+1. Bidirectional + Bahdanau Attention
+2. Bidirectional + Luong Attention
+3. Residual Network + Bahdanau Attention
+4. Residual Network + Bahdanau Attention + Char Embedded
 
 ### [Question-Answers](question-answer)
 
