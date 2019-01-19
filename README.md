@@ -4,7 +4,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems, w
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
 
-![alt text](https://img.shields.io/badge/total%20models-218--models-blue.svg)
+![alt text](https://img.shields.io/badge/total%20models-220--models-blue.svg)
 ![alt text](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Table of contents
@@ -241,22 +241,24 @@ Original implementations are quite complex and not really beginner friendly. So 
 
 ### [POS-Tagging](pos-tagging)
 
-1. Character and Word embedded concat + Bahdanau Attention + CRF
-2. Character and Word embedded concat + Luong Attention + CRF
-3. Character and Word embedded concat + CRF
+1. Bidirectional RNN + Bahdanau Attention + CRF
+2. Bidirectional RNN + Luong Attention + CRF
+3. Bidirectional RNN + CRF
 
 ### [Entity-Tagging](entity-tagging)
 
-1. Character and Word embedded concat + Bahdanau Attention + CRF
-2. Character and Word embedded concat + Luong Attention + CRF
-3. Character and Word embedded concat + CRF
+1. Bidirectional RNN + Bahdanau Attention + CRF
+2. Bidirectional RNN + Luong Attention + CRF
+3. Bidirectional RNN + CRF
+4. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF
+5. Char Ngrams + Residual Network + Bahdanau Attention + CRF
 
 ### [Dependency-Parser](dependency-parser)
 
-1. Bidirectional + Bahdanau Attention
-2. Bidirectional + Luong Attention
-3. Residual Network + Bahdanau Attention
-4. Residual Network + Bahdanau Attention + Char Embedded
+1. Bidirectional RNN + Bahdanau Attention + CRF
+2. Bidirectional RNN + Luong Attention + CRF
+3. Residual Network + Bahdanau Attention + CRF
+4. Residual Network + Bahdanau Attention + Char Embedded + CRF
 
 ### [Question-Answers](question-answer)
 
