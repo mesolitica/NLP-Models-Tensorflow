@@ -28,7 +28,7 @@ Gathers machine learning and tensorflow deep learning models for NLP problems, w
 
 ## Objective
 
-Original implementations are quite complex and not really beginner friendly. So I tried to simplify most of it. Also, there are a tons of not-yet release papers implementation. So feel free to use it for your own research!
+Original implementations are quite complex and not really beginner friendly. So I tried to simplify most of it. Also, there are tons of not-yet release papers implementation. So feel free to use it for your own research!
 
 ## Contents
 
