@@ -1,11 +1,16 @@
-# NLP-Models-Tensorflow
+<p align="center">
+    <a href="#readme">
+        <img alt="logo" width="80%" src="tf-nlp.png">
+    </a>
+</p>
+<p align="center">
+  <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-220--models-blue.svg"></a>
+</p>
 
-Gathers machine learning and tensorflow deep learning models for NLP problems, with **code simplify**.
+---
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJOooEC5KxVQCKsPLNx-ayYxHOZZVS_gNW8lyCr-dvCv5-dZXlA" align="right" width="20%">
-
-![alt text](https://img.shields.io/badge/total%20models-220--models-blue.svg)
-![alt text](https://img.shields.io/badge/License-MIT-yellow.svg)
+**NLP-Models-Tensorflow**, Gathers machine learning and tensorflow deep learning models for NLP problems, with **code simplify**.
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
