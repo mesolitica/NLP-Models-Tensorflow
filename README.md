@@ -1,6 +1,6 @@
 <p align="center">
     <a href="#readme">
-        <img alt="logo" width="80%" src="tf-nlp.png">
+        <img alt="logo" width="50%" src="tf-nlp.png">
     </a>
 </p>
 <p align="center">
