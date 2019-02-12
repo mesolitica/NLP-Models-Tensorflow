@@ -53,7 +53,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 12. Dynamic Memory Network
 13. Residual Network using Atrous CNN + Bahdanau Attention
 
-<details><summary>Complete list (62 notebooks)</summary>
+<details><summary>Complete list (63 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -117,6 +117,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 60. BOW-Chars Deep sparse Network
 61. Residual Network using Atrous CNN
 62. Residual Network using Atrous CNN + Bahdanau Attention
+63. Deep pyramid CNN
 
 </details>
 
