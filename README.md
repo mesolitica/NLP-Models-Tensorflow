@@ -21,7 +21,8 @@
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
   * [Dependency-Parser](https://github.com/huseinzol05/NLP-Models-Tensorflow#dependency-parser)
   * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
-  * [Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#summarization)
+  * [Supervised Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#supervised-summarization)
+  * [Unsupervised Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#unsupervised-summarization)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
   * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
   * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
@@ -280,15 +281,18 @@ Original implementations are quite complex and not really beginner friendly. So 
 4. GRU + BiRNN + Seq2Seq + Beam
 5. DNC + Seq2Seq + Greedy
 
-### [Summarization](summarization)
+### [Supervised Summarization](summarization)
 
-1. LSTM Seq2Seq
-2. LSTM Seq2Seq + Luong Attention
-3. LSTM Seq2Seq + Beam Decoder
-4. LSTM Bidirectional + Luong Attention + Beam Decoder
-5. Skip-thought Vector (unsupervised)
-6. Residual Network using Atrous CNN (unsupervised)
-7. Residual Network using Atrous CNN + Bahdanau Attention (unsupervised)
+1. LSTM Seq2Seq using topic modelling
+2. LSTM Seq2Seq + Luong Attention using topic modelling
+3. LSTM Seq2Seq + Beam Decoder using topic modelling
+4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling
+
+### [Unsupervised Summarization](unsupervised-summarization)
+
+1. Skip-thought Vector (unsupervised)
+2. Residual Network using Atrous CNN (unsupervised)
+3. Residual Network using Atrous CNN + Bahdanau Attention (unsupervised)
 
 ### [OCR (optical character recognition)](ocr)
 
