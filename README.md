@@ -53,8 +53,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 11. Bidirectional Transformers
 12. Dynamic Memory Network
 13. Residual Network using Atrous CNN + Bahdanau Attention
+14. Transformer-XL
 
-<details><summary>Complete list (63 notebooks)</summary>
+<details><summary>Complete list (64 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -119,6 +120,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 61. Residual Network using Atrous CNN
 62. Residual Network using Atrous CNN + Bahdanau Attention
 63. Deep pyramid CNN
+64. Transformer-XL
 
 </details>
 
