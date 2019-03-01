@@ -95,6 +95,7 @@ def rel_multihead_attn(
 
         rw_head_q = w_head_q + r_w_bias
         rr_head_q = w_head_q + r_r_bias
+
         AC = tf.einsum('ibnd,jbnd->ijbn', rw_head_q, w_head_k)
         BD = tf.einsum('ibnd,jnd->ijbn', rr_head_q, r_head_k)
         BD = rel_shift(BD)
@@ -104,7 +105,6 @@ def rel_multihead_attn(
         attn_score = attn_score * (1 - attn_mask_t) - 1e30 * attn_mask_t
 
         attn_prob = tf.nn.softmax(attn_score, 1)
-
         attn_vec = tf.einsum('ijbn,jbnd->ibnd', attn_prob, w_head_v)
         size_t = tf.shape(attn_vec)
         attn_vec = tf.reshape(attn_vec, [size_t[0], size_t[1], n_head * d_head])
@@ -123,16 +123,8 @@ def rel_multihead_attn(
     return output
 
 
-def embedding_lookup(lookup_table, x, use_tpu = True):
-    if use_tpu:
-        n_token = tf.shape(lookup_table)[0]
-        one_hot_idx = tf.one_hot(x, n_token)
-        if one_hot_idx.shape.ndims == 2:
-            return tf.einsum('nd,in->id', lookup_table, one_hot_idx)
-        else:
-            return tf.einsum('nd,ibn->ibd', lookup_table, one_hot_idx)
-    else:
-        return tf.nn.embedding_lookup(lookup_table, x)
+def embedding_lookup(lookup_table, x):
+    return tf.nn.embedding_lookup(lookup_table, x)
 
 
 def mask_adaptive_embedding_lookup(
@@ -154,7 +146,7 @@ def mask_adaptive_embedding_lookup(
             lookup_table = tf.get_variable(
                 'lookup_table', [n_token, d_embed], initializer = initializer
             )
-            y = embedding_lookup(lookup_table, x, use_tpu = False)
+            y = embedding_lookup(lookup_table, x)
             if d_proj != d_embed:
                 proj_W = tf.get_variable(
                     'proj_W', [d_embed, d_proj], initializer = proj_initializer
@@ -179,9 +171,7 @@ def mask_adaptive_embedding_lookup(
                         [r_idx - l_idx, cur_d_embed],
                         initializer = initializer,
                     )
-                    cur_y = embedding_lookup(
-                        lookup_table, cur_x, use_tpu = False
-                    )
+                    cur_y = embedding_lookup(lookup_table, cur_x)
                     if d_proj == cur_d_embed and not proj_same_dim:
                         proj_W = None
                     else:
@@ -600,8 +590,6 @@ def transformer(
     """
   cutoffs: a list of python int. Cutoffs for adaptive softmax.
   tie_projs: a list of python bools. Whether to tie the projections.
-  use_tpu: if True, use one_hot in embedding lookup and bin-based implementation
-        of adaptive softmax.
   perms: a list of tensors. Each tensor should of size [len, bsz, bin_size].
         Only used in the adaptive setting.
   """
@@ -652,7 +640,6 @@ def transformer(
 
         if mems is None:
             mems = [None] * n_layer
-
         output = embeddings
         for i in range(n_layer):
             # cache new mems

@@ -73,4 +73,4 @@ Based on 20% validation. The results will be different on different dataset. Tra
 | 61. residual-network             | 0.72     | 9.557085       |
 | 62. residual-network-bahdanau    | 0.71     | 11.53799       |
 | 63. deep-pyramid-cnn             | 0.68     | 6.980528       |
-| 64. transformer-xl               | 0.48     | 26.21794       |
+| 64. transformer-xl               | 0.51     | 38.66338       |
