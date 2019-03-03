@@ -1,2 +1,5 @@
 *.DS_Store
+*__pycache__
+*.ipynb_checkpoints
+movie_*.txt
 summarization/dataset
