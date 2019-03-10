@@ -54,3 +54,4 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 42.lstm-birnn-seq2seq-beam-bahdanaumonotic                 | 0.929333 |
 | 43.memory-network-basic                                    | 0.945333 |
 | 44.memory-network-lstm                                     | 0.900000 |
+| 44.attention-is-all-you-need                               | 0.971478 |

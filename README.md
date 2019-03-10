@@ -136,8 +136,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 7. Bytenet
 8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 9. End-to-End Memory Network
+10. Attention is All you need
 
-<details><summary>Complete list (44 notebooks)</summary>
+<details><summary>Complete list (45 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -183,6 +184,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
 43. End-to-End Memory Network + Basic cell
 44. End-to-End Memory Network + LSTM cell
+45. Attention is all you need
 
 </details>
 
