@@ -580,9 +580,6 @@ def transformer(
     tie_projs = [],
     same_length = False,
     clamp_len = -1,
-    input_perms = None,
-    target_perms = None,
-    head_target = None,
     untie_r = False,
     proj_same_dim = True,
     scope = 'transformer',
@@ -626,7 +623,6 @@ def transformer(
             initializer = initializer,
             proj_initializer = proj_initializer,
             div_val = div_val,
-            perms = input_perms,
             proj_same_dim = proj_same_dim,
         )
 
