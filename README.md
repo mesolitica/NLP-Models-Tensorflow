@@ -138,7 +138,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 9. End-to-End Memory Network
 10. Attention is All you need
 
-<details><summary>Complete list (46 notebooks)</summary>
+<details><summary>Complete list (48 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
