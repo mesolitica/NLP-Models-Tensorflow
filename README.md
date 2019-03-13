@@ -5,12 +5,12 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-227--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-228--models-blue.svg"></a>
 </p>
 
 ---
 
-**NLP-Models-Tensorflow**, Gathers machine learning and tensorflow deep learning models for NLP problems, with **code simplify**.
+**NLP-Models-Tensorflow**, Gathers machine learning and tensorflow deep learning models for NLP problems, **code simplify inside Jupyter Notebooks 100%**.
 
 ## Table of contents
   * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
@@ -137,8 +137,10 @@ Original implementations are quite complex and not really beginner friendly. So 
 8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 9. End-to-End Memory Network
 10. Attention is All you need
+11. Transformer-XL + LSTM
+12. GPT-2 + LSTM
 
-<details><summary>Complete list (48 notebooks)</summary>
+<details><summary>Complete list (49 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -188,6 +190,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 46. Transformer-XL
 47. Attention is all you need + Beam Search
 48. Transformer-XL + LSTM
+49. GPT-2 + LSTM
 
 </details>
 

@@ -58,3 +58,4 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 46.transformer-xl                                          | 0.874486 |
 | 47.attention-is-all-you-need-beam-search                   | 0.836433 |
 | 48.transformer-xl-lstm                                     | 0.826571 |
+| 49.gpt-2-lstm                                              | 0.645157 |
