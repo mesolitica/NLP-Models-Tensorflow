@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-225--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-227--models-blue.svg"></a>
 </p>
 
 ---
@@ -186,6 +186,8 @@ Original implementations are quite complex and not really beginner friendly. So 
 44. End-to-End Memory Network + LSTM cell
 45. Attention is all you need
 46. Transformer-XL
+47. Attention is all you need + Beam Search
+48. Transformer-XL + LSTM
 
 </details>
 

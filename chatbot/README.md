@@ -56,3 +56,5 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 44.memory-network-lstm                                     | 0.900000 |
 | 45.attention-is-all-you-need                               | 0.704549 |
 | 46.transformer-xl                                          | 0.874486 |
+| 47.attention-is-all-you-need-beam-search                   | 0.836433 |
+| 48.transformer-xl-lstm                                     | 0.826571 |
