@@ -59,3 +59,5 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 47.attention-is-all-you-need-beam-search                   | 0.836433 |
 | 48.transformer-xl-lstm                                     | 0.826571 |
 | 49.gpt-2-lstm                                              | 0.645157 |
+| 50.conv-encoder-conv-decoder                               | 0.518504 |
+| 51.conv-encoder-lstm                                       | 0.924609 |
