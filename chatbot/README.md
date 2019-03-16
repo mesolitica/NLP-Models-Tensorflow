@@ -44,7 +44,7 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 32.gru-birnn-seq2seq-beam-luong                            | 0.856824 |
 | 33.lstm-birnn-seq2seq-luong-bahdanau-stack-beam            | 0.732801 |
 | 34.gru-birnn-seq2seq-luong-bahdanau-stack-beam             | 0.756537 |
-| 35.byte-net                                                |          |
+| 35.byte-net                                                | 0.877510 |
 | 36.estimator                                               |          |
 | 37.capsule-lstm-seq2seq-greedy                             | 0.655007 |
 | 38.capsule-lstm-seq2seq-luong-beam                         | 0.275569 |

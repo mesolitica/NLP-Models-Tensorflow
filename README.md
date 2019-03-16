@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-230--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-226--models-blue.svg"></a>
 </p>
 
 ---
@@ -205,8 +205,11 @@ Original implementations are quite complex and not really beginner friendly. So 
 5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
 6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 7. Bytenet
+8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+9. End-to-End Memory Network
+10. Attention is All you need
 
-<details><summary>Complete list (36 notebooks)</summary>
+<details><summary>Complete list (49 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -244,6 +247,19 @@ Original implementations are quite complex and not really beginner friendly. So 
 34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
 35. Bytenet
 36. LSTM Seq2Seq + tf.estimator
+37. Capsule layers + LSTM Seq2Seq-API Greedy
+38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
+40. DNC Seq2Seq
+41. LSTM Bidirectional Seq2Seq-API + Luong Monotic Attention + Beam Decoder
+42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
+43. End-to-End Memory Network + Basic cell
+44. End-to-End Memory Network + LSTM cell
+45. Attention is all you need
+46. Transformer-XL
+47. Attention is all you need + Beam Search
+48. Fairseq
+49. Conv-Encoder + LSTM
 
 </details>
 
