@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-226--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-231--models-blue.svg"></a>
 </p>
 
 ---
@@ -341,6 +341,11 @@ Original implementations are quite complex and not really beginner friendly. So 
 
 1. Character-wise RNN + LSTM
 2. Character-wise RNN + Beam search
+3. Character-wise RNN + LSTM + Embedding
+4. Word-wise RNN + LSTM
+5. Word-wise RNN + LSTM + Embedding
+6. Character-wise + Seq2Seq + GRU
+7. Word-wise + Seq2Seq + GRU
 
 ### [Language-detection](language-detection)
 
