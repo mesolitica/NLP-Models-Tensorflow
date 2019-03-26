@@ -75,3 +75,4 @@ Based on 20% validation. The results will be different on different dataset. Tra
 | 63. deep-pyramid-cnn             | 0.68     | 6.980528       |
 | 64. transformer-xl               | 0.51     | 38.66338       |
 | 65. gpt-2                        | 0.62     | 105.2107       |
+| 66. quasi-rnn                    | 0.66     | 166.1456       |

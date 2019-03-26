@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-231--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-232--models-blue.svg"></a>
 </p>
 
 ---
@@ -55,7 +55,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 13. Residual Network using Atrous CNN + Bahdanau Attention
 14. Transformer-XL
 
-<details><summary>Complete list (65 notebooks)</summary>
+<details><summary>Complete list (66 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -122,6 +122,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 63. Deep pyramid CNN
 64. Transformer-XL
 65. GPT-2
+66. Quasi-RNN
 
 </details>
 
