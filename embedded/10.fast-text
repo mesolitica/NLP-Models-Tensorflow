@@ -1,0 +1,498 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from utils import *\n",
+    "import tensorflow as tf\n",
+    "import os\n",
+    "os.environ['CUDA_VISIBLE_DEVICES'] = ''"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['negative', 'positive']\n",
+      "10662\n",
+      "10662\n"
+     ]
+    }
+   ],
+   "source": [
+    "trainset = sklearn.datasets.load_files(container_path = 'data', encoding = 'UTF-8')\n",
+    "trainset.data, trainset.target = separate_dataset(trainset,1.0)\n",
+    "print(trainset.target_names)\n",
+    "print(len(trainset.data))\n",
+    "print(len(trainset.target))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import collections\n",
+    "from unidecode import unidecode\n",
+    "import re\n",
+    "import numpy as np\n",
+    "import tensorflow as tf\n",
+    "from sklearn.utils import shuffle\n",
+    "from scipy.spatial.distance import cdist\n",
+    "from tqdm import tqdm\n",
+    "import itertools\n",
+    "\n",
+    "def _pad_sequence(\n",
+    "    sequence,\n",
+    "    n,\n",
+    "    pad_left = False,\n",
+    "    pad_right = False,\n",
+    "    left_pad_symbol = None,\n",
+    "    right_pad_symbol = None,\n",
+    "):\n",
+    "    sequence = iter(sequence)\n",
+    "    if pad_left:\n",
+    "        sequence = itertools.chain((left_pad_symbol,) * (n - 1), sequence)\n",
+    "    if pad_right:\n",
+    "        sequence = itertools.chain(sequence, (right_pad_symbol,) * (n - 1))\n",
+    "    return sequence\n",
+    "\n",
+    "def ngrams(\n",
+    "    sequence,\n",
+    "    n,\n",
+    "    pad_left = False,\n",
+    "    pad_right = False,\n",
+    "    left_pad_symbol = None,\n",
+    "    right_pad_symbol = None,\n",
+    "):\n",
+    "    \"\"\"\n",
+    "    generate ngrams\n",
+    "\n",
+    "    Parameters\n",
+    "    ----------\n",
+    "    sequence : list of str\n",
+    "        list of tokenize words\n",
+    "    n : int\n",
+    "        ngram size\n",
+    "\n",
+    "    Returns\n",
+    "    -------\n",
+    "    ngram: list\n",
+    "    \"\"\"\n",
+    "    sequence = _pad_sequence(\n",
+    "        sequence, n, pad_left, pad_right, left_pad_symbol, right_pad_symbol\n",
+    "    )\n",
+    "    history = []\n",
+    "    while n > 1:\n",
+    "        try:\n",
+    "            next_item = next(sequence)\n",
+    "        except StopIteration:\n",
+    "            return\n",
+    "        history.append(next_item)\n",
+    "        n -= 1\n",
+    "    for item in sequence:\n",
+    "        history.append(item)\n",
+    "        yield tuple(history)\n",
+    "        del history[0]\n",
+    "\n",
+    "def generator(word, ngram = (2,3)):\n",
+    "    return [''.join(i) for n in ngram for i in ngrams(word,n)]\n",
+    "\n",
+    "def build_dict(word_counter, vocab_size = 50000):\n",
+    "    count = [['PAD', 0], ['UNK', 1], ['START', 2], ['END', 3]]\n",
+    "    count.extend(word_counter.most_common(vocab_size))\n",
+    "    dictionary = dict()\n",
+    "    for word, _ in count:\n",
+    "        dictionary[word] = len(dictionary)\n",
+    "    return dictionary, {word: idx for idx, word in dictionary.items()}\n",
+    "\n",
+    "\n",
+    "def doc2num(word_list, dictionary):\n",
+    "    word_array = []\n",
+    "    for word in word_list:\n",
+    "        words = generator(word)\n",
+    "        word_array.append([dictionary.get(word, 1) for word in words])\n",
+    "    return word_array\n",
+    "\n",
+    "def build_word_array(sentences, vocab_size):\n",
+    "    word_counter, word_list, num_lines, num_words = counter_words(sentences)\n",
+    "    dictionary, rev_dictionary = build_dict(word_counter, vocab_size)\n",
+    "    word_array = doc2num(word_list, dictionary)\n",
+    "    return word_array, dictionary, rev_dictionary, num_lines, num_words\n",
+    "\n",
+    "\n",
+    "def build_training_set(word_array, maxlen = 100):\n",
+    "    num_words = len(word_array)\n",
+    "    maxlen = max([len(i) for i in word_array]) if not maxlen else maxlen\n",
+    "    x = np.zeros((num_words - 4, maxlen, 4), dtype = np.int32)\n",
+    "    y = np.zeros((num_words - 4, maxlen), dtype = np.int32)\n",
+    "    shift = [-2, -1, 1, 2]\n",
+    "    for idx in range(2, num_words - 2):\n",
+    "        y[idx - 2, :len(word_array[idx])] = word_array[idx][:maxlen]\n",
+    "        for no, s in enumerate(shift):\n",
+    "            x[idx - 2, :len(word_array[idx + s]), no] = word_array[idx + s][:maxlen]\n",
+    "    return x, y\n",
+    "\n",
+    "def counter_words(sentences):\n",
+    "    word_counter = collections.Counter()\n",
+    "    word_list = []\n",
+    "    num_lines, num_words = (0, 0)\n",
+    "    for i in sentences:\n",
+    "        words = re.sub('[^\\'\"A-Za-z\\-<> ]+', ' ', unidecode(i))\n",
+    "        word_list.append(words)\n",
+    "        words = generator(words)\n",
+    "        word_counter.update(words)\n",
+    "        num_lines += 1\n",
+    "        num_words += len(words)\n",
+    "    return word_counter, word_list, num_lines, num_words"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sentences = ['<%s>'%(w) for w in ' '.join(trainset.data).split()]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "CPU times: user 2.27 s, sys: 4 ms, total: 2.27 s\n",
+      "Wall time: 2.27 s\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%time\n",
+    "word_array, dictionary, rev_dictionary, num_lines, num_words = build_word_array(sentences,\n",
+    "                                                                                vocab_size=1000000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6948"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(dictionary)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "X, Y = build_training_set(word_array[:32])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "graph_params = {'batch_size': 128,\n",
+    "                'vocab_size': len(dictionary),\n",
+    "                'embed_size': 1024,\n",
+    "                'hid_size': 1024,\n",
+    "                'neg_samples': 128,\n",
+    "                'learn_rate': 0.01,\n",
+    "                'momentum': 0.9,\n",
+    "                'embed_noise': 0.1,\n",
+    "                'hid_noise': 0.3,\n",
+    "                'epoch':5,\n",
+    "                'optimizer': 'Momentum'}\n",
+    "maxlen = 100"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Model:\n",
+    "    def __init__(self, graph_params):\n",
+    "        g_params = graph_params\n",
+    "        tf.reset_default_graph()\n",
+    "        self.sess = tf.InteractiveSession()\n",
+    "        self.X = tf.placeholder(tf.int64, shape = [None, None, 4])\n",
+    "        self.Y = tf.placeholder(tf.int64, shape = [None, None])\n",
+    "        length_X = tf.count_nonzero(self.X, 1)\n",
+    "        length_Y = tf.count_nonzero(self.Y, 1)\n",
+    "        \n",
+    "        w_m2, w_m1, w_p1, w_p2 = tf.unstack(self.X, axis = 2)\n",
+    "        self.embed_weights = tf.Variable(\n",
+    "            tf.random_uniform(\n",
+    "                [g_params['vocab_size'], g_params['embed_size']],\n",
+    "                -g_params['embed_noise'],\n",
+    "                g_params['embed_noise'],\n",
+    "            )\n",
+    "        )\n",
+    "        y = tf.argmax(tf.nn.embedding_lookup(self.embed_weights, self.Y),axis=-1)\n",
+    "        embed_m2 = tf.reduce_mean(tf.nn.embedding_lookup(self.embed_weights, w_m2),axis = 1)\n",
+    "        embed_m1 = tf.reduce_mean(tf.nn.embedding_lookup(self.embed_weights, w_m1),axis = 1)\n",
+    "        embed_p1 = tf.reduce_mean(tf.nn.embedding_lookup(self.embed_weights, w_p1),axis = 1)\n",
+    "        embed_p2 = tf.reduce_mean(tf.nn.embedding_lookup(self.embed_weights, w_p2),axis = 1)\n",
+    "        embed_stack = tf.concat([embed_m2, embed_m1, embed_p1, embed_p2], 1)\n",
+    "        hid_weights = tf.Variable(\n",
+    "            tf.random_normal(\n",
+    "                [g_params['embed_size'] * 4, g_params['hid_size']],\n",
+    "                stddev = g_params['hid_noise']\n",
+    "                / (g_params['embed_size'] * 4) ** 0.5,\n",
+    "            )\n",
+    "        )\n",
+    "        hid_bias = tf.Variable(tf.zeros([g_params['hid_size']]))\n",
+    "        hid_out = tf.nn.tanh(tf.matmul(embed_stack, hid_weights) + hid_bias)\n",
+    "        self.nce_weights = tf.Variable(\n",
+    "            tf.random_normal(\n",
+    "                [g_params['vocab_size'], g_params['hid_size']],\n",
+    "                stddev = 1.0 / g_params['hid_size'] ** 0.5,\n",
+    "            )\n",
+    "        )\n",
+    "        nce_bias = tf.Variable(tf.zeros([g_params['vocab_size']]))\n",
+    "        self.cost = tf.reduce_mean(\n",
+    "            tf.nn.nce_loss(\n",
+    "                self.nce_weights,\n",
+    "                nce_bias,\n",
+    "                inputs = hid_out,\n",
+    "                labels = y,\n",
+    "                num_sampled = g_params['neg_samples'],\n",
+    "                num_classes = g_params['vocab_size'],\n",
+    "                num_true = maxlen,\n",
+    "                remove_accidental_hits = True,\n",
+    "            )\n",
+    "        )\n",
+    "        if g_params['optimizer'] == 'RMSProp':\n",
+    "            self.optimizer = tf.train.RMSPropOptimizer(\n",
+    "                g_params['learn_rate']\n",
+    "            ).minimize(self.cost)\n",
+    "        elif g_params['optimizer'] == 'Momentum':\n",
+    "            self.optimizer = tf.train.MomentumOptimizer(\n",
+    "                g_params['learn_rate'], g_params['momentum']\n",
+    "            ).minimize(self.cost)\n",
+    "        elif g_params['optimizer'] == 'Adam':\n",
+    "            self.optimizer = tf.train.AdamOptimizer(\n",
+    "                g_params['learn_rate']\n",
+    "            ).minimize(self.cost)\n",
+    "        else:\n",
+    "            print('Optimizer not supported,exit.')\n",
+    "        self.sess.run(tf.global_variables_initializer())\n",
+    "\n",
+    "    def train(self, train, epoch, batch_size):\n",
+    "        for i in range(epoch):\n",
+    "            pbar = tqdm(\n",
+    "                range(0, len(train), batch_size), desc = 'train minibatch loop'\n",
+    "            )\n",
+    "            for batch in pbar:\n",
+    "                X, Y = build_training_set(train[batch : min(batch + batch_size, len(train))], maxlen = maxlen)\n",
+    "                X, Y = shuffle(X, Y)\n",
+    "                feed_dict = {\n",
+    "                    self.X: X,\n",
+    "                    self.Y: Y,\n",
+    "                }\n",
+    "                _, loss = self.sess.run(\n",
+    "                    [self.optimizer, self.cost], feed_dict = feed_dict\n",
+    "                )\n",
+    "                pbar.set_postfix(cost = loss)\n",
+    "            \n",
+    "        return self.embed_weights.eval(), self.nce_weights.eval()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "model = Model(graph_params)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "train minibatch loop: 100%|██████████| 887/887 [04:13<00:00,  3.90it/s, cost=3.45e+3]\n",
+      "train minibatch loop: 100%|██████████| 887/887 [04:13<00:00,  3.89it/s, cost=4.55e+3]\n",
+      "train minibatch loop: 100%|██████████| 887/887 [04:13<00:00,  3.86it/s, cost=1.24e+3]\n",
+      "train minibatch loop: 100%|██████████| 887/887 [04:14<00:00,  3.88it/s, cost=5.09e+3]\n",
+      "train minibatch loop: 100%|██████████| 887/887 [04:13<00:00,  3.89it/s, cost=197]    \n"
+     ]
+    }
+   ],
+   "source": [
+    "embed_weights, nce_weights = model.train(word_array,\n",
+    "                                         graph_params['epoch'],\n",
+    "                                         graph_params['batch_size'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def doc2num(word_list, dictionary, ngrams = (2, 3)):\n",
+    "    word_array = []\n",
+    "    for word in word_list:\n",
+    "        words = generator(word, ngram = ngrams)\n",
+    "        word_array.append([dictionary.get(word, 1) for word in words])\n",
+    "    return word_array"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "word = 'eat'\n",
+    "word_array = doc2num(['<%s>'%(word)], dictionary)[0]\n",
+    "eat_vector = np.array([nce_weights[i] for i in word_array]).sum(axis = 0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "words = ['ate','eating','shitting','giving','water']\n",
+    "pools = []\n",
+    "for word in words:\n",
+    "    word = filter(None, word.split())\n",
+    "    pools.append(''.join(['<%s>' % (w) for w in word]))\n",
+    "word_array = doc2num(pools, dictionary)\n",
+    "outside_array = []\n",
+    "for arr in word_array:\n",
+    "    outside_array.append(\n",
+    "        np.array([nce_weights[i] for i in arr]).sum(axis = 0))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[array([-0.25809747, -0.01352103, -0.44338152, ..., -0.0923351 ,\n",
+       "         0.4192196 ,  0.16724478], dtype=float32),\n",
+       " array([-0.5781588 , -0.0945585 , -0.04079973, ..., -0.2652057 ,\n",
+       "        -0.15882824,  0.4612025 ], dtype=float32),\n",
+       " array([-0.99823016, -0.64526594, -0.02248423, ..., -0.59692127,\n",
+       "         0.07776646,  0.9015329 ], dtype=float32),\n",
+       " array([-0.75444406, -0.446905  , -0.0571291 , ..., -0.33986396,\n",
+       "        -0.08175289,  0.43509164], dtype=float32),\n",
+       " array([-0.41489708, -0.11410997,  0.03561858, ..., -0.25151688,\n",
+       "         0.18436612,  0.3975367 ], dtype=float32)]"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "outside_array"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from sklearn.neighbors import NearestNeighbors"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[['shitting', 0.8176502585411072], ['ate', 0.7808260917663574]]"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "nn = NearestNeighbors(3, metric = 'cosine').fit(outside_array)\n",
+    "distances, idx = nn.kneighbors(eat_vector.reshape((1, -1)))\n",
+    "word_list = []\n",
+    "for i in range(1, idx.shape[1]):\n",
+    "    word_list.append([words[idx[0, i]], 1 - distances[0, i]])\n",
+    "word_list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

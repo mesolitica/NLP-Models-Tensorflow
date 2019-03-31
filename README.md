@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-234--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-235--models-blue.svg"></a>
 </p>
 
 ---
@@ -275,6 +275,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 7. Triplet-loss + LSTM
 8. LSTM Auto-Encoder
 9. Batch-All Triplet-loss LSTM
+10. Fast-text
 
 ### [POS-Tagging](pos-tagging)
 
