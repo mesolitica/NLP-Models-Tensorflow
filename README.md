@@ -276,6 +276,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 8. LSTM Auto-Encoder
 9. Batch-All Triplet-loss LSTM
 10. Fast-text
+11. ELMO (biLM)
 
 ### [POS-Tagging](pos-tagging)
 
