@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-237--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-239--models-blue.svg"></a>
 </p>
 
 ---
@@ -345,6 +345,8 @@ Original implementations are quite complex and not really beginner friendly. So 
 
 1. Tacotron
 2. Wavenet
+3. Seq2Seq + Luong Attention
+4. Seq2Seq + Bahdanau Attention
 
 
 ### [Generator](generator)
