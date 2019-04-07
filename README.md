@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-235--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-237--models-blue.svg"></a>
 </p>
 
 ---
@@ -28,6 +28,7 @@
   * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
   * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr)
   * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
+  * [Text to Speech](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-to-speech)
   * [Text Similarity](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-similarity)
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
   * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
@@ -339,6 +340,12 @@ Original implementations are quite complex and not really beginner friendly. So 
 5. Seq2Seq + Luong Attention + Beam CTC
 6. Bidirectional RNN + Attention + Beam CTC
 7. Wavenet
+
+### [Text to Speech](text-to-speech)
+
+1. Tacotron
+2. Wavenet
+
 
 ### [Generator](generator)
 
