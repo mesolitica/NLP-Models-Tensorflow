@@ -320,6 +320,8 @@ Original implementations are quite complex and not really beginner friendly. So 
 2. LSTM Seq2Seq + Luong Attention using topic modelling
 3. LSTM Seq2Seq + Beam Decoder using topic modelling
 4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling
+5. LSTM Seq2Seq + Luong Attention + Pointer Generator
+6. Bytenet
 
 ### [Unsupervised Summarization](unsupervised-summarization)
 
