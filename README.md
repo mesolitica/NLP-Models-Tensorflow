@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-239--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-243--models-blue.svg"></a>
 </p>
 
 ---
@@ -262,6 +262,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 47. Attention is all you need + Beam Search
 48. Fairseq
 49. Conv-Encoder + LSTM
+50. Bytenet Greedy
 
 </details>
 
@@ -362,6 +363,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 7. Word-wise + Seq2Seq + GRU
 8. Character-wise RNN + LSTM + Bahdanau Attention
 9. Character-wise RNN + LSTM + Luong Attention
+10. Word-wise + Seq2Seq + GRU + Beam
+11. Character-wise + Seq2Seq + GRU + Bahdanau Attention
+12. Word-wise + Seq2Seq + GRU + Bahdanau Attention
 
 ### [Language-detection](language-detection)
 
