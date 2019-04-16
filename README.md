@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-244--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-246--models-blue.svg"></a>
 </p>
 
 ---
@@ -142,8 +142,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 10. Attention is All you need
 11. Transformer-XL + LSTM
 12. GPT-2 + LSTM
+13. Tacotron + Beam decoder
 
-<details><summary>Complete list (51 notebooks)</summary>
+<details><summary>Complete list (53 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -196,6 +197,8 @@ Original implementations are quite complex and not really beginner friendly. So 
 49. GPT-2 + LSTM
 50. Fairseq
 51. Conv-Encoder + LSTM
+52. Tacotron + Greedy decoder
+53. Tacotron + Beam decoder
 
 </details>
 
