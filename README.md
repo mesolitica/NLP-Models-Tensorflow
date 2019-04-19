@@ -348,6 +348,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 5. Seq2Seq + Luong Attention + Beam CTC
 6. Bidirectional RNN + Attention + Beam CTC
 7. Wavenet
+8. CNN encoder + RNN decoder + Bahdanau Attention
 
 ### [Text to Speech](text-to-speech)
 
