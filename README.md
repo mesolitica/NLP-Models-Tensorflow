@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-247--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-248--models-blue.svg"></a>
 </p>
 
 ---
@@ -349,6 +349,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 6. Bidirectional RNN + Attention + Beam CTC
 7. Wavenet
 8. CNN encoder + RNN decoder + Bahdanau Attention
+9. Dilation CNN + GRU Bidirectional
 
 ### [Text to Speech](text-to-speech)
 
