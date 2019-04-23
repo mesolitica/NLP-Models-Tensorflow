@@ -21,8 +21,8 @@
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
   * [Dependency-Parser](https://github.com/huseinzol05/NLP-Models-Tensorflow#dependency-parser)
   * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
-  * [Supervised Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#supervised-summarization)
-  * [Unsupervised Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#unsupervised-summarization)
+  * [Supervised Summarization (abstractive)](https://github.com/huseinzol05/NLP-Models-Tensorflow#supervised-summarization)
+  * [Unsupervised Summarization (extractive)](https://github.com/huseinzol05/NLP-Models-Tensorflow#unsupervised-summarization)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
   * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
   * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
@@ -305,6 +305,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 2. Bidirectional RNN + Luong Attention + CRF
 3. Residual Network + Bahdanau Attention + CRF
 4. Residual Network + Bahdanau Attention + Char Embedded + CRF
+5. Attention is all you need + CRF
 
 ### [Question-Answers](question-answer)
 
@@ -331,9 +332,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 
 ### [Unsupervised Summarization](unsupervised-summarization)
 
-1. Skip-thought Vector (unsupervised)
-2. Residual Network using Atrous CNN (unsupervised)
-3. Residual Network using Atrous CNN + Bahdanau Attention (unsupervised)
+1. Skip-thought Vector
+2. Residual Network using Atrous CNN
+3. Residual Network using Atrous CNN + Bahdanau Attention
 
 ### [OCR (optical character recognition)](ocr)
 
