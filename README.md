@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-249--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-250--models-blue.svg"></a>
 </p>
 
 ---
@@ -21,8 +21,8 @@
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
   * [Dependency-Parser](https://github.com/huseinzol05/NLP-Models-Tensorflow#dependency-parser)
   * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
-  * [Supervised Summarization (abstractive)](https://github.com/huseinzol05/NLP-Models-Tensorflow#supervised-summarization)
-  * [Unsupervised Summarization (extractive)](https://github.com/huseinzol05/NLP-Models-Tensorflow#unsupervised-summarization)
+  * [Abstractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#abstractive-summarization)
+  * [Extractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#extractive-summarization)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
   * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
   * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
@@ -321,7 +321,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 4. GRU + BiRNN + Seq2Seq + Beam
 5. DNC + Seq2Seq + Greedy
 
-### [Supervised Summarization](summarization)
+### [Abstractive Summarization](abstractive-summarization)
 
 1. LSTM Seq2Seq using topic modelling
 2. LSTM Seq2Seq + Luong Attention using topic modelling
@@ -329,8 +329,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling
 5. LSTM Seq2Seq + Luong Attention + Pointer Generator
 6. Bytenet
+7. Pointer-Generator + Bahdanau
 
-### [Unsupervised Summarization](unsupervised-summarization)
+### [Extractive Summarization](extractive-summarization)
 
 1. Skip-thought Vector
 2. Residual Network using Atrous CNN
