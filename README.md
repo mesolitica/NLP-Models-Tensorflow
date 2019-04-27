@@ -26,7 +26,7 @@
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
   * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
   * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
-  * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr)
+  * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr-optical-character-recognition)
   * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
   * [Text to Speech](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-to-speech)
   * [Text Similarity](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-similarity)
