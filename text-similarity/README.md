@@ -6,7 +6,7 @@
 
 3. Unzip in the same notebooks location.
 
-4. Run any of it.
+4. Run any notebook using Jupyter Notebook.
 
 ## Improvement
 

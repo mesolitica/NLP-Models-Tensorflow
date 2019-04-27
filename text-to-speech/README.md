@@ -4,4 +4,4 @@
 
 2. Go to any training folder, and run [caching.py](caching.py)
 
-3. Run any training notebooks.
+3. Run any notebook using Jupyter Notebook.

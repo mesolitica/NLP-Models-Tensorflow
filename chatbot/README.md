@@ -2,7 +2,7 @@
 
 1. Unzip [dataset.tar.gz](dataset.tar.gz)
 
-2. Run any notebooks.
+2. Run any notebook using Jupyter Notebook.
 
 ## Accuracy, not sorted
 

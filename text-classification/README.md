@@ -2,7 +2,7 @@
 
 1. Make sure `data` folder in the same directory of the notebooks.
 
-2. Run any notebooks.
+2. Run any notebook using Jupyter Notebook.
 
 ## Score and average time taken per epoch, not sorted
 

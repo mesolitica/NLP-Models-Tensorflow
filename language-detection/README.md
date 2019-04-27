@@ -12,4 +12,4 @@ tar xvf sentences.tar
 awk -F"\t" '{print"__label__"$2" "$3}' < sentences.csv | shuf > all.txt
 ```
 
-3. Run any notebooks.
+3. Run any notebook using Jupyter Notebook.
