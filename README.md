@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-251--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-252--models-blue.svg"></a>
 </p>
 
 ---
@@ -30,6 +30,7 @@
   * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
   * [Text to Speech](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-to-speech)
   * [Text Similarity](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-similarity)
+  * [Text Augmentation](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-augmentation)
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
   * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
 
@@ -387,6 +388,10 @@ Original implementations are quite complex and not really beginner friendly. So 
 2. Word wise similarity + LSTM + Bidirectional
 3. Character wise similarity Triplet loss + LSTM
 4. Word wise similarity Triplet loss + LSTM
+
+### [Text Augmentation](text-augmentation)
+
+1. Pretrained Glove
 
 ### [Attention](attention)
 
