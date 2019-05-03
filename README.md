@@ -268,6 +268,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 48. Fairseq
 49. Conv-Encoder + LSTM
 50. Bytenet Greedy
+51. Residual GRU Bidirectional Seq2Seq-API Greedy
 
 </details>
 

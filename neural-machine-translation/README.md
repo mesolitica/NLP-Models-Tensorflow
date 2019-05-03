@@ -57,3 +57,5 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 47.attention-is-all-you-need-beam-search                   | 0.158205 |
 | 48.conv-encoder-conv-decoder                               | 0.462655 |
 | 49.conv-encoder-lstm                                       | 0.438702 |
+| 50.byte-net-greedy.ipynb                                   | 1.023528 |
+| 51.gru-birnn-seq2seq-greedy-residual.ipynb                 | 0.561457 |
