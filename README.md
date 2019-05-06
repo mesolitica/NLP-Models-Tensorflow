@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-257--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-258--models-blue.svg"></a>
 </p>
 
 ---
@@ -216,7 +216,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 9. End-to-End Memory Network
 10. Attention is All you need
 
-<details><summary>Complete list (49 notebooks)</summary>
+<details><summary>Complete list (51 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -323,6 +323,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 3. LSTM + BiRNN + Seq2Seq + Beam
 4. GRU + BiRNN + Seq2Seq + Beam
 5. DNC + Seq2Seq + Greedy
+6. BiRNN + Bahdanau + Copynet
 
 ### [Abstractive Summarization](abstractive-summarization)
 
