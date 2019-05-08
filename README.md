@@ -335,6 +335,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 6. Bytenet
 7. Pointer-Generator + Bahdanau
 8. Copynet
+9. Pointer-Generator + Luong
 
 ### [Extractive Summarization](extractive-summarization)
 
