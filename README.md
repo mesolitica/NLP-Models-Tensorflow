@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-260--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-261--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-69--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-53--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-51--models-success.svg"></a>
@@ -388,6 +388,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 10. Word-wise + Seq2Seq + GRU + Beam
 11. Character-wise + Seq2Seq + GRU + Bahdanau Attention
 12. Word-wise + Seq2Seq + GRU + Bahdanau Attention
+13. Character-wise Dilated CNN + Beam search
 
 ### [Language-detection](language-detection)
 
