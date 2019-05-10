@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-261--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-263--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-69--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-53--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-51--models-success.svg"></a>
@@ -404,7 +404,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 ### [Text Augmentation](text-augmentation)
 
 1. Pretrained Glove
-2. VAE-seq2seq-beam
+2. GRU VAE-seq2seq-beam TF-probability
+3. LSTM VAE-seq2seq-beam TF-probability
+4. GRU VAE-seq2seq-beam + Bahdanau Attention TF-probability
 
 ### [Attention](attention)
 
