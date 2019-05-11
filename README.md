@@ -41,6 +41,8 @@
 
 Original implementations are quite complex and not really beginner friendly. So I tried to simplify most of it. Also, there are tons of not-yet release papers implementation. So feel free to use it for your own research!
 
+I will attached github repositories for models that I not implemented from scratch, basically I copy, paste and fix those code for deprecated issues.
+
 ## Contents
 
 ### [Text classification](text-classification)
@@ -54,11 +56,10 @@ Original implementations are quite complex and not really beginner friendly. So 
 7. LSTM RNN + Conv1D + Highway
 8. LSTM RNN with Attention
 9. Neural Turing Machine
-10. Seq2Seq
-11. Bidirectional Transformers
-12. Dynamic Memory Network
-13. Residual Network using Atrous CNN + Bahdanau Attention
-14. Transformer-XL
+10. Bidirectional Transformers
+11. Dynamic Memory Network
+12. Residual Network using Atrous CNN + Bahdanau Attention
+13. Transformer-XL
 
 <details><summary>Complete list (69 notebooks)</summary>
 
@@ -338,9 +339,9 @@ Original implementations are quite complex and not really beginner friendly. So 
 4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling
 5. LSTM Seq2Seq + Luong Attention + Pointer Generator
 6. Bytenet
-7. Pointer-Generator + Bahdanau
+7. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq
 8. Copynet
-9. Pointer-Generator + Luong
+9. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq
 
 ### [Extractive Summarization](extractive-summarization)
 
@@ -409,7 +410,8 @@ Original implementations are quite complex and not really beginner friendly. So 
 2. GRU VAE-seq2seq-beam TF-probability
 3. LSTM VAE-seq2seq-beam TF-probability
 4. GRU VAE-seq2seq-beam + Bahdanau Attention TF-probability
-5. VAE + Deterministic Bahdanau Attention
+5. VAE + Deterministic Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
+6. VAE + VAE Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
 
 ### [Attention](attention)
 
