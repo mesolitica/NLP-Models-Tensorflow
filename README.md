@@ -355,7 +355,7 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Speech to Text](speech-to-text)
 
-1. Tacotron
+1. Tacotron, https://github.com/Kyubyong/tacotron_asr
 2. Bidirectional RNN + Greedy CTC
 3. Bidirectional RNN + Beam CTC
 4. Seq2Seq + Bahdanau Attention + Beam CTC
@@ -369,7 +369,7 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Text to Speech](text-to-speech)
 
-1. Tacotron
+1. Tacotron, https://github.com/Kyubyong/tacotron
 2. Wavenet
 3. Seq2Seq + Luong Attention
 4. Seq2Seq + Bahdanau Attention
