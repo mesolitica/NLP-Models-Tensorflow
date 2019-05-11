@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-264--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-266--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-69--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-53--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-51--models-success.svg"></a>
@@ -390,6 +390,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 12. Word-wise + Seq2Seq + GRU + Bahdanau Attention
 13. Character-wise Dilated CNN + Beam search
 14. Transformer + Beam search
+15. Transformer XL + Beam search
 
 ### [Language-detection](language-detection)
 
@@ -408,6 +409,7 @@ Original implementations are quite complex and not really beginner friendly. So 
 2. GRU VAE-seq2seq-beam TF-probability
 3. LSTM VAE-seq2seq-beam TF-probability
 4. GRU VAE-seq2seq-beam + Bahdanau Attention TF-probability
+5. VAE + Deterministic Bahdanau Attention
 
 ### [Attention](attention)
 
