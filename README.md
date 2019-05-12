@@ -28,6 +28,7 @@
   * [Extractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#extractive-summarization)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
   * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
+  * [Topic Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#topic-generator)
   * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
   * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr-optical-character-recognition)
   * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
@@ -392,6 +393,10 @@ I will attached github repositories for models that I not implemented from scrat
 13. Character-wise Dilated CNN + Beam search
 14. Transformer + Beam search
 15. Transformer XL + Beam search
+
+### [Topic Generator](topic-generator)
+
+1. TAT-LSTM
 
 ### [Language-detection](language-detection)
 
