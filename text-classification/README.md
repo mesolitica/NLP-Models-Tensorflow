@@ -77,3 +77,5 @@ Based on 20% validation. The results will be different on different dataset. Tra
 | 65. gpt-2                        | 0.62     | 105.2107       |
 | 66. quasi-rnn                    | 0.66     | 166.1456       |
 | 67. tacotron                     | 0.74     | 360.5551       |
+| 68. slice-gru                    | 0.72     | 10.140633      |
+| 69. slice-gru-bahdanau           | 0.70     | 20.247409      |
