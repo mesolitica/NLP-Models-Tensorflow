@@ -61,3 +61,6 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 49.gpt-2-lstm                                              | 0.645157 |
 | 50.conv-encoder-conv-decoder                               | 0.518504 |
 | 51.conv-encoder-lstm                                       | 0.924609 |
+| 52.tacotron-greedy                                         | 0.876267 |
+| 53.tacotron-beam                                           | 0.855140 |
+| 54.google-nmt                                              | 1.006089 |

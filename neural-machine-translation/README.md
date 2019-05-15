@@ -59,3 +59,4 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 49.conv-encoder-lstm                                       | 0.438702 |
 | 50.byte-net-greedy.ipynb                                   | 1.023528 |
 | 51.gru-birnn-seq2seq-greedy-residual.ipynb                 | 0.561457 |
+| 52.google-nmt.ipynb                                        | 0.675990 |
