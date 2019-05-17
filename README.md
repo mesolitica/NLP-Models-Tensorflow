@@ -5,8 +5,8 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-269--models-blue.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/sentiments-69--models-success.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-270--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/sentiments-70--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
 </p>
@@ -62,7 +62,7 @@ I will attached github repositories for models that I not implemented from scrat
 12. Residual Network using Atrous CNN + Bahdanau Attention
 13. Transformer-XL
 
-<details><summary>Complete list (69 notebooks)</summary>
+<details><summary>Complete list (70 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -133,6 +133,7 @@ I will attached github repositories for models that I not implemented from scrat
 67. Tacotron
 68. Slice GRU
 69. Slice GRU + Bahdanau
+70. Wavenet
 
 </details>
 
