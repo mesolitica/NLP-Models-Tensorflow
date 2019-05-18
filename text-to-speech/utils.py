@@ -10,9 +10,10 @@ import unicodedata
 import re
 
 # P: Padding
+# S: Start of Sentence
 # E: End of Sentence
 path = '../data/'
-vocab = "PE abcdefghijklmnopqrstuvwxyz'.?"
+vocab = "PSE abcdefghijklmnopqrstuvwxyz'.?"
 max_duration = 10.0
 sample_rate = 22050
 fourier_window_size = 2048
@@ -120,10 +121,11 @@ def get_cached(path):
     mag = 'mag/{}.npy'.format(path)
     return np.load(mel), np.load(mag)
 
-def plot_alignment(alignment):
+def plot_alignment(alignment, e):
     fig, ax = plt.subplots()
     im = ax.imshow(alignment)
     fig.colorbar(im)
+    plt.title('epoch %d' % (e))
     plt.show()
 
 char2idx = {char: idx for idx, char in enumerate(vocab)}
