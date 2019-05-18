@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-270--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-272--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-70--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
@@ -33,6 +33,7 @@
   * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr-optical-character-recognition)
   * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
   * [Text to Speech](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-to-speech)
+  * [Old-to-Young Vocoder](https://github.com/huseinzol05/NLP-Models-Tensorflow#old-to-young-vocoder)
   * [Text Similarity](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-similarity)
   * [Text Augmentation](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-augmentation)
   * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
@@ -379,6 +380,10 @@ I will attached github repositories for models that I not implemented from scrat
 4. Seq2Seq + Luong Attention
 5. Dilated CNN + Monothonic Attention + Dilated CNN vocoder
 6. Dilated CNN + Self Attention + Dilated CNN vocoder
+
+### [Old-to-Young Vocoder](vocoder)
+
+1. Dilated CNN
 
 ### [Generator](generator)
 
