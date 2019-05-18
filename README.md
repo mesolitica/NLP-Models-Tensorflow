@@ -375,9 +375,10 @@ I will attached github repositories for models that I not implemented from scrat
 
 1. Tacotron, https://github.com/Kyubyong/tacotron
 2. Fairseq + Dilated CNN vocoder
-3. Seq2Seq + Luong Attention
-4. Seq2Seq + Bahdanau Attention
-
+3. Seq2Seq + Bahdanau Attention
+4. Seq2Seq + Luong Attention
+5. Dilated CNN + Monothonic Attention + Dilated CNN vocoder
+6. Dilated CNN + Self Attention + Dilated CNN vocoder
 
 ### [Generator](generator)
 
