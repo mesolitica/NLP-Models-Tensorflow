@@ -371,6 +371,7 @@ I will attached github repositories for models that I not implemented from scrat
 9. CNN encoder + RNN decoder + Luong Attention
 10. Dilation CNN + GRU Bidirectional
 11. Deep speech 2
+12. Pyramid Dilated CNN
 
 ### [Text to Speech](text-to-speech)
 
