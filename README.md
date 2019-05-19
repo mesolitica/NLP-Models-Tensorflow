@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-274--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-276--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-70--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
@@ -226,7 +226,7 @@ I will attached github repositories for models that I not implemented from scrat
 9. End-to-End Memory Network
 10. Attention is All you need
 
-<details><summary>Complete list (52 notebooks)</summary>
+<details><summary>Complete list (53 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -280,6 +280,7 @@ I will attached github repositories for models that I not implemented from scrat
 50. Bytenet Greedy
 51. Residual GRU Bidirectional Seq2Seq-API Greedy
 52. Google NMT
+53. Dilated Seq2Seq
 
 </details>
 
@@ -347,6 +348,7 @@ I will attached github repositories for models that I not implemented from scrat
 7. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq
 8. Copynet
 9. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq
+10. Dilated Seq2Seq
 
 ### [Extractive Summarization](extractive-summarization)
 

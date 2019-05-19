@@ -60,3 +60,4 @@ Based on 20 epochs accuracy. The results will be different on different dataset.
 | 50.byte-net-greedy.ipynb                                   | 1.023528 |
 | 51.gru-birnn-seq2seq-greedy-residual.ipynb                 | 0.561457 |
 | 52.google-nmt.ipynb                                        | 0.675990 |
+| 53.dilated-seq2seq.ipynb                                   | 1.023615 |
