@@ -5,8 +5,8 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-276--models-blue.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/sentiments-70--models-success.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-277--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/sentiments-71--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
 </p>
@@ -135,6 +135,7 @@ I will attached github repositories for models that I not implemented from scrat
 68. Slice GRU
 69. Slice GRU + Bahdanau
 70. Wavenet
+71. Transfer learning BERT
 
 </details>
 
