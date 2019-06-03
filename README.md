@@ -63,7 +63,7 @@ I will attached github repositories for models that I not implemented from scrat
 12. Residual Network using Atrous CNN + Bahdanau Attention
 13. Transformer-XL
 
-<details><summary>Complete list (70 notebooks)</summary>
+<details><summary>Complete list (71 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -135,7 +135,7 @@ I will attached github repositories for models that I not implemented from scrat
 68. Slice GRU
 69. Slice GRU + Bahdanau
 70. Wavenet
-71. Transfer learning BERT
+71. Transfer learning BERT base
 
 </details>
 

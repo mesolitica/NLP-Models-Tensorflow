@@ -80,3 +80,4 @@ Based on 20% validation. The results will be different on different dataset. Tra
 | 68. slice-gru                    | 0.72     | 10.140633      |
 | 69. slice-gru-bahdanau           | 0.70     | 20.247409      |
 | 70. wavenet                      | 0.59     | 101.293274     |
+| 71. transfer-learning-bert       | 0.81     | 887.590460     |
