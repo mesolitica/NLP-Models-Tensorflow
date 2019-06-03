@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-277--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-278--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-71--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
@@ -350,6 +350,7 @@ I will attached github repositories for models that I not implemented from scrat
 8. Copynet
 9. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq
 10. Dilated Seq2Seq
+11. Dilated Seq2Seq + Self Attention
 
 ### [Extractive Summarization](extractive-summarization)
 
