@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-279--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-280--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-71--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
@@ -314,6 +314,7 @@ I will attached github repositories for models that I not implemented from scrat
 5. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 96%
 6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 69%
 7. Char Ngrams + Attention is you all Need + CRF, test accuracy 90%
+8. BERT, test accuracy 99%
 
 ### [Dependency-Parser](dependency-parser)
 
