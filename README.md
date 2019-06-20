@@ -307,7 +307,7 @@ I will attached github repositories for models that I not implemented from scrat
 4. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
 5. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
 6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 3%
-7. Char Ngrams + Attention is you all Need + CRF, test accuracy 98%
+7. Char Ngrams + Attention is you all Need + CRF, test accuracy 89%
 8. BERT, test accuracy 99%
 
 ### [Entity-Tagging](entity-tagging)
