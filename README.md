@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-280--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-285--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-71--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
@@ -301,9 +301,14 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [POS-Tagging](pos-tagging)
 
-1. Bidirectional RNN + Bahdanau Attention + CRF
-2. Bidirectional RNN + Luong Attention + CRF
-3. Bidirectional RNN + CRF
+1. Bidirectional RNN + CRF, test accuracy 92%
+2. Bidirectional RNN + Luong Attention + CRF, test accuracy 91%
+3. Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
+4. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
+5. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
+6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 3%
+7. Char Ngrams + Attention is you all Need + CRF, test accuracy 98%
+8. BERT, test accuracy 99%
 
 ### [Entity-Tagging](entity-tagging)
 
