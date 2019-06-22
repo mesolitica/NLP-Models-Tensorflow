@@ -49,6 +49,8 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Text classification](text-classification)
 
+Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data)
+
 1. Basic cell RNN
 2. Bidirectional RNN
 3. LSTM cell RNN
@@ -141,6 +143,8 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Chatbot](chatbot)
 
+Trained on [Cornell Movie Dialog corpus](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/chatbot/dataset.tar.gz)
+
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
 3. Bidirectional Seq2Seq-manual
@@ -214,7 +218,9 @@ I will attached github repositories for models that I not implemented from scrat
 
 </details>
 
-### [Neural Machine Translation (English to Vietnam)](neural-machine-translation)
+### [Neural Machine Translation](neural-machine-translation)
+
+Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/neural-machine-translation/vietnam-train)
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
@@ -287,6 +293,8 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Embedded](embedded)
 
+Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data)
+
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
 3. Word Vector using skipgram sample softmax
@@ -301,6 +309,8 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [POS-Tagging](pos-tagging)
 
+Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81)
+
 1. Bidirectional RNN + CRF, test accuracy 92%
 2. Bidirectional RNN + Luong Attention + CRF, test accuracy 91%
 3. Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
@@ -311,6 +321,8 @@ I will attached github repositories for models that I not implemented from scrat
 8. BERT, test accuracy 99%
 
 ### [Entity-Tagging](entity-tagging)
+
+Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81)
 
 1. Bidirectional RNN + CRF, test accuracy 96%
 2. Bidirectional RNN + Luong Attention + CRF, test accuracy 93%
@@ -323,6 +335,8 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Dependency-Parser](dependency-parser)
 
+Trained on [CONLL English Dependency](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/dependency-parser/dev.conll.txt)
+
 1. Bidirectional RNN + Bahdanau Attention + CRF
 2. Bidirectional RNN + Luong Attention + CRF
 3. Residual Network + Bahdanau Attention + CRF
@@ -331,12 +345,16 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Question-Answers](question-answer)
 
+Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/)
+
 1. End-to-End Memory Network + Basic cell
 2. End-to-End Memory Network + GRU cell
 3. End-to-End Memory Network + LSTM cell
 4. Dynamic Memory
 
 ### [Stemming](stemming)
+
+Trained on [English Lemmatization](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/stemming/lemmatization-en.txt)
 
 1. LSTM + Seq2Seq + Beam
 2. GRU + Seq2Seq + Beam
@@ -346,6 +364,8 @@ I will attached github repositories for models that I not implemented from scrat
 6. BiRNN + Bahdanau + Copynet
 
 ### [Abstractive Summarization](abstractive-summarization)
+
+Trained on [India news](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/abstractive-summarization/dataset)
 
 1. LSTM Seq2Seq using topic modelling
 2. LSTM Seq2Seq + Luong Attention using topic modelling
@@ -361,6 +381,8 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Extractive Summarization](extractive-summarization)
 
+Trained on [random books](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/extractive-summarization/books)
+
 1. Skip-thought Vector
 2. Residual Network using Atrous CNN
 3. Residual Network using Atrous CNN + Bahdanau Attention
@@ -370,6 +392,8 @@ I will attached github repositories for models that I not implemented from scrat
 1. CNN + LSTM RNN
 
 ### [Speech to Text](speech-to-text)
+
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487)
 
 1. Tacotron, https://github.com/Kyubyong/tacotron_asr
 2. Bidirectional RNN + Greedy CTC
@@ -386,6 +410,8 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Text to Speech](text-to-speech)
 
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487)
+
 1. Tacotron, https://github.com/Kyubyong/tacotron
 2. Fairseq + Dilated CNN vocoder
 3. Seq2Seq + Bahdanau Attention
@@ -397,9 +423,13 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Old-to-Young Vocoder](vocoder)
 
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487)
+
 1. Dilated CNN
 
 ### [Generator](generator)
+
+Trained on [Shakespeare dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/generator/shakespeare.txt)
 
 1. Character-wise RNN + LSTM
 2. Character-wise RNN + Beam search
@@ -419,20 +449,28 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Topic Generator](topic-generator)
 
+Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/master/news/news.zip)
+
 1. TAT-LSTM
 2. TAV-LSTM
 3. MTA-LSTM
 
 ### [Language-detection](language-detection)
 
+Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.bz2)
+
 1. Fast-text Char N-Grams
 
 ### [Text Similarity](text-similarity)
 
-1. Character wise similarity + LSTM + Bidirectional
-2. Word wise similarity + LSTM + Bidirectional
-3. Character wise similarity Triplet loss + LSTM
-4. Word wise similarity Triplet loss + LSTM
+Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs)
+
+1. BiRNN + Contrastive loss, test accuracy 76.50%
+2. Dilated CNN + Contrastive loss, test accuracy 72.98%
+3. Transformer + Contrastive loss, test accuracy 73.48%
+4. Dilated CNN + Cross entropy, test accuracy 72.27%
+5. Transformer + Cross entropy, test accuracy 71.1%
+6. Transfer learning BERT base + Cross entropy, test accuracy 90%
 
 ### [Text Augmentation](text-augmentation)
 
