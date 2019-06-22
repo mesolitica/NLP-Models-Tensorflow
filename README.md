@@ -49,7 +49,7 @@ I will attached github repositories for models that I not implemented from scrat
 
 ### [Text classification](text-classification)
 
-Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data)
+Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data).
 
 1. Basic cell RNN
 2. Bidirectional RNN
@@ -143,7 +143,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 
 ### [Chatbot](chatbot)
 
-Trained on [Cornell Movie Dialog corpus](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/chatbot/dataset.tar.gz)
+Trained on [Cornell Movie Dialog corpus](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/chatbot/dataset.tar.gz).
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
@@ -220,7 +220,7 @@ Trained on [Cornell Movie Dialog corpus](https://github.com/huseinzol05/NLP-Mode
 
 ### [Neural Machine Translation](neural-machine-translation)
 
-Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/neural-machine-translation/vietnam-train)
+Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/neural-machine-translation/vietnam-train).
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
@@ -293,7 +293,7 @@ Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tenso
 
 ### [Embedded](embedded)
 
-Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data)
+Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data).
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
@@ -309,7 +309,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 
 ### [POS-Tagging](pos-tagging)
 
-Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81)
+Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81).
 
 1. Bidirectional RNN + CRF, test accuracy 92%
 2. Bidirectional RNN + Luong Attention + CRF, test accuracy 91%
@@ -322,7 +322,7 @@ Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81)
 
 ### [Entity-Tagging](entity-tagging)
 
-Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81)
+Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
 
 1. Bidirectional RNN + CRF, test accuracy 96%
 2. Bidirectional RNN + Luong Attention + CRF, test accuracy 93%
@@ -335,7 +335,7 @@ Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81)
 
 ### [Dependency-Parser](dependency-parser)
 
-Trained on [CONLL English Dependency](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/dependency-parser/dev.conll.txt)
+Trained on [CONLL English Dependency](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/dependency-parser/dev.conll.txt).
 
 1. Bidirectional RNN + Bahdanau Attention + CRF
 2. Bidirectional RNN + Luong Attention + CRF
@@ -345,7 +345,7 @@ Trained on [CONLL English Dependency](https://github.com/huseinzol05/NLP-Models-
 
 ### [Question-Answers](question-answer)
 
-Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/)
+Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/).
 
 1. End-to-End Memory Network + Basic cell
 2. End-to-End Memory Network + GRU cell
@@ -354,7 +354,7 @@ Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/)
 
 ### [Stemming](stemming)
 
-Trained on [English Lemmatization](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/stemming/lemmatization-en.txt)
+Trained on [English Lemmatization](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/stemming/lemmatization-en.txt).
 
 1. LSTM + Seq2Seq + Beam
 2. GRU + Seq2Seq + Beam
@@ -365,7 +365,7 @@ Trained on [English Lemmatization](https://github.com/huseinzol05/NLP-Models-Ten
 
 ### [Abstractive Summarization](abstractive-summarization)
 
-Trained on [India news](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/abstractive-summarization/dataset)
+Trained on [India news](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/abstractive-summarization/dataset).
 
 1. LSTM Seq2Seq using topic modelling
 2. LSTM Seq2Seq + Luong Attention using topic modelling
@@ -381,7 +381,7 @@ Trained on [India news](https://github.com/huseinzol05/NLP-Models-Tensorflow/tre
 
 ### [Extractive Summarization](extractive-summarization)
 
-Trained on [random books](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/extractive-summarization/books)
+Trained on [random books](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/extractive-summarization/books).
 
 1. Skip-thought Vector
 2. Residual Network using Atrous CNN
@@ -393,7 +393,7 @@ Trained on [random books](https://github.com/huseinzol05/NLP-Models-Tensorflow/t
 
 ### [Speech to Text](speech-to-text)
 
-Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487)
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
 
 1. Tacotron, https://github.com/Kyubyong/tacotron_asr
 2. Bidirectional RNN + Greedy CTC
@@ -410,7 +410,7 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 
 ### [Text to Speech](text-to-speech)
 
-Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487)
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
 
 1. Tacotron, https://github.com/Kyubyong/tacotron
 2. Fairseq + Dilated CNN vocoder
@@ -423,13 +423,13 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 
 ### [Old-to-Young Vocoder](vocoder)
 
-Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487)
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
 
 1. Dilated CNN
 
 ### [Generator](generator)
 
-Trained on [Shakespeare dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/generator/shakespeare.txt)
+Trained on [Shakespeare dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/generator/shakespeare.txt).
 
 1. Character-wise RNN + LSTM
 2. Character-wise RNN + Beam search
@@ -449,7 +449,7 @@ Trained on [Shakespeare dataset](https://github.com/huseinzol05/NLP-Models-Tenso
 
 ### [Topic Generator](topic-generator)
 
-Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/master/news/news.zip)
+Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/master/news/news.zip).
 
 1. TAT-LSTM
 2. TAV-LSTM
@@ -457,13 +457,13 @@ Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/mas
 
 ### [Language-detection](language-detection)
 
-Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.bz2)
+Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.bz2).
 
 1. Fast-text Char N-Grams
 
 ### [Text Similarity](text-similarity)
 
-Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs)
+Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs).
 
 1. BiRNN + Contrastive loss, test accuracy 76.50%
 2. Dilated CNN + Contrastive loss, test accuracy 72.98%
