@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-285--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-287--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-71--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
