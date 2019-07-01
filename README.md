@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-287--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-288--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-71--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
@@ -31,6 +31,7 @@
   * [Topic Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#topic-generator)
   * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
   * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr-optical-character-recognition)
+  * [Sentence-Pair classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#sentence-pair)
   * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
   * [Text to Speech](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-to-speech)
   * [Old-to-Young Vocoder](https://github.com/huseinzol05/NLP-Models-Tensorflow#old-to-young-vocoder)
@@ -390,6 +391,12 @@ Trained on [random books](https://github.com/huseinzol05/NLP-Models-Tensorflow/t
 ### [OCR (optical character recognition)](ocr)
 
 1. CNN + LSTM RNN
+
+### [Sentence-pair](sentence-pair)
+
+Trained on [Cornell Movie--Dialogs Corpus](https://people.mpi-sws.org/~cristian/Cornell_Movie-Dialogs_Corpus.html)
+
+1. BERT
 
 ### [Speech to Text](speech-to-text)
 
