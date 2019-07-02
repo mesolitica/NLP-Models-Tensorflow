@@ -23,6 +23,7 @@
   * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#entity-tagging)
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
   * [Dependency-Parser](https://github.com/huseinzol05/NLP-Models-Tensorflow#dependency-parser)
+  * [SQUAD Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#squad-question-answers)
   * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
   * [Abstractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#abstractive-summarization)
   * [Extractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#extractive-summarization)
@@ -343,6 +344,15 @@ Trained on [CONLL English Dependency](https://github.com/huseinzol05/NLP-Models-
 3. Residual Network + Bahdanau Attention + CRF
 4. Residual Network + Bahdanau Attention + Char Embedded + CRF
 5. Attention is all you need + CRF
+
+### [SQUAD Question-Answers](squad-qa)
+
+Trained on [SQUAD Dataset](https://rajpurkar.github.io/SQuAD-explorer/).
+
+1. BERT,
+```json
+{"exact_match": 77.57805108798486, "f1": 86.18327335287402}
+```
 
 ### [Question-Answers](question-answer)
 
