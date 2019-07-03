@@ -68,7 +68,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 13. Transformer-XL
 14. XL-net
 
-<details><summary>Complete list (71 notebooks)</summary>
+<details><summary>Complete list (72 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
