@@ -5,8 +5,8 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-288--models-blue.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/sentiments-71--models-success.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-290--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/sentiments-72--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
 </p>
@@ -66,6 +66,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 11. Dynamic Memory Network
 12. Residual Network using Atrous CNN + Bahdanau Attention
 13. Transformer-XL
+14. XL-net
 
 <details><summary>Complete list (71 notebooks)</summary>
 
@@ -140,6 +141,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 69. Slice GRU + Bahdanau
 70. Wavenet
 71. Transfer learning BERT base
+72. Transfer learning XL-net Large
 
 </details>
 
