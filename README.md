@@ -47,6 +47,10 @@ Original implementations are quite complex and not really beginner friendly. So 
 
 I will attached github repositories for models that I not implemented from scratch, basically I copy, paste and fix those code for deprecated issues.
 
+## Tensorflow version
+
+Tensorflow version 1.10 and above only.
+
 ## Contents
 
 ### [Text classification](text-classification)
