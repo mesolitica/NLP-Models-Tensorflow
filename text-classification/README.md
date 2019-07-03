@@ -74,7 +74,7 @@ Based on 20% validation. The results will be different on different dataset. Tra
 | 62. residual-network-bahdanau    | 0.71     | 11.53799       |
 | 63. deep-pyramid-cnn             | 0.68     | 6.980528       |
 | 64. transformer-xl               | 0.51     | 38.66338       |
-| 65. gpt-2                        | 0.62     | 105.2107       |
+| 65. transfer-learning-gpt2       | 0.79     | 178.0716       |
 | 66. quasi-rnn                    | 0.66     | 166.1456       |
 | 67. tacotron                     | 0.74     | 360.5551       |
 | 68. slice-gru                    | 0.72     | 10.140633      |

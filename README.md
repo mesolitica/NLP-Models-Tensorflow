@@ -133,7 +133,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 62. Residual Network using Atrous CNN + Bahdanau Attention
 63. Deep pyramid CNN
 64. Transformer-XL
-65. GPT-2
+65. Transfer learning GPT-2 345M
 66. Quasi-RNN
 67. Tacotron
 68. Slice GRU
