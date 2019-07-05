@@ -5,8 +5,8 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-291--models-blue.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/sentiments-73--models-success.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-293--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/sentiments-75--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
 </p>
@@ -72,7 +72,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 13. Transformer-XL
 14. XL-net
 
-<details><summary>Complete list (72 notebooks)</summary>
+<details><summary>Complete list (75 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -146,6 +146,9 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 70. Wavenet
 71. Transfer learning BERT base
 72. Transfer learning XL-net Large
+73. LSTM BiRNN global Max and average pooling
+74. Transfer learning BERT base drop 6 layers
+75. Transfer learning BERT large drop 12 layers
 
 </details>
 
