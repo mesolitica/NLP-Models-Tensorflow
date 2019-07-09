@@ -5,10 +5,10 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-293--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-295--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-75--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/NMT-52--models-success.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/NMT-55--models-success.svg"></a>
 </p>
 
 ---
@@ -243,8 +243,9 @@ Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tenso
 8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 9. End-to-End Memory Network
 10. Attention is All you need
+11. BERT + Dilated Fairseq
 
-<details><summary>Complete list (53 notebooks)</summary>
+<details><summary>Complete list (55 notebooks)</summary>
 
 1. Basic cell Seq2Seq-manual
 2. LSTM Seq2Seq-manual
@@ -299,6 +300,8 @@ Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tenso
 51. Residual GRU Bidirectional Seq2Seq-API Greedy
 52. Google NMT
 53. Dilated Seq2Seq
+54. BERT Encoder + LSTM Luong Decoder
+55. BERT Encoder + Dilated Fairseq
 
 </details>
 
