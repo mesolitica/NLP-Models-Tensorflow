@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-295--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-296--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-75--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-55--models-success.svg"></a>
@@ -390,17 +390,20 @@ Trained on [English Lemmatization](https://github.com/huseinzol05/NLP-Models-Ten
 
 Trained on [India news](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/abstractive-summarization/dataset).
 
-1. LSTM Seq2Seq using topic modelling
-2. LSTM Seq2Seq + Luong Attention using topic modelling
-3. LSTM Seq2Seq + Beam Decoder using topic modelling
-4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling
-5. LSTM Seq2Seq + Luong Attention + Pointer Generator
+Accuracy based on 10 epochs only, calculated using word positions.
+
+1. LSTM Seq2Seq using topic modelling, test accuracy 13.22%
+2. LSTM Seq2Seq + Luong Attention using topic modelling, test accuracy 12.39%
+3. LSTM Seq2Seq + Beam Decoder using topic modelling, test accuracy 10.67%
+4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling, test accuracy 8.29%
+5. LSTM Seq2Seq + Luong Attention + Pointer Generator, test accuracy 11.79%
 6. Bytenet
-7. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq
-8. Copynet
-9. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq
-10. Dilated Seq2Seq
-11. Dilated Seq2Seq + Self Attention
+7. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq, test accuracy 15.51%
+8. Copynet, test accuracy 11.15%
+9. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq, test accuracy 16.51%
+10. Dilated Seq2Seq, test accuracy 10.88%
+11. Dilated Seq2Seq + Self Attention, test accuracy 11.54%
+12. BERT + Dilated Fairseq, test accuracy 13.5%
 
 ### [Extractive Summarization](extractive-summarization)
 
