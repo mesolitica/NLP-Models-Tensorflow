@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-296--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-298--models-blue.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/sentiments-75--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-55--models-success.svg"></a>
@@ -320,6 +320,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 9. Batch-All Triplet-loss LSTM
 10. Fast-text
 11. ELMO (biLM)
+12. Triplet-loss + BERT
 
 ### [POS-Tagging](pos-tagging)
 
@@ -486,6 +487,7 @@ Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/mas
 1. TAT-LSTM
 2. TAV-LSTM
 3. MTA-LSTM
+4. Dilated Fairseq
 
 ### [Language-detection](language-detection)
 
