@@ -397,14 +397,14 @@ Accuracy based on 10 epochs only, calculated using word positions.
 2. LSTM Seq2Seq + Luong Attention using topic modelling, test accuracy 12.39%
 3. LSTM Seq2Seq + Beam Decoder using topic modelling, test accuracy 10.67%
 4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling, test accuracy 8.29%
-5. LSTM Seq2Seq + Luong Attention + Pointer Generator, test accuracy 11.79%
-6. Bytenet
-7. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq, test accuracy 15.51%
-8. Copynet, test accuracy 11.15%
-9. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq, test accuracy 16.51%
-10. Dilated Seq2Seq, test accuracy 10.88%
-11. Dilated Seq2Seq + Self Attention, test accuracy 11.54%
-12. BERT + Dilated Fairseq, test accuracy 13.5%
+5. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq, test accuracy 15.51%
+6. Copynet, test accuracy 11.15%
+7. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq, test accuracy 16.51%
+8. Dilated Seq2Seq, test accuracy 10.88%
+9. Dilated Seq2Seq + Self Attention, test accuracy 11.54%
+10. BERT + Dilated Fairseq, test accuracy 13.5%
+11. self-attention + Pointer-Generator, test accuracy 4.34%
+12. Dilated-Fairseq + Pointer-Generator, test accuracy 5.57%
 
 ### [Extractive Summarization](extractive-summarization)
 
