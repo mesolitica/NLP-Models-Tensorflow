@@ -530,6 +530,7 @@ Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/
 
 1. Attention heatmap on Bahdanau Attention
 2. Attention heatmap on Luong Attention
+3. BERT attention, https://github.com/hsm207/bert_attn_viz
 
 ### [Not-deep-learning](not-deep-learning)
 
