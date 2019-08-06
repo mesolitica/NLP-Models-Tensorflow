@@ -5,8 +5,8 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-299--models-blue.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/sentiments-75--models-success.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-300--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/sentiments-76--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
   <a href="#"><img src="https://img.shields.io/badge/NMT-55--models-success.svg"></a>
 </p>
@@ -66,13 +66,11 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 7. LSTM RNN + Conv1D + Highway
 8. LSTM RNN with Attention
 9. Neural Turing Machine
-10. Bidirectional Transformers
+10. BERT
 11. Dynamic Memory Network
-12. Residual Network using Atrous CNN + Bahdanau Attention
-13. Transformer-XL
-14. XL-net
+12. XL-net
 
-<details><summary>Complete list (75 notebooks)</summary>
+<details><summary>Complete list (76 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -144,11 +142,12 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 68. Slice GRU
 69. Slice GRU + Bahdanau
 70. Wavenet
-71. Transfer learning BERT base
+71. Transfer learning BERT Base
 72. Transfer learning XL-net Large
 73. LSTM BiRNN global Max and average pooling
-74. Transfer learning BERT base drop 6 layers
-75. Transfer learning BERT large drop 12 layers
+74. Transfer learning BERT Base drop 6 layers
+75. Transfer learning BERT Large drop 12 layers
+76. Transfer learning XL-net Base
 
 </details>
 
