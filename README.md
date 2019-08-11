@@ -55,7 +55,7 @@ Tensorflow version 1.10 and above only, not included 2.X version.
 
 ### [Text classification](text-classification)
 
-Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data).
+Trained on [English sentiment dataset](text-classification/data), accuracy table in [text-classification](text-classification).
 
 1. Basic cell RNN
 2. Bidirectional RNN
@@ -153,7 +153,7 @@ Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models
 
 ### [Chatbot](chatbot)
 
-Trained on [Cornell Movie Dialog corpus](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/chatbot/dataset.tar.gz).
+Trained on [Cornell Movie Dialog corpus](chatbot/dataset.tar.gz), accuracy table in [chatbot](chatbot).
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
@@ -230,7 +230,7 @@ Trained on [Cornell Movie Dialog corpus](https://github.com/huseinzol05/NLP-Mode
 
 ### [Neural Machine Translation](neural-machine-translation)
 
-Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/neural-machine-translation/vietnam-train).
+Trained on [500 English-Vietnam](neural-machine-translation/vietnam-train), accuracy table in [neural-machine-translation](neural-machine-translation).
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
@@ -306,7 +306,7 @@ Trained on [500 English-Vietnam](https://github.com/huseinzol05/NLP-Models-Tenso
 
 ### [Embedded](embedded)
 
-Trained on [English sentiment dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/text-classification/data).
+Trained on [English sentiment dataset](text-classification/data).
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
@@ -349,7 +349,7 @@ Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
 
 ### [Dependency-Parser](dependency-parser)
 
-Trained on [CONLL English Dependency](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/dependency-parser/dev.conll.txt).
+Trained on [CONLL English Dependency](dependency-parser/dev.conll.txt).
 
 1. Bidirectional RNN + Bahdanau Attention + CRF
 2. Bidirectional RNN + Luong Attention + CRF
@@ -377,7 +377,7 @@ Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/).
 
 ### [Stemming](stemming)
 
-Trained on [English Lemmatization](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/stemming/lemmatization-en.txt).
+Trained on [English Lemmatization](stemming/lemmatization-en.txt).
 
 1. LSTM + Seq2Seq + Beam
 2. GRU + Seq2Seq + Beam
@@ -388,7 +388,7 @@ Trained on [English Lemmatization](https://github.com/huseinzol05/NLP-Models-Ten
 
 ### [Abstractive Summarization](abstractive-summarization)
 
-Trained on [India news](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/abstractive-summarization/dataset).
+Trained on [India news](abstractive-summarization/dataset).
 
 Accuracy based on 10 epochs only, calculated using word positions.
 
@@ -407,7 +407,7 @@ Accuracy based on 10 epochs only, calculated using word positions.
 
 ### [Extractive Summarization](extractive-summarization)
 
-Trained on [random books](https://github.com/huseinzol05/NLP-Models-Tensorflow/tree/master/extractive-summarization/books).
+Trained on [random books](extractive-summarization/books).
 
 1. Skip-thought Vector
 2. Residual Network using Atrous CNN
@@ -461,7 +461,7 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 
 ### [Generator](generator)
 
-Trained on [Shakespeare dataset](https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/generator/shakespeare.txt).
+Trained on [Shakespeare dataset](generator/shakespeare.txt).
 
 1. Character-wise RNN + LSTM
 2. Character-wise RNN + Beam search

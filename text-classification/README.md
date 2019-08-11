@@ -6,7 +6,7 @@
 
 ## Score and average time taken per epoch, not sorted
 
-Based on 20% validation. The results will be different on different dataset. Trained on a GTX 960, 4GB VRAM.
+Based on 20% validation.
 
 | name                                 | accuracy | time taken (s) |
 |--------------------------------------|----------|----------------|

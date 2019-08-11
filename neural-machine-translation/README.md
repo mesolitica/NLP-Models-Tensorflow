@@ -4,7 +4,7 @@
 
 ## Accuracy, not sorted
 
-Based on 20 epochs accuracy. The results will be different on different dataset. Trained on a GTX 960, 4GB VRAM.
+Based on training accuracy for 20 epochs.
 
 | name                                                       | accuracy |
 |------------------------------------------------------------|----------|
