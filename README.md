@@ -220,7 +220,7 @@ Trained on [Cornell Movie Dialog corpus](chatbot/dataset.tar.gz), accuracy table
 47. Attention is all you need + Beam Search
 48. Transformer-XL + LSTM
 49. GPT-2 + LSTM
-50. Fairseq
+50. CNN Seq2seq
 51. Conv-Encoder + LSTM
 52. Tacotron + Greedy decoder
 53. Tacotron + Beam decoder
@@ -242,7 +242,7 @@ Trained on [500 English-Vietnam](neural-machine-translation/vietnam-train), accu
 8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
 9. End-to-End Memory Network
 10. Attention is All you need
-11. BERT + Dilated Fairseq
+11. BERT + Dilated CNN Seq2seq
 
 <details><summary>Complete list (55 notebooks)</summary>
 
@@ -293,14 +293,14 @@ Trained on [500 English-Vietnam](neural-machine-translation/vietnam-train), accu
 45. Attention is all you need
 46. Transformer-XL
 47. Attention is all you need + Beam Search
-48. Fairseq
+48. CNN Seq2seq
 49. Conv-Encoder + LSTM
 50. Bytenet Greedy
 51. Residual GRU Bidirectional Seq2Seq-API Greedy
 52. Google NMT
 53. Dilated Seq2Seq
 54. BERT Encoder + LSTM Luong Decoder
-55. BERT Encoder + Dilated Fairseq
+55. BERT Encoder + Dilated CNN Seq2seq
 
 </details>
 
@@ -401,9 +401,9 @@ Accuracy based on 10 epochs only, calculated using word positions.
 7. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq, test accuracy 16.51%
 8. Dilated Seq2Seq, test accuracy 10.88%
 9. Dilated Seq2Seq + Self Attention, test accuracy 11.54%
-10. BERT + Dilated Fairseq, test accuracy 13.5%
+10. BERT + Dilated CNN Seq2seq, test accuracy 13.5%
 11. self-attention + Pointer-Generator, test accuracy 4.34%
-12. Dilated-Fairseq + Pointer-Generator, test accuracy 5.57%
+12. Dilated-CNN Seq2seq + Pointer-Generator, test accuracy 5.57%
 
 ### [Extractive Summarization](extractive-summarization)
 
@@ -445,7 +445,7 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
 
 1. Tacotron, https://github.com/Kyubyong/tacotron
-2. Fairseq + Dilated CNN vocoder
+2. CNN Seq2seq + Dilated CNN vocoder
 3. Seq2Seq + Bahdanau Attention
 4. Seq2Seq + Luong Attention
 5. Dilated CNN + Monothonic Attention + Dilated CNN vocoder
@@ -486,7 +486,7 @@ Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/mas
 1. TAT-LSTM
 2. TAV-LSTM
 3. MTA-LSTM
-4. Dilated Fairseq
+4. Dilated CNN Seq2seq
 
 ### [Language-detection](language-detection)
 
