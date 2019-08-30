@@ -15,13 +15,13 @@
 ## Table of contents
   * <a href="#text-classification"><img src="https://img.shields.io/badge/Text%20classification-76--models-success.svg"></a>
   * <a href="#chatbot"><img src="https://img.shields.io/badge/Chatbot-54--models-success.svg"></a>
-  * <a href="#neural-machine-translation-english-to-vietnam"><img src="https://img.shields.io/badge/Neural%20Machine%20Translation-55--models-success.svg"></a>
-  * [Embedded](https://github.com/huseinzol05/NLP-Models-Tensorflow#embedded)
-  * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#entity-tagging)
-  * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
-  * [Dependency-Parser](https://github.com/huseinzol05/NLP-Models-Tensorflow#dependency-parser)
-  * [SQUAD Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#squad-question-answers)
-  * [Question-Answers](https://github.com/huseinzol05/NLP-Models-Tensorflow#question-answers)
+  * <a href="#neural-machine-translation"><img src="https://img.shields.io/badge/Neural%20Machine%20Translation-55--models-success.svg"></a>
+  * <a href="#vectorizer"><img src="https://img.shields.io/badge/Vectorizer-12--models-success.svg"></a>
+  * <a href="#entity-tagging"><img src="https://img.shields.io/badge/Entity%20Tagging-8--models-success.svg"></a>
+  * <a href="#pos-tagging"><img src="https://img.shields.io/badge/POS%20Tagging-8--models-success.svg"></a>
+  * <a href="#dependency-parser"><img src="https://img.shields.io/badge/Dependency%20Parser-5--models-success.svg"></a>
+  * <a href="#squad-question-answers"><img src="https://img.shields.io/badge/SQUAD%20Question--Answers-1--models-success.svg"></a>
+  * <a href="#question-answers"><img src="https://img.shields.io/badge/Question--Answers-4--models-success.svg"></a>
   * [Abstractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#abstractive-summarization)
   * [Extractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#extractive-summarization)
   * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
@@ -301,7 +301,7 @@ Trained on [500 English-Vietnam](neural-machine-translation/vietnam-train), accu
 
 </details>
 
-### [Embedded](embedded)
+### [Vectorizer](embedded)
 
 Trained on [English sentiment dataset](text-classification/data).
 
