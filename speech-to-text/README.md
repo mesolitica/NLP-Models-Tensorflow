@@ -2,8 +2,6 @@
 
 1. First, you need to run [download.ipynb](download.ipynb)
 
-2. Run any notebook using Jupyter Notebook or `python train.py`.
+2. Run [caching.py](caching.py)
 
-## Notes
-
-I can't train any convolution based model inside jupyter notebook due to some cuDNN issues related to jupyter.
+3. Run any notebook using Jupyter Notebook

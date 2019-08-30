@@ -1,14 +1,11 @@
 <p align="center">
     <a href="#readme">
-        <img alt="logo" width="50%" src="tf-nlp.png">
+        <img alt="logo" width="30%" src="tf-nlp.png">
     </a>
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-301--models-blue.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/sentiments-76--models-success.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/chatbot-54--models-success.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/NMT-55--models-success.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20models-302--models-blue.svg"></a>
 </p>
 
 ---
@@ -16,7 +13,7 @@
 **NLP-Models-Tensorflow**, Gathers machine learning and tensorflow deep learning models for NLP problems, **code simplify inside Jupyter Notebooks 100%**.
 
 ## Table of contents
-  * [Text classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-classification)
+  * [Text classification](#text-classification) <a href="#"><img src="https://img.shields.io/badge/total%20models-76--models-success.svg"></a>
   * [Chatbot](https://github.com/huseinzol05/NLP-Models-Tensorflow#chatbot)
   * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models-Tensorflow#neural-machine-translation-english-to-vietnam)
   * [Embedded](https://github.com/huseinzol05/NLP-Models-Tensorflow#embedded)
@@ -416,6 +413,7 @@ Trained on [random books](extractive-summarization/books).
 ### [OCR (optical character recognition)](ocr)
 
 1. CNN + LSTM RNN
+2. Im2Latex, test accuracy 100%
 
 ### [Sentence-pair](sentence-pair)
 
