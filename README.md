@@ -13,29 +13,30 @@
 **NLP-Models-Tensorflow**, Gathers machine learning and tensorflow deep learning models for NLP problems, **code simplify inside Jupyter Notebooks 100%**.
 
 ## Table of contents
-  * <a href="#text-classification"><img src="https://img.shields.io/badge/Text%20classification-76--models-success.svg"></a>
-  * <a href="#chatbot"><img src="https://img.shields.io/badge/Chatbot-54--models-success.svg"></a>
-  * <a href="#neural-machine-translation"><img src="https://img.shields.io/badge/Neural%20Machine%20Translation-55--models-success.svg"></a>
-  * <a href="#vectorizer"><img src="https://img.shields.io/badge/Vectorizer-12--models-success.svg"></a>
-  * <a href="#entity-tagging"><img src="https://img.shields.io/badge/Entity%20Tagging-8--models-success.svg"></a>
-  * <a href="#pos-tagging"><img src="https://img.shields.io/badge/POS%20Tagging-8--models-success.svg"></a>
-  * <a href="#dependency-parser"><img src="https://img.shields.io/badge/Dependency%20Parser-5--models-success.svg"></a>
-  * <a href="#squad-question-answers"><img src="https://img.shields.io/badge/SQUAD%20Question--Answers-1--models-success.svg"></a>
-  * <a href="#question-answers"><img src="https://img.shields.io/badge/Question--Answers-4--models-success.svg"></a>
   * <a href="#abstractive-summarization"><img src="https://img.shields.io/badge/Abstractive%20Summarization-12--models-success.svg"></a>
-  * <a href="#unsupervised-extractive-summarization"><img src="https://img.shields.io/badge/Unsupervised%20Extractive%20Summarization-3--models-success.svg"></a>
-  * <a href="#stemming"><img src="https://img.shields.io/badge/Stemming-6--models-success.svg"></a>
+  * <a href="#chatbot"><img src="https://img.shields.io/badge/Chatbot-54--models-success.svg"></a>
+  * <a href="#dependency-parser"><img src="https://img.shields.io/badge/Dependency%20Parser-5--models-success.svg"></a>
+  * <a href="#entity-tagging"><img src="https://img.shields.io/badge/Entity%20Tagging-8--models-success.svg"></a>
   * <a href="#generator"><img src="https://img.shields.io/badge/Generator-15--models-success.svg"></a>
-  * <a href="#topic-generator"><img src="https://img.shields.io/badge/Topic%20Generator-4--models-success.svg"></a>
   * <a href="#language-detection"><img src="https://img.shields.io/badge/Language%20Detection-1--models-success.svg"></a>
+  * <a href="#neural-machine-translation"><img src="https://img.shields.io/badge/Neural%20Machine%20Translation-55--models-success.svg"></a>
   * <a href="#ocr-optical-character-recognition"><img src="https://img.shields.io/badge/OCR-2--models-success.svg"></a>
+  * <a href="#pos-tagging"><img src="https://img.shields.io/badge/POS%20Tagging-8--models-success.svg"></a>
+  * <a href="#question-answers"><img src="https://img.shields.io/badge/Question--Answers-4--models-success.svg"></a>
   * <a href="#sentence-pair"><img src="https://img.shields.io/badge/Sentence--pair-1--models-success.svg"></a>
   * <a href="#speech-to-text"><img src="https://img.shields.io/badge/Speech--to--Text-10--models-success.svg"></a>
-  * <a href="#text-to-speech"><img src="https://img.shields.io/badge/Text--to--Speech-8--models-success.svg"></a>
-  * <a href="#old-to-young-vocoder"><img src="https://img.shields.io/badge/Vocoder-1--models-success.svg"></a>
-  * <a href="#text-similarity"><img src="https://img.shields.io/badge/Text%20Similarity-6--models-success.svg"></a>
+  * <a href="#squad-question-answers"><img src="https://img.shields.io/badge/SQUAD%20Question--Answers-1--models-success.svg"></a>
+  * <a href="#stemming"><img src="https://img.shields.io/badge/Stemming-6--models-success.svg"></a>
   * <a href="#text-augmentation"><img src="https://img.shields.io/badge/Text%20Augmentation-6--models-success.svg"></a>
-  * <a href="#miscellaneous"><img src="https://img.shields.io/badge/Miscellaneous-5--models-success.svg"></a>
+  * <a href="#text-classification"><img src="https://img.shields.io/badge/Text%20classification-76--models-success.svg"></a>
+  * <a href="#text-similarity"><img src="https://img.shields.io/badge/Text%20Similarity-6--models-success.svg"></a>
+  * <a href="#text-to-speech"><img src="https://img.shields.io/badge/Text--to--Speech-8--models-success.svg"></a>
+  * <a href="#topic-generator"><img src="https://img.shields.io/badge/Topic%20Generator-4--models-success.svg"></a>
+  * <a href="#topic-modeling"><img src="https://img.shields.io/badge/Topic%20Modeling-2--models-success.svg"></a>
+  * <a href="#unsupervised-extractive-summarization"><img src="https://img.shields.io/badge/Unsupervised%20Extractive%20Summarization-3--models-success.svg"></a>
+  * <a href="#vectorizer"><img src="https://img.shields.io/badge/Vectorizer-12--models-success.svg"></a>
+  * <a href="#old-to-young-vocoder"><img src="https://img.shields.io/badge/Vocoder-1--models-success.svg"></a>
+  * <a href="#visualization"><img src="https://img.shields.io/badge/Visualization-5--models-success.svg"></a>
   * <a href="#attention"><img src="https://img.shields.io/badge/Attention-8--models-success.svg"></a>
 
 ## Objective
@@ -49,6 +50,304 @@ I will attached github repositories for models that I not implemented from scrat
 Tensorflow version 1.10 and above only, not included 2.X version.
 
 ## Contents
+
+### [Abstractive Summarization](abstractive-summarization)
+
+Trained on [India news](abstractive-summarization/dataset).
+
+Accuracy based on 10 epochs only, calculated using word positions.
+
+1. LSTM Seq2Seq using topic modelling, test accuracy 13.22%
+2. LSTM Seq2Seq + Luong Attention using topic modelling, test accuracy 12.39%
+3. LSTM Seq2Seq + Beam Decoder using topic modelling, test accuracy 10.67%
+4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling, test accuracy 8.29%
+5. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq, test accuracy 15.51%
+6. Copynet, test accuracy 11.15%
+7. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq, test accuracy 16.51%
+8. Dilated Seq2Seq, test accuracy 10.88%
+9. Dilated Seq2Seq + Self Attention, test accuracy 11.54%
+10. BERT + Dilated CNN Seq2seq, test accuracy 13.5%
+11. self-attention + Pointer-Generator, test accuracy 4.34%
+12. Dilated-CNN Seq2seq + Pointer-Generator, test accuracy 5.57%
+
+### [Chatbot](chatbot)
+
+Trained on [Cornell Movie Dialog corpus](chatbot/dataset.tar.gz), accuracy table in [chatbot](chatbot).
+
+1. Seq2Seq-manual
+2. Seq2Seq-API Greedy
+3. Bidirectional Seq2Seq-manual
+4. Bidirectional Seq2Seq-API Greedy
+5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+7. Bytenet
+8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+9. End-to-End Memory Network
+10. Attention is All you need
+11. Transformer-XL + LSTM
+12. GPT-2 + LSTM
+13. Tacotron + Beam decoder
+
+<details><summary>Complete list (54 notebooks)</summary>
+
+1. Basic cell Seq2Seq-manual
+2. LSTM Seq2Seq-manual
+3. GRU Seq2Seq-manual
+4. Basic cell Seq2Seq-API Greedy
+5. LSTM Seq2Seq-API Greedy
+6. GRU Seq2Seq-API Greedy
+7. Basic cell Bidirectional Seq2Seq-manual
+8. LSTM Bidirectional Seq2Seq-manual
+9. GRU Bidirectional Seq2Seq-manual
+10. Basic cell Bidirectional Seq2Seq-API Greedy
+11. LSTM Bidirectional Seq2Seq-API Greedy
+12. GRU Bidirectional Seq2Seq-API Greedy
+13. Basic cell Seq2Seq-manual + Luong Attention
+14. LSTM Seq2Seq-manual + Luong Attention
+15. GRU Seq2Seq-manual + Luong Attention
+16. Basic cell Seq2Seq-manual + Bahdanau Attention
+17. LSTM Seq2Seq-manual + Bahdanau Attention
+18. GRU Seq2Seq-manual + Bahdanau Attention
+19. LSTM Bidirectional Seq2Seq-manual + Luong Attention
+20. GRU Bidirectional Seq2Seq-manual + Luong Attention
+21. LSTM Bidirectional Seq2Seq-manual + Bahdanau Attention
+22. GRU Bidirectional Seq2Seq-manual + Bahdanau Attention
+23. LSTM Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+24. GRU Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+25. LSTM Seq2Seq-API Greedy + Luong Attention
+26. GRU Seq2Seq-API Greedy + Luong Attention
+27. LSTM Seq2Seq-API Greedy + Bahdanau Attention
+28. GRU Seq2Seq-API Greedy + Bahdanau Attention
+29. LSTM Seq2Seq-API Beam Decoder
+30. GRU Seq2Seq-API Beam Decoder
+31. LSTM Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+35. Bytenet
+36. LSTM Seq2Seq + tf.estimator
+37. Capsule layers + LSTM Seq2Seq-API Greedy
+38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
+40. DNC Seq2Seq
+41. LSTM Bidirectional Seq2Seq-API + Luong Monotic Attention + Beam Decoder
+42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
+43. End-to-End Memory Network + Basic cell
+44. End-to-End Memory Network + LSTM cell
+45. Attention is all you need
+46. Transformer-XL
+47. Attention is all you need + Beam Search
+48. Transformer-XL + LSTM
+49. GPT-2 + LSTM
+50. CNN Seq2seq
+51. Conv-Encoder + LSTM
+52. Tacotron + Greedy decoder
+53. Tacotron + Beam decoder
+54. Google NMT
+
+</details>
+
+### [Dependency-Parser](dependency-parser)
+
+Trained on [CONLL English Dependency](dependency-parser/dev.conll.txt).
+
+1. Bidirectional RNN + Bahdanau Attention + CRF
+2. Bidirectional RNN + Luong Attention + CRF
+3. Residual Network + Bahdanau Attention + CRF
+4. Residual Network + Bahdanau Attention + Char Embedded + CRF
+5. Attention is all you need + CRF
+
+### [Entity-Tagging](entity-tagging)
+
+Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
+
+1. Bidirectional RNN + CRF, test accuracy 96%
+2. Bidirectional RNN + Luong Attention + CRF, test accuracy 93%
+3. Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 95%
+4. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 96%
+5. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 96%
+6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 69%
+7. Char Ngrams + Attention is you all Need + CRF, test accuracy 90%
+8. BERT, test accuracy 99%
+
+### [Generator](generator)
+
+Trained on [Shakespeare dataset](generator/shakespeare.txt).
+
+1. Character-wise RNN + LSTM
+2. Character-wise RNN + Beam search
+3. Character-wise RNN + LSTM + Embedding
+4. Word-wise RNN + LSTM
+5. Word-wise RNN + LSTM + Embedding
+6. Character-wise + Seq2Seq + GRU
+7. Word-wise + Seq2Seq + GRU
+8. Character-wise RNN + LSTM + Bahdanau Attention
+9. Character-wise RNN + LSTM + Luong Attention
+10. Word-wise + Seq2Seq + GRU + Beam
+11. Character-wise + Seq2Seq + GRU + Bahdanau Attention
+12. Word-wise + Seq2Seq + GRU + Bahdanau Attention
+13. Character-wise Dilated CNN + Beam search
+14. Transformer + Beam search
+15. Transformer XL + Beam search
+
+### [Language-detection](language-detection)
+
+Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.bz2).
+
+1. Fast-text Char N-Grams
+
+### [Neural Machine Translation](neural-machine-translation)
+
+Trained on [500 English-Vietnam](neural-machine-translation/vietnam-train), accuracy table in [neural-machine-translation](neural-machine-translation).
+
+1. Seq2Seq-manual
+2. Seq2Seq-API Greedy
+3. Bidirectional Seq2Seq-manual
+4. Bidirectional Seq2Seq-API Greedy
+5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+7. Bytenet
+8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+9. End-to-End Memory Network
+10. Attention is All you need
+11. BERT + Dilated CNN Seq2seq
+
+<details><summary>Complete list (55 notebooks)</summary>
+
+1. Basic cell Seq2Seq-manual
+2. LSTM Seq2Seq-manual
+3. GRU Seq2Seq-manual
+4. Basic cell Seq2Seq-API Greedy
+5. LSTM Seq2Seq-API Greedy
+6. GRU Seq2Seq-API Greedy
+7. Basic cell Bidirectional Seq2Seq-manual
+8. LSTM Bidirectional Seq2Seq-manual
+9. GRU Bidirectional Seq2Seq-manual
+10. Basic cell Bidirectional Seq2Seq-API Greedy
+11. LSTM Bidirectional Seq2Seq-API Greedy
+12. GRU Bidirectional Seq2Seq-API Greedy
+13. Basic cell Seq2Seq-manual + Luong Attention
+14. LSTM Seq2Seq-manual + Luong Attention
+15. GRU Seq2Seq-manual + Luong Attention
+16. Basic cell Seq2Seq-manual + Bahdanau Attention
+17. LSTM Seq2Seq-manual + Bahdanau Attention
+18. GRU Seq2Seq-manual + Bahdanau Attention
+19. LSTM Bidirectional Seq2Seq-manual + Luong Attention
+20. GRU Bidirectional Seq2Seq-manual + Luong Attention
+21. LSTM Bidirectional Seq2Seq-manual + Bahdanau Attention
+22. GRU Bidirectional Seq2Seq-manual + Bahdanau Attention
+23. LSTM Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+24. GRU Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
+25. LSTM Seq2Seq-API Greedy + Luong Attention
+26. GRU Seq2Seq-API Greedy + Luong Attention
+27. LSTM Seq2Seq-API Greedy + Bahdanau Attention
+28. GRU Seq2Seq-API Greedy + Bahdanau Attention
+29. LSTM Seq2Seq-API Beam Decoder
+30. GRU Seq2Seq-API Beam Decoder
+31. LSTM Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
+33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
+35. Bytenet
+36. LSTM Seq2Seq + tf.estimator
+37. Capsule layers + LSTM Seq2Seq-API Greedy
+38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
+40. DNC Seq2Seq
+41. LSTM Bidirectional Seq2Seq-API + Luong Monotic Attention + Beam Decoder
+42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
+43. End-to-End Memory Network + Basic cell
+44. End-to-End Memory Network + LSTM cell
+45. Attention is all you need
+46. Transformer-XL
+47. Attention is all you need + Beam Search
+48. CNN Seq2seq
+49. Conv-Encoder + LSTM
+50. Bytenet Greedy
+51. Residual GRU Bidirectional Seq2Seq-API Greedy
+52. Google NMT
+53. Dilated Seq2Seq
+54. BERT Encoder + LSTM Luong Decoder
+55. BERT Encoder + Dilated CNN Seq2seq
+
+</details>
+
+### [OCR (optical character recognition)](ocr)
+
+1. CNN + LSTM RNN, test accuracy 100%
+2. Im2Latex, test accuracy 100%
+
+### [POS-Tagging](pos-tagging)
+
+Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81).
+
+1. Bidirectional RNN + CRF, test accuracy 92%
+2. Bidirectional RNN + Luong Attention + CRF, test accuracy 91%
+3. Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
+4. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
+5. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
+6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 3%
+7. Char Ngrams + Attention is you all Need + CRF, test accuracy 89%
+8. BERT, test accuracy 99%
+
+### [Question-Answers](question-answer)
+
+Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/).
+
+1. End-to-End Memory Network + Basic cell
+2. End-to-End Memory Network + GRU cell
+3. End-to-End Memory Network + LSTM cell
+4. Dynamic Memory
+
+### [Sentence-pair](sentence-pair)
+
+Trained on [Cornell Movie--Dialogs Corpus](https://people.mpi-sws.org/~cristian/Cornell_Movie-Dialogs_Corpus.html)
+
+1. BERT
+
+### [Speech to Text](speech-to-text)
+
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
+
+1. Tacotron, https://github.com/Kyubyong/tacotron_asr, test accuracy 77.09%
+2. BiRNN LSTM, test accuracy 84.66%
+3. BiRNN Seq2Seq + Luong Attention + Cross Entropy, test accuracy 87.86%
+4. BiRNN Seq2Seq + Bahdanau Attention + Cross Entropy, test accuracy 89.28%
+5. BiRNN Seq2Seq + Bahdanau Attention + CTC, test accuracy 86.35%
+6. BiRNN Seq2Seq + Luong Attention + CTC, test accuracy 80.30%
+7. CNN RNN + Bahdanau Attention, test accuracy 80.23%
+8. Dilated CNN RNN, test accuracy 31.60%
+9. Wavenet, test accuracy 75.11%
+10. Deep Speech 2, test accuracy 81.40%
+
+### [SQUAD Question-Answers](squad-qa)
+
+Trained on [SQUAD Dataset](https://rajpurkar.github.io/SQuAD-explorer/).
+
+1. BERT,
+```json
+{"exact_match": 77.57805108798486, "f1": 86.18327335287402}
+```
+
+### [Stemming](stemming)
+
+Trained on [English Lemmatization](stemming/lemmatization-en.txt).
+
+1. LSTM + Seq2Seq + Beam
+2. GRU + Seq2Seq + Beam
+3. LSTM + BiRNN + Seq2Seq + Beam
+4. GRU + BiRNN + Seq2Seq + Beam
+5. DNC + Seq2Seq + Greedy
+6. BiRNN + Bahdanau + Copynet
+
+### [Text Augmentation](text-augmentation)
+
+1. Pretrained Glove
+2. GRU VAE-seq2seq-beam TF-probability
+3. LSTM VAE-seq2seq-beam TF-probability
+4. GRU VAE-seq2seq-beam + Bahdanau Attention TF-probability
+5. VAE + Deterministic Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
+6. VAE + VAE Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
 
 ### [Text classification](text-classification)
 
@@ -148,293 +447,16 @@ Trained on [English sentiment dataset](text-classification/data), accuracy table
 
 </details>
 
-### [Chatbot](chatbot)
+### [Text Similarity](text-similarity)
 
-Trained on [Cornell Movie Dialog corpus](chatbot/dataset.tar.gz), accuracy table in [chatbot](chatbot).
+Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs).
 
-1. Seq2Seq-manual
-2. Seq2Seq-API Greedy
-3. Bidirectional Seq2Seq-manual
-4. Bidirectional Seq2Seq-API Greedy
-5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-7. Bytenet
-8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
-9. End-to-End Memory Network
-10. Attention is All you need
-11. Transformer-XL + LSTM
-12. GPT-2 + LSTM
-13. Tacotron + Beam decoder
-
-<details><summary>Complete list (54 notebooks)</summary>
-
-1. Basic cell Seq2Seq-manual
-2. LSTM Seq2Seq-manual
-3. GRU Seq2Seq-manual
-4. Basic cell Seq2Seq-API Greedy
-5. LSTM Seq2Seq-API Greedy
-6. GRU Seq2Seq-API Greedy
-7. Basic cell Bidirectional Seq2Seq-manual
-8. LSTM Bidirectional Seq2Seq-manual
-9. GRU Bidirectional Seq2Seq-manual
-10. Basic cell Bidirectional Seq2Seq-API Greedy
-11. LSTM Bidirectional Seq2Seq-API Greedy
-12. GRU Bidirectional Seq2Seq-API Greedy
-13. Basic cell Seq2Seq-manual + Luong Attention
-14. LSTM Seq2Seq-manual + Luong Attention
-15. GRU Seq2Seq-manual + Luong Attention
-16. Basic cell Seq2Seq-manual + Bahdanau Attention
-17. LSTM Seq2Seq-manual + Bahdanau Attention
-18. GRU Seq2Seq-manual + Bahdanau Attention
-19. LSTM Bidirectional Seq2Seq-manual + Luong Attention
-20. GRU Bidirectional Seq2Seq-manual + Luong Attention
-21. LSTM Bidirectional Seq2Seq-manual + Bahdanau Attention
-22. GRU Bidirectional Seq2Seq-manual + Bahdanau Attention
-23. LSTM Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-24. GRU Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-25. LSTM Seq2Seq-API Greedy + Luong Attention
-26. GRU Seq2Seq-API Greedy + Luong Attention
-27. LSTM Seq2Seq-API Greedy + Bahdanau Attention
-28. GRU Seq2Seq-API Greedy + Bahdanau Attention
-29. LSTM Seq2Seq-API Beam Decoder
-30. GRU Seq2Seq-API Beam Decoder
-31. LSTM Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
-32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
-33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-35. Bytenet
-36. LSTM Seq2Seq + tf.estimator
-37. Capsule layers + LSTM Seq2Seq-API Greedy
-38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
-39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
-40. DNC Seq2Seq
-41. LSTM Bidirectional Seq2Seq-API + Luong Monotic Attention + Beam Decoder
-42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
-43. End-to-End Memory Network + Basic cell
-44. End-to-End Memory Network + LSTM cell
-45. Attention is all you need
-46. Transformer-XL
-47. Attention is all you need + Beam Search
-48. Transformer-XL + LSTM
-49. GPT-2 + LSTM
-50. CNN Seq2seq
-51. Conv-Encoder + LSTM
-52. Tacotron + Greedy decoder
-53. Tacotron + Beam decoder
-54. Google NMT
-
-</details>
-
-### [Neural Machine Translation](neural-machine-translation)
-
-Trained on [500 English-Vietnam](neural-machine-translation/vietnam-train), accuracy table in [neural-machine-translation](neural-machine-translation).
-
-1. Seq2Seq-manual
-2. Seq2Seq-API Greedy
-3. Bidirectional Seq2Seq-manual
-4. Bidirectional Seq2Seq-API Greedy
-5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-7. Bytenet
-8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
-9. End-to-End Memory Network
-10. Attention is All you need
-11. BERT + Dilated CNN Seq2seq
-
-<details><summary>Complete list (55 notebooks)</summary>
-
-1. Basic cell Seq2Seq-manual
-2. LSTM Seq2Seq-manual
-3. GRU Seq2Seq-manual
-4. Basic cell Seq2Seq-API Greedy
-5. LSTM Seq2Seq-API Greedy
-6. GRU Seq2Seq-API Greedy
-7. Basic cell Bidirectional Seq2Seq-manual
-8. LSTM Bidirectional Seq2Seq-manual
-9. GRU Bidirectional Seq2Seq-manual
-10. Basic cell Bidirectional Seq2Seq-API Greedy
-11. LSTM Bidirectional Seq2Seq-API Greedy
-12. GRU Bidirectional Seq2Seq-API Greedy
-13. Basic cell Seq2Seq-manual + Luong Attention
-14. LSTM Seq2Seq-manual + Luong Attention
-15. GRU Seq2Seq-manual + Luong Attention
-16. Basic cell Seq2Seq-manual + Bahdanau Attention
-17. LSTM Seq2Seq-manual + Bahdanau Attention
-18. GRU Seq2Seq-manual + Bahdanau Attention
-19. LSTM Bidirectional Seq2Seq-manual + Luong Attention
-20. GRU Bidirectional Seq2Seq-manual + Luong Attention
-21. LSTM Bidirectional Seq2Seq-manual + Bahdanau Attention
-22. GRU Bidirectional Seq2Seq-manual + Bahdanau Attention
-23. LSTM Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-24. GRU Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-25. LSTM Seq2Seq-API Greedy + Luong Attention
-26. GRU Seq2Seq-API Greedy + Luong Attention
-27. LSTM Seq2Seq-API Greedy + Bahdanau Attention
-28. GRU Seq2Seq-API Greedy + Bahdanau Attention
-29. LSTM Seq2Seq-API Beam Decoder
-30. GRU Seq2Seq-API Beam Decoder
-31. LSTM Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
-32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
-33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-35. Bytenet
-36. LSTM Seq2Seq + tf.estimator
-37. Capsule layers + LSTM Seq2Seq-API Greedy
-38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
-39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
-40. DNC Seq2Seq
-41. LSTM Bidirectional Seq2Seq-API + Luong Monotic Attention + Beam Decoder
-42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
-43. End-to-End Memory Network + Basic cell
-44. End-to-End Memory Network + LSTM cell
-45. Attention is all you need
-46. Transformer-XL
-47. Attention is all you need + Beam Search
-48. CNN Seq2seq
-49. Conv-Encoder + LSTM
-50. Bytenet Greedy
-51. Residual GRU Bidirectional Seq2Seq-API Greedy
-52. Google NMT
-53. Dilated Seq2Seq
-54. BERT Encoder + LSTM Luong Decoder
-55. BERT Encoder + Dilated CNN Seq2seq
-
-</details>
-
-### [Vectorizer](embedded)
-
-Trained on [English sentiment dataset](text-classification/data).
-
-1. Word Vector using CBOW sample softmax
-2. Word Vector using CBOW noise contrastive estimation
-3. Word Vector using skipgram sample softmax
-4. Word Vector using skipgram noise contrastive estimation
-5. Lda2Vec Tensorflow
-6. Supervised Embedded
-7. Triplet-loss + LSTM
-8. LSTM Auto-Encoder
-9. Batch-All Triplet-loss LSTM
-10. Fast-text
-11. ELMO (biLM)
-12. Triplet-loss + BERT
-
-### [POS-Tagging](pos-tagging)
-
-Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81).
-
-1. Bidirectional RNN + CRF, test accuracy 92%
-2. Bidirectional RNN + Luong Attention + CRF, test accuracy 91%
-3. Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
-4. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
-5. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 91%
-6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 3%
-7. Char Ngrams + Attention is you all Need + CRF, test accuracy 89%
-8. BERT, test accuracy 99%
-
-### [Entity-Tagging](entity-tagging)
-
-Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
-
-1. Bidirectional RNN + CRF, test accuracy 96%
-2. Bidirectional RNN + Luong Attention + CRF, test accuracy 93%
-3. Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 95%
-4. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 96%
-5. Char Ngrams + Bidirectional RNN + Bahdanau Attention + CRF, test accuracy 96%
-6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 69%
-7. Char Ngrams + Attention is you all Need + CRF, test accuracy 90%
-8. BERT, test accuracy 99%
-
-### [Dependency-Parser](dependency-parser)
-
-Trained on [CONLL English Dependency](dependency-parser/dev.conll.txt).
-
-1. Bidirectional RNN + Bahdanau Attention + CRF
-2. Bidirectional RNN + Luong Attention + CRF
-3. Residual Network + Bahdanau Attention + CRF
-4. Residual Network + Bahdanau Attention + Char Embedded + CRF
-5. Attention is all you need + CRF
-
-### [SQUAD Question-Answers](squad-qa)
-
-Trained on [SQUAD Dataset](https://rajpurkar.github.io/SQuAD-explorer/).
-
-1. BERT,
-```json
-{"exact_match": 77.57805108798486, "f1": 86.18327335287402}
-```
-
-### [Question-Answers](question-answer)
-
-Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/).
-
-1. End-to-End Memory Network + Basic cell
-2. End-to-End Memory Network + GRU cell
-3. End-to-End Memory Network + LSTM cell
-4. Dynamic Memory
-
-### [Stemming](stemming)
-
-Trained on [English Lemmatization](stemming/lemmatization-en.txt).
-
-1. LSTM + Seq2Seq + Beam
-2. GRU + Seq2Seq + Beam
-3. LSTM + BiRNN + Seq2Seq + Beam
-4. GRU + BiRNN + Seq2Seq + Beam
-5. DNC + Seq2Seq + Greedy
-6. BiRNN + Bahdanau + Copynet
-
-### [Abstractive Summarization](abstractive-summarization)
-
-Trained on [India news](abstractive-summarization/dataset).
-
-Accuracy based on 10 epochs only, calculated using word positions.
-
-1. LSTM Seq2Seq using topic modelling, test accuracy 13.22%
-2. LSTM Seq2Seq + Luong Attention using topic modelling, test accuracy 12.39%
-3. LSTM Seq2Seq + Beam Decoder using topic modelling, test accuracy 10.67%
-4. LSTM Bidirectional + Luong Attention + Beam Decoder using topic modelling, test accuracy 8.29%
-5. Pointer-Generator + Bahdanau, https://github.com/xueyouluo/my_seq2seq, test accuracy 15.51%
-6. Copynet, test accuracy 11.15%
-7. Pointer-Generator + Luong, https://github.com/xueyouluo/my_seq2seq, test accuracy 16.51%
-8. Dilated Seq2Seq, test accuracy 10.88%
-9. Dilated Seq2Seq + Self Attention, test accuracy 11.54%
-10. BERT + Dilated CNN Seq2seq, test accuracy 13.5%
-11. self-attention + Pointer-Generator, test accuracy 4.34%
-12. Dilated-CNN Seq2seq + Pointer-Generator, test accuracy 5.57%
-
-### [Unsupervised Extractive Summarization](extractive-summarization)
-
-Trained on [random books](extractive-summarization/books).
-
-1. Skip-thought Vector
-2. Residual Network using Atrous CNN
-3. Residual Network using Atrous CNN + Bahdanau Attention
-
-### [OCR (optical character recognition)](ocr)
-
-1. CNN + LSTM RNN, test accuracy 100%
-2. Im2Latex, test accuracy 100%
-
-### [Sentence-pair](sentence-pair)
-
-Trained on [Cornell Movie--Dialogs Corpus](https://people.mpi-sws.org/~cristian/Cornell_Movie-Dialogs_Corpus.html)
-
-1. BERT
-
-### [Speech to Text](speech-to-text)
-
-Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
-
-1. Tacotron, https://github.com/Kyubyong/tacotron_asr, test accuracy 77.09%
-2. BiRNN LSTM, test accuracy 84.66%
-3. BiRNN Seq2Seq + Luong Attention + Cross Entropy, test accuracy 87.86%
-4. BiRNN Seq2Seq + Bahdanau Attention + Cross Entropy, test accuracy 89.28%
-5. BiRNN Seq2Seq + Bahdanau Attention + CTC, test accuracy 86.35%
-6. BiRNN Seq2Seq + Luong Attention + CTC, test accuracy 80.30%
-7. CNN RNN + Bahdanau Attention, test accuracy 80.23%
-8. Dilated CNN RNN, test accuracy 31.60%
-9. Wavenet, test accuracy 75.11%
-10. Deep Speech 2, test accuracy 81.40%
+1. BiRNN + Contrastive loss, test accuracy 76.50%
+2. Dilated CNN + Contrastive loss, test accuracy 72.98%
+3. Transformer + Contrastive loss, test accuracy 73.48%
+4. Dilated CNN + Cross entropy, test accuracy 72.27%
+5. Transformer + Cross entropy, test accuracy 71.1%
+6. Transfer learning BERT base + Cross entropy, test accuracy 90%
 
 ### [Text to Speech](text-to-speech)
 
@@ -449,32 +471,6 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 7. Deep CNN + Monothonic Attention + Dilated CNN vocoder
 8. Deep CNN + Self Attention + Dilated CNN vocoder
 
-### [Old-to-Young Vocoder](vocoder)
-
-Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
-
-1. Dilated CNN
-
-### [Generator](generator)
-
-Trained on [Shakespeare dataset](generator/shakespeare.txt).
-
-1. Character-wise RNN + LSTM
-2. Character-wise RNN + Beam search
-3. Character-wise RNN + LSTM + Embedding
-4. Word-wise RNN + LSTM
-5. Word-wise RNN + LSTM + Embedding
-6. Character-wise + Seq2Seq + GRU
-7. Word-wise + Seq2Seq + GRU
-8. Character-wise RNN + LSTM + Bahdanau Attention
-9. Character-wise RNN + LSTM + Luong Attention
-10. Word-wise + Seq2Seq + GRU + Beam
-11. Character-wise + Seq2Seq + GRU + Bahdanau Attention
-12. Word-wise + Seq2Seq + GRU + Bahdanau Attention
-13. Character-wise Dilated CNN + Beam search
-14. Transformer + Beam search
-15. Transformer XL + Beam search
-
 ### [Topic Generator](topic-generator)
 
 Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/master/news/news.zip).
@@ -484,31 +480,50 @@ Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/mas
 3. MTA-LSTM
 4. Dilated CNN Seq2seq
 
-### [Language-detection](language-detection)
+### [Topic Modeling](topic-model)
 
-Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.bz2).
+Trained on [English sentiment dataset](text-classification/data).
 
-1. Fast-text Char N-Grams
+1. LDA2Vec
+2. BERT Attention
 
-### [Text Similarity](text-similarity)
+### [Unsupervised Extractive Summarization](unsupervised-extractive-summarization)
 
-Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs).
+Trained on [random books](extractive-summarization/books).
 
-1. BiRNN + Contrastive loss, test accuracy 76.50%
-2. Dilated CNN + Contrastive loss, test accuracy 72.98%
-3. Transformer + Contrastive loss, test accuracy 73.48%
-4. Dilated CNN + Cross entropy, test accuracy 72.27%
-5. Transformer + Cross entropy, test accuracy 71.1%
-6. Transfer learning BERT base + Cross entropy, test accuracy 90%
+1. Skip-thought Vector
+2. Residual Network using Atrous CNN
+3. Residual Network using Atrous CNN + Bahdanau Attention
 
-### [Text Augmentation](text-augmentation)
+### [Vectorizer](vectorizer)
 
-1. Pretrained Glove
-2. GRU VAE-seq2seq-beam TF-probability
-3. LSTM VAE-seq2seq-beam TF-probability
-4. GRU VAE-seq2seq-beam + Bahdanau Attention TF-probability
-5. VAE + Deterministic Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
-6. VAE + VAE Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
+Trained on [English sentiment dataset](text-classification/data).
+
+1. Word Vector using CBOW sample softmax
+2. Word Vector using CBOW noise contrastive estimation
+3. Word Vector using skipgram sample softmax
+4. Word Vector using skipgram noise contrastive estimation
+5. Supervised Embedded
+6. Triplet-loss + LSTM
+7. LSTM Auto-Encoder
+8. Batch-All Triplet-loss LSTM
+9. Fast-text
+10. ELMO (biLM)
+11. Triplet-loss + BERT
+
+### [Visualization](visualization)
+
+1. Attention heatmap on Bahdanau Attention
+2. Attention heatmap on Luong Attention
+3. BERT attention, https://github.com/hsm207/bert_attn_viz
+4. XLNET attention
+5. Topic Modeling using BERT
+
+### [Old-to-Young Vocoder](vocoder)
+
+Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
+
+1. Dilated CNN
 
 ### [Attention](attention)
 
@@ -520,14 +535,6 @@ Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/
 6. Attention-over-Attention
 7. Bahdanau API
 8. Luong API
-
-### [Miscellaneous](misc)
-
-1. Attention heatmap on Bahdanau Attention
-2. Attention heatmap on Luong Attention
-3. BERT attention, https://github.com/hsm207/bert_attn_viz
-4. XLNET attention
-5. Topic Modeling using BERT
 
 ### [Not-deep-learning](not-deep-learning)
 
