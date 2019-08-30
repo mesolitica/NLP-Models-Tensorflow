@@ -14,8 +14,8 @@
 
 ## Table of contents
   * <a href="#text-classification"><img src="https://img.shields.io/badge/Text%20classification-76--models-success.svg"></a>
-  * [Chatbot](https://github.com/huseinzol05/NLP-Models-Tensorflow#chatbot)
-  * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models-Tensorflow#neural-machine-translation-english-to-vietnam)
+  * <a href="#chatbot"><img src="https://img.shields.io/badge/Chatbot-54--models-success.svg"></a>
+  * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models-Tensorflow) <a href="#neural-machine-translation-english-to-vietnam"><img src="https://img.shields.io/badge/Neural%20Machine%20Translation-55--models-success.svg"></a>
   * [Embedded](https://github.com/huseinzol05/NLP-Models-Tensorflow#embedded)
   * [Entity-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#entity-tagging)
   * [POS-Tagging](https://github.com/huseinzol05/NLP-Models-Tensorflow#pos-tagging)
