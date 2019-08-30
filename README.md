@@ -13,7 +13,7 @@
 **NLP-Models-Tensorflow**, Gathers machine learning and tensorflow deep learning models for NLP problems, **code simplify inside Jupyter Notebooks 100%**.
 
 ## Table of contents
-  * [<a href="#"><img src="https://img.shields.io/badge/Text%20classification-76--models-success.svg"></a>](#text-classification)
+  * <a href="#text-classification"><img src="https://img.shields.io/badge/Text%20classification-76--models-success.svg"></a>
   * [Chatbot](https://github.com/huseinzol05/NLP-Models-Tensorflow#chatbot)
   * [Neural Machine Translation](https://github.com/huseinzol05/NLP-Models-Tensorflow#neural-machine-translation-english-to-vietnam)
   * [Embedded](https://github.com/huseinzol05/NLP-Models-Tensorflow#embedded)
