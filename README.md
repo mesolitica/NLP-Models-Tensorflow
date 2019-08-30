@@ -49,6 +49,10 @@ I will attached github repositories for models that I not implemented from scrat
 
 Tensorflow version 1.10 and above only, not included 2.X version.
 
+```bash
+pip install -r requirements.txt
+```
+
 ## Contents
 
 ### [Abstractive Summarization](abstractive-summarization)
