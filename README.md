@@ -412,7 +412,7 @@ Trained on [random books](extractive-summarization/books).
 
 ### [OCR (optical character recognition)](ocr)
 
-1. CNN + LSTM RNN
+1. CNN + LSTM RNN, test accuracy 100%
 2. Im2Latex, test accuracy 100%
 
 ### [Sentence-pair](sentence-pair)
@@ -425,18 +425,16 @@ Trained on [Cornell Movie--Dialogs Corpus](https://people.mpi-sws.org/~cristian/
 
 Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
 
-1. Tacotron, https://github.com/Kyubyong/tacotron_asr
-2. Bidirectional RNN + Greedy CTC
-3. Bidirectional RNN + Beam CTC
-4. Seq2Seq + Bahdanau Attention + Beam CTC
-5. Seq2Seq + Luong Attention + Beam CTC
-6. Bidirectional RNN + Attention + Beam CTC
-7. Wavenet
-8. CNN encoder + RNN decoder + Bahdanau Attention
-9. CNN encoder + RNN decoder + Luong Attention
-10. Dilation CNN + GRU Bidirectional
-11. Deep speech 2
-12. Pyramid Dilated CNN
+1. Tacotron, https://github.com/Kyubyong/tacotron_asr, test accuracy 77.09%
+2. BiRNN LSTM, test accuracy 84.66%
+3. BiRNN Seq2Seq + Luong Attention + Cross Entropy, test accuracy 87.86%
+4. BiRNN Seq2Seq + Bahdanau Attention + Cross Entropy, test accuracy 89.28%
+5. BiRNN Seq2Seq + Bahdanau Attention + CTC, test accuracy 86.35%
+6. BiRNN Seq2Seq + Luong Attention + CTC, test accuracy 80.30%
+7. CNN RNN + Bahdanau Attention, test accuracy 80.23%
+8. Dilated CNN RNN, test accuracy 31.60%
+9. Wavenet, test accuracy 75.11%
+10. Deep Speech 2, test accuracy 81.40%
 
 ### [Text to Speech](text-to-speech)
 
