@@ -490,6 +490,7 @@ Trained on [English sentiment dataset](text-classification/data).
 
 1. LDA2Vec
 2. BERT Attention
+3. XLNET Attention
 
 ### [Unsupervised Extractive Summarization](unsupervised-extractive-summarization)
 
