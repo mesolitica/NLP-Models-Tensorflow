@@ -13,31 +13,31 @@
 **NLP-Models-Tensorflow**, Gathers machine learning and tensorflow deep learning models for NLP problems, **code simplify inside Jupyter Notebooks 100%**.
 
 ## Table of contents
-  * <a href="#abstractive-summarization"><img src="https://img.shields.io/badge/Abstractive%20Summarization-12--models-success.svg"></a>
-  * <a href="#chatbot"><img src="https://img.shields.io/badge/Chatbot-54--models-success.svg"></a>
-  * <a href="#dependency-parser"><img src="https://img.shields.io/badge/Dependency%20Parser-5--models-success.svg"></a>
-  * <a href="#entity-tagging"><img src="https://img.shields.io/badge/Entity%20Tagging-8--models-success.svg"></a>
-  * <a href="#generator"><img src="https://img.shields.io/badge/Generator-15--models-success.svg"></a>
-  * <a href="#language-detection"><img src="https://img.shields.io/badge/Language%20Detection-1--models-success.svg"></a>
-  * <a href="#neural-machine-translation"><img src="https://img.shields.io/badge/Neural%20Machine%20Translation-55--models-success.svg"></a>
-  * <a href="#ocr-optical-character-recognition"><img src="https://img.shields.io/badge/OCR-2--models-success.svg"></a>
-  * <a href="#pos-tagging"><img src="https://img.shields.io/badge/POS%20Tagging-8--models-success.svg"></a>
-  * <a href="#question-answers"><img src="https://img.shields.io/badge/Question--Answers-4--models-success.svg"></a>
-  * <a href="#sentence-pair"><img src="https://img.shields.io/badge/Sentence--pair-1--models-success.svg"></a>
-  * <a href="#speech-to-text"><img src="https://img.shields.io/badge/Speech--to--Text-10--models-success.svg"></a>
-  * <a href="#squad-question-answers"><img src="https://img.shields.io/badge/SQUAD%20Question--Answers-1--models-success.svg"></a>
-  * <a href="#stemming"><img src="https://img.shields.io/badge/Stemming-6--models-success.svg"></a>
-  * <a href="#text-augmentation"><img src="https://img.shields.io/badge/Text%20Augmentation-6--models-success.svg"></a>
-  * <a href="#text-classification"><img src="https://img.shields.io/badge/Text%20classification-76--models-success.svg"></a>
-  * <a href="#text-similarity"><img src="https://img.shields.io/badge/Text%20Similarity-6--models-success.svg"></a>
-  * <a href="#text-to-speech"><img src="https://img.shields.io/badge/Text--to--Speech-8--models-success.svg"></a>
-  * <a href="#topic-generator"><img src="https://img.shields.io/badge/Topic%20Generator-4--models-success.svg"></a>
-  * <a href="#topic-modeling"><img src="https://img.shields.io/badge/Topic%20Modeling-2--models-success.svg"></a>
-  * <a href="#unsupervised-extractive-summarization"><img src="https://img.shields.io/badge/Unsupervised%20Extractive%20Summarization-3--models-success.svg"></a>
-  * <a href="#vectorizer"><img src="https://img.shields.io/badge/Vectorizer-12--models-success.svg"></a>
-  * <a href="#old-to-young-vocoder"><img src="https://img.shields.io/badge/Vocoder-1--models-success.svg"></a>
-  * <a href="#visualization"><img src="https://img.shields.io/badge/Visualization-5--models-success.svg"></a>
-  * <a href="#attention"><img src="https://img.shields.io/badge/Attention-8--models-success.svg"></a>
+  * [Abstractive Summarization](#abstractive-summarization)
+  * [Chatbot](#chatbot)
+  * [Dependency Parser](#dependency-parser)
+  * [Entity Tagging](#entity-tagging)
+  * [Generator](#generator)
+  * [Language Detection](#language-detection)
+  * [Neural Machine Translation](neural-machine-translation)
+  * [OCR](#ocr-optical-character-recognition)
+  * [POS Tagging](#pos-tagging)
+  * [Question-Answers](#question-answers)
+  * [Sentence pairs](#sentence-pair)
+  * [Speech-to-Text](#speech-to-text)
+  * [SQUAD Question-Answers](#squad-question-answers)
+  * [Stemming](#stemming)
+  * [Text Augmentation](#text-augmentation)
+  * [Text Classification](#text-classification)
+  * [Text Similarity](#text-similarity)
+  * [Text-to-Speech](#text-to-speech)
+  * [Topic Generator](#topic-generator)
+  * [Topic Modeling](#topic-modeling)
+  * [Unsupervised Extractive Summarization](#unsupervised-extractive-summarization)
+  * [Vectorizer](#vectorizer)
+  * [Old-to-Young Vocoder](#old-to-young-vocoder)
+  * [Visualization](#visualization)
+  * [Attention](#attention)
 
 ## Objective
 
