@@ -522,7 +522,6 @@ Trained on [English sentiment dataset](text-classification/data).
 2. Attention heatmap on Luong Attention
 3. BERT attention, https://github.com/hsm207/bert_attn_viz
 4. XLNET attention
-5. Topic Modeling using BERT
 
 ### [Old-to-Young Vocoder](vocoder)
 
