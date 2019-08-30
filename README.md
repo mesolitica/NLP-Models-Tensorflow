@@ -22,21 +22,21 @@
   * <a href="#dependency-parser"><img src="https://img.shields.io/badge/Dependency%20Parser-5--models-success.svg"></a>
   * <a href="#squad-question-answers"><img src="https://img.shields.io/badge/SQUAD%20Question--Answers-1--models-success.svg"></a>
   * <a href="#question-answers"><img src="https://img.shields.io/badge/Question--Answers-4--models-success.svg"></a>
-  * [Abstractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#abstractive-summarization)
-  * [Extractive Summarization](https://github.com/huseinzol05/NLP-Models-Tensorflow#extractive-summarization)
-  * [Stemming](https://github.com/huseinzol05/NLP-Models-Tensorflow#stemming)
-  * [Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#generator)
-  * [Topic Generator](https://github.com/huseinzol05/NLP-Models-Tensorflow#topic-generator)
-  * [Language detection](https://github.com/huseinzol05/NLP-Models-Tensorflow#language-detection)
-  * [OCR (optical character recognition)](https://github.com/huseinzol05/NLP-Models-Tensorflow#ocr-optical-character-recognition)
-  * [Sentence-Pair classification](https://github.com/huseinzol05/NLP-Models-Tensorflow#sentence-pair)
-  * [Speech to Text](https://github.com/huseinzol05/NLP-Models-Tensorflow#speech-to-text)
-  * [Text to Speech](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-to-speech)
-  * [Old-to-Young Vocoder](https://github.com/huseinzol05/NLP-Models-Tensorflow#old-to-young-vocoder)
-  * [Text Similarity](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-similarity)
-  * [Text Augmentation](https://github.com/huseinzol05/NLP-Models-Tensorflow#text-augmentation)
-  * [Miscellaneous](https://github.com/huseinzol05/NLP-Models-Tensorflow#Miscellaneous)
-  * [Attention](https://github.com/huseinzol05/NLP-Models-Tensorflow#attention)
+  * <a href="#abstractive-summarization"><img src="https://img.shields.io/badge/Abstractive%20Summarization-12--models-success.svg"></a>
+  * <a href="#unsupervised-extractive-summarization"><img src="https://img.shields.io/badge/Unsupervised%20Extractive%20Summarization-3--models-success.svg"></a>
+  * <a href="#stemming"><img src="https://img.shields.io/badge/Stemming-6--models-success.svg"></a>
+  * <a href="#generator"><img src="https://img.shields.io/badge/Generator-15--models-success.svg"></a>
+  * <a href="#topic-generator"><img src="https://img.shields.io/badge/Topic%20Generator-4--models-success.svg"></a>
+  * <a href="#language-detection"><img src="https://img.shields.io/badge/Language%20Detection-1--models-success.svg"></a>
+  * <a href="#ocr-optical-character-recognition"><img src="https://img.shields.io/badge/OCR-2--models-success.svg"></a>
+  * <a href="#sentence-pair"><img src="https://img.shields.io/badge/Sentence--pair-1--models-success.svg"></a>
+  * <a href="#speech-to-text"><img src="https://img.shields.io/badge/Speech--to--Text-10--models-success.svg"></a>
+  * <a href="#text-to-speech"><img src="https://img.shields.io/badge/Text--to--Speech-8--models-success.svg"></a>
+  * <a href="#old-to-young-vocoder"><img src="https://img.shields.io/badge/Vocoder-1--models-success.svg"></a>
+  * <a href="#text-similarity"><img src="https://img.shields.io/badge/Text%20Similarity-6--models-success.svg"></a>
+  * <a href="#text-augmentation"><img src="https://img.shields.io/badge/Text%20Augmentation-6--models-success.svg"></a>
+  * <a href="#miscellaneous"><img src="https://img.shields.io/badge/Miscellaneous-5--models-success.svg"></a>
+  * <a href="#attention"><img src="https://img.shields.io/badge/Attention-8--models-success.svg"></a>
 
 ## Objective
 
@@ -402,7 +402,7 @@ Accuracy based on 10 epochs only, calculated using word positions.
 11. self-attention + Pointer-Generator, test accuracy 4.34%
 12. Dilated-CNN Seq2seq + Pointer-Generator, test accuracy 5.57%
 
-### [Extractive Summarization](extractive-summarization)
+### [Unsupervised Extractive Summarization](extractive-summarization)
 
 Trained on [random books](extractive-summarization/books).
 
