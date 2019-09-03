@@ -1,28 +1,29 @@
 ## How-to
 
-1. Run any notebook using Jupyter Notebook.
+1. Run [download-preprocess-dataset.ipynb](download-preprocess-dataset.ipynb) to download dataset and preprocessing.
+2. Run any notebook using Jupyter Notebook.
 
 ## Accuracy, not sorted
 
-Based on training accuracy for 20 epochs.
+Trainset to train, validation and test set to test. Based on test accuracy for 20 epochs. **Accuracy based on word positions**.
 
 | name                                                       | accuracy |
 |------------------------------------------------------------|----------|
-| 1.basic-seq2seq-manual                                     | 0.915255 |
-| 2.lstm-seq2seq-manual                                      | 0.917009 |
-| 3.gru-seq2seq-manual                                       | 0.920200 |
-| 4.basic-seq2seq-api-greedy                                 | 0.960998 |
-| 5.lstm-seq2seq-api-greedy                                  | 0.202590 |
-| 6.gru-seq2seq-greedy                                       | 0.408099 |
-| 7.basic-birnn-seq2seq-manual                               | 0.919491 |
-| 8.lstm-birnn-seq2seq-manual                                | 0.918473 |
-| 9.gru-birnn-seq2seq-manual                                 | 0.922818 |
-| 10.basic-birnn-seq2seq-greedy                              | 0.957355 |
-| 11.lstm-birnn-seq2seq-greedy                               | 0.202628 |
-| 12.gru-birnn-seq2seq-greedy                                | 0.484461 |
-| 13.basic-seq2seq-luong                                     | 0.916100 |
-| 14.lstm-seq2seq-luong                                      | 0.917736 |
-| 15.gru-seq2seq-luong                                       | 0.919482 |
+| 1.basic-seq2seq-manual                                     | 0.103391 |
+| 2.lstm-seq2seq-manual                                      | 0.118877 |
+| 3.gru-seq2seq-manual                                       | 0.115032 |
+| 4.basic-seq2seq-api-greedy                                 | 0.252812 |
+| 5.lstm-seq2seq-api-greedy                                  | 0.330939 |
+| 6.gru-seq2seq-greedy                                       | 0.312779 |
+| 7.basic-birnn-seq2seq-manual                               | 0.125462 |
+| 8.lstm-birnn-seq2seq-manual                                | 0.121065 |
+| 9.gru-birnn-seq2seq-manual                                 | 0.119774 |
+| 10.basic-birnn-seq2seq-greedy                              | 0.274987 |
+| 11.lstm-birnn-seq2seq-greedy                               | 0.342469 |
+| 12.gru-birnn-seq2seq-greedy                                | 0.325840 |
+| 13.basic-seq2seq-luong                                     | 0.023959 |
+| 14.lstm-seq2seq-luong                                      | 0.130840 |
+| 15.gru-seq2seq-luong                                       | 0.073492 |
 | 16.basic-seq2seq-bahdanau                                  | 0.915700 |
 | 17.lstm-seq2seq-bahdanau                                   | 0.721833 |
 | 18.gru-seq2seq-bahdanau                                    | 0.919218 |

@@ -202,7 +202,7 @@ Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.
 
 ### [Neural Machine Translation](neural-machine-translation)
 
-Trained on [500 English-Vietnam](neural-machine-translation/vietnam-train), accuracy table in [neural-machine-translation](neural-machine-translation).
+Trained on [English-Vietnam](https://github.com/stefan-it/nmt-en-vi#dataset), accuracy table in [neural-machine-translation](neural-machine-translation).
 
 1. Seq2Seq-manual
 2. Seq2Seq-API Greedy
