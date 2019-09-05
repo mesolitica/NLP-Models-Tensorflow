@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20models-302--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-307--models-blue.svg"></a>
 </p>
 
 ---
@@ -204,75 +204,64 @@ Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.
 
 Trained on [English-Vietnam](https://github.com/stefan-it/nmt-en-vi#dataset), accuracy table in [neural-machine-translation](neural-machine-translation).
 
-1. Seq2Seq-manual
-2. Seq2Seq-API Greedy
-3. Bidirectional Seq2Seq-manual
-4. Bidirectional Seq2Seq-API Greedy
-5. Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-6. Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-7. Bytenet
-8. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
-9. End-to-End Memory Network
-10. Attention is All you need
-11. BERT + Dilated CNN Seq2seq
+1. Bytenet
+2. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
+3. End-to-End Memory Network
+4. Attention is All you need
+5. Conv Seq2Seq
+6. BERT + Transformer Decoder
 
-<details><summary>Complete list (55 notebooks)</summary>
+<details><summary>Complete list (49 notebooks)</summary>
 
-1. Basic cell Seq2Seq-manual
-2. LSTM Seq2Seq-manual
-3. GRU Seq2Seq-manual
-4. Basic cell Seq2Seq-API Greedy
-5. LSTM Seq2Seq-API Greedy
-6. GRU Seq2Seq-API Greedy
-7. Basic cell Bidirectional Seq2Seq-manual
-8. LSTM Bidirectional Seq2Seq-manual
-9. GRU Bidirectional Seq2Seq-manual
-10. Basic cell Bidirectional Seq2Seq-API Greedy
-11. LSTM Bidirectional Seq2Seq-API Greedy
-12. GRU Bidirectional Seq2Seq-API Greedy
-13. Basic cell Seq2Seq-manual + Luong Attention
-14. LSTM Seq2Seq-manual + Luong Attention
-15. GRU Seq2Seq-manual + Luong Attention
-16. Basic cell Seq2Seq-manual + Bahdanau Attention
-17. LSTM Seq2Seq-manual + Bahdanau Attention
-18. GRU Seq2Seq-manual + Bahdanau Attention
-19. LSTM Bidirectional Seq2Seq-manual + Luong Attention
-20. GRU Bidirectional Seq2Seq-manual + Luong Attention
-21. LSTM Bidirectional Seq2Seq-manual + Bahdanau Attention
-22. GRU Bidirectional Seq2Seq-manual + Bahdanau Attention
-23. LSTM Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-24. GRU Bidirectional Seq2Seq-manual + backward Bahdanau + forward Luong
-25. LSTM Seq2Seq-API Greedy + Luong Attention
-26. GRU Seq2Seq-API Greedy + Luong Attention
-27. LSTM Seq2Seq-API Greedy + Bahdanau Attention
-28. GRU Seq2Seq-API Greedy + Bahdanau Attention
-29. LSTM Seq2Seq-API Beam Decoder
-30. GRU Seq2Seq-API Beam Decoder
-31. LSTM Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
-32. GRU Bidirectional Seq2Seq-API + Luong Attention + Beam Decoder
-33. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-34. GRU Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder
-35. Bytenet
-36. LSTM Seq2Seq + tf.estimator
-37. Capsule layers + LSTM Seq2Seq-API Greedy
-38. Capsule layers + LSTM Seq2Seq-API + Luong Attention + Beam Decoder
-39. LSTM Bidirectional Seq2Seq-API + backward Bahdanau + forward Luong + Stack Bahdanau Luong Attention + Beam Decoder + Dropout + L2
-40. DNC Seq2Seq
-41. LSTM Bidirectional Seq2Seq-API + Luong Monotic Attention + Beam Decoder
-42. LSTM Bidirectional Seq2Seq-API + Bahdanau Monotic Attention + Beam Decoder
-43. End-to-End Memory Network + Basic cell
-44. End-to-End Memory Network + LSTM cell
-45. Attention is all you need
-46. Transformer-XL
-47. Attention is all you need + Beam Search
-48. CNN Seq2seq
-49. Conv-Encoder + LSTM
-50. Bytenet Greedy
-51. Residual GRU Bidirectional Seq2Seq-API Greedy
-52. Google NMT
-53. Dilated Seq2Seq
-54. BERT Encoder + LSTM Luong Decoder
-55. BERT Encoder + Dilated CNN Seq2seq
+1.basic-seq2seq-manual
+2.lstm-seq2seq-manual
+3.gru-seq2seq-manual
+4.basic-seq2seq-api-greedy                                 
+5.lstm-seq2seq-api-greedy                                 
+6.gru-seq2seq-greedy                                     
+7.basic-birnn-seq2seq-manual                             
+8.lstm-birnn-seq2seq-manual                              
+9.gru-birnn-seq2seq-manual                              
+10.basic-birnn-seq2seq-greedy                             
+11.lstm-birnn-seq2seq-greedy                              
+12.gru-birnn-seq2seq-greedy                               
+13.basic-seq2seq-luong                                    
+14.lstm-seq2seq-luong                                      
+15.gru-seq2seq-luong                                      
+16.basic-seq2seq-bahdanau                                  
+17.lstm-seq2seq-bahdanau                                   
+18.gru-seq2seq-bahdanau                                   
+19.basic-birnn-seq2seq-bahdanau                           
+20.lstm-birnn-seq2seq-bahdanau                            
+21.gru-birnn-seq2seq-bahdanau                              
+22.basic-birnn-seq2seq-luong                              
+23.lstm-birnn-seq2seq-luong                            
+24.gru-birnn-seq2seq-luong                               
+25.lstm-seq2seq-contrib-greedy-luong                      
+26.gru-seq2seq-contrib-greedy-luong                     
+27.lstm-seq2seq-contrib-greedy-bahdanau              
+28.gru-seq2seq-contrib-greedy-bahdanau                  
+29.lstm-seq2seq-contrib-beam-bahdanau                    
+30.gru-seq2seq-contrib-beam-bahdanau                      
+31.lstm-birnn-seq2seq-contrib-beam-luong             
+32.gru-birnn-seq2seq-contrib-beam-luong                  
+33.lstm-birnn-seq2seq-contrib-luong-bahdanau-beam      
+34.gru-birnn-seq2seq-contrib-luong-bahdanau-beam   
+35.bytenet-greedy (prediction sucks)              
+36.capsule-lstm-seq2seq-contrib-greedy                     
+37.capsule-gru-seq2seq-contrib-greedy               
+38.dnc-seq2seq-bahdanau-greedy              
+39.dnc-seq2seq-luong-greedy                    
+40.lstm-birnn-seq2seq-beam-luongmonotic   
+41.lstm-birnn-seq2seq-beam-bahdanaumonotic       
+42.memory-network-lstm-seq2seq-contrib         
+43.attention-is-all-you-need-beam      
+44.conv-seq2seq                         
+45.conv-encoder-lstm-decoder                   
+46.dilated-conv-seq2seq                    
+47.gru-birnn-seq2seq-greedy-residual        
+48.google-nmt                              
+49.bert-transformer-decoder-beam          
 
 </details>
 
@@ -323,6 +312,7 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 8. Dilated CNN RNN, test accuracy 31.60%
 9. Wavenet, test accuracy 75.11%
 10. Deep Speech 2, test accuracy 81.40%
+11. Wav2Vec Transfer learning BiRNN LSTM, test accuracy 83.24%
 
 ### [SQUAD Question-Answers](squad-qa)
 
