@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-307--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-308--models-blue.svg"></a>
 </p>
 
 ---
@@ -210,58 +210,60 @@ Trained on [English-Vietnam](https://github.com/stefan-it/nmt-en-vi#dataset), ac
 4. Attention is All you need
 5. Conv Seq2Seq
 6. BERT + Transformer Decoder
+7. XLNET + Transformer Decoder
 
-<details><summary>Complete list (49 notebooks)</summary>
+<details><summary>Complete list (50 notebooks)</summary>
 
-1.basic-seq2seq-manual
-2.lstm-seq2seq-manual
-3.gru-seq2seq-manual
-4.basic-seq2seq-api-greedy                                 
-5.lstm-seq2seq-api-greedy                                 
-6.gru-seq2seq-greedy                                     
-7.basic-birnn-seq2seq-manual                             
-8.lstm-birnn-seq2seq-manual                              
-9.gru-birnn-seq2seq-manual                              
-10.basic-birnn-seq2seq-greedy                             
-11.lstm-birnn-seq2seq-greedy                              
-12.gru-birnn-seq2seq-greedy                               
-13.basic-seq2seq-luong                                    
-14.lstm-seq2seq-luong                                      
-15.gru-seq2seq-luong                                      
-16.basic-seq2seq-bahdanau                                  
-17.lstm-seq2seq-bahdanau                                   
-18.gru-seq2seq-bahdanau                                   
-19.basic-birnn-seq2seq-bahdanau                           
-20.lstm-birnn-seq2seq-bahdanau                            
-21.gru-birnn-seq2seq-bahdanau                              
-22.basic-birnn-seq2seq-luong                              
-23.lstm-birnn-seq2seq-luong                            
-24.gru-birnn-seq2seq-luong                               
-25.lstm-seq2seq-contrib-greedy-luong                      
-26.gru-seq2seq-contrib-greedy-luong                     
-27.lstm-seq2seq-contrib-greedy-bahdanau              
-28.gru-seq2seq-contrib-greedy-bahdanau                  
-29.lstm-seq2seq-contrib-beam-bahdanau                    
-30.gru-seq2seq-contrib-beam-bahdanau                      
-31.lstm-birnn-seq2seq-contrib-beam-luong             
-32.gru-birnn-seq2seq-contrib-beam-luong                  
-33.lstm-birnn-seq2seq-contrib-luong-bahdanau-beam      
-34.gru-birnn-seq2seq-contrib-luong-bahdanau-beam   
-35.bytenet-greedy (prediction sucks)              
-36.capsule-lstm-seq2seq-contrib-greedy                     
-37.capsule-gru-seq2seq-contrib-greedy               
-38.dnc-seq2seq-bahdanau-greedy              
-39.dnc-seq2seq-luong-greedy                    
-40.lstm-birnn-seq2seq-beam-luongmonotic   
-41.lstm-birnn-seq2seq-beam-bahdanaumonotic       
-42.memory-network-lstm-seq2seq-contrib         
-43.attention-is-all-you-need-beam      
-44.conv-seq2seq                         
-45.conv-encoder-lstm-decoder                   
-46.dilated-conv-seq2seq                    
-47.gru-birnn-seq2seq-greedy-residual        
-48.google-nmt                              
-49.bert-transformer-decoder-beam          
+1. basic-seq2seq-manual
+2. lstm-seq2seq-manual
+3. gru-seq2seq-manual
+4. basic-seq2seq-api-greedy                                 
+5. lstm-seq2seq-api-greedy                                 
+6. gru-seq2seq-greedy                                     
+7. basic-birnn-seq2seq-manual                             
+8. lstm-birnn-seq2seq-manual                              
+9. gru-birnn-seq2seq-manual                              
+10. basic-birnn-seq2seq-greedy                             
+11. lstm-birnn-seq2seq-greedy                              
+12. gru-birnn-seq2seq-greedy                               
+13. basic-seq2seq-luong                                    
+14. lstm-seq2seq-luong                                      
+15. gru-seq2seq-luong                                      
+16. basic-seq2seq-bahdanau                                  
+17. lstm-seq2seq-bahdanau                                   
+18. gru-seq2seq-bahdanau                                   
+19. basic-birnn-seq2seq-bahdanau                           
+20. lstm-birnn-seq2seq-bahdanau                            
+21. gru-birnn-seq2seq-bahdanau                              
+22. basic-birnn-seq2seq-luong                              
+23. lstm-birnn-seq2seq-luong                            
+24. gru-birnn-seq2seq-luong                               
+25. lstm-seq2seq-contrib-greedy-luong                      
+26. gru-seq2seq-contrib-greedy-luong                     
+27. lstm-seq2seq-contrib-greedy-bahdanau              
+28. gru-seq2seq-contrib-greedy-bahdanau                  
+29. lstm-seq2seq-contrib-beam-bahdanau                    
+30. gru-seq2seq-contrib-beam-bahdanau                      
+31. lstm-birnn-seq2seq-contrib-beam-luong             
+32. gru-birnn-seq2seq-contrib-beam-luong                  
+33. lstm-birnn-seq2seq-contrib-luong-bahdanau-beam      
+34. gru-birnn-seq2seq-contrib-luong-bahdanau-beam   
+35. bytenet-greedy       
+36. capsule-lstm-seq2seq-contrib-greedy                     
+37. capsule-gru-seq2seq-contrib-greedy               
+38. dnc-seq2seq-bahdanau-greedy              
+39. dnc-seq2seq-luong-greedy                    
+40. lstm-birnn-seq2seq-beam-luongmonotic   
+41. lstm-birnn-seq2seq-beam-bahdanaumonotic       
+42. memory-network-lstm-seq2seq-contrib         
+43. attention-is-all-you-need-beam      
+44. conv-seq2seq                         
+45. conv-encoder-lstm-decoder                   
+46. dilated-conv-seq2seq                    
+47. gru-birnn-seq2seq-greedy-residual        
+48. google-nmt                              
+49. bert-transformer-decoder-beam
+50. xlnet-base-transformer-decoder-beam
 
 </details>
 

@@ -47,7 +47,7 @@
 | 32.gru-birnn-seq2seq-contrib-beam-luong                    | 0.223249 |
 | 33.lstm-birnn-seq2seq-contrib-luong-bahdanau-beam          |          |
 | 34.gru-birnn-seq2seq-contrib-luong-bahdanau-beam           |          |
-| 35.bytenet-greedy (prediction sucks)                       | 0.987937 |
+| 35.bytenet-greedy (prediction sucks)                       |          |
 | 36.capsule-lstm-seq2seq-contrib-greedy                     |          |
 | 37.capsule-gru-seq2seq-contrib-greedy                      |          |
 | 38.dnc-seq2seq-bahdanau-greedy                             |          |
@@ -59,6 +59,7 @@
 | 44.conv-seq2seq                                            | 0.337291 |
 | 45.conv-encoder-lstm-decoder                               | 0.329069 |
 | 46.dilated-conv-seq2seq                                    | 0.331730 |
-| 47.gru-birnn-seq2seq-greedy-residual                       |          |
-| 48.google-nmt                                              |          |
-| 49.bert-transformer-decoder-beam                           |          |
+| 47.gru-birnn-seq2seq-greedy-residual                       | 0.343508 |
+| 48.google-nmt                                              | 0.330886 |
+| 49.bert-transformer-decoder-beam                           | 0.446938 |
+| 50.xlnet-base-transformer-decoder-beam                     | 0.288339 |
