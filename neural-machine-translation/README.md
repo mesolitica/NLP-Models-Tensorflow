@@ -13,11 +13,11 @@
 
 | name                                                       | accuracy |
 |------------------------------------------------------------|----------|
-| 1.basic-seq2seq-manual                                     | 0.103391 |
-| 2.lstm-seq2seq-manual                                      | 0.118877 |
-| 3.gru-seq2seq-manual                                       | 0.115032 |
-| 4.basic-seq2seq-api-greedy                                 | 0.252812 |
-| 5.lstm-seq2seq-api-greedy                                  | 0.330939 |
+| 1.basic-seq2seq                                            | 0.103391 |
+| 2.lstm-seq2seq                                             | 0.118877 |
+| 3.gru-seq2seq                                              | 0.115032 |
+| 4.basic-seq2seq-contrib-greedy                             | 0.252812 |
+| 5.lstm-seq2seq-contrib-greedy                              | 0.330939 |
 | 6.gru-seq2seq-greedy                                       | 0.312779 |
 | 7.basic-birnn-seq2seq-manual                               | 0.125462 |
 | 8.lstm-birnn-seq2seq-manual                                | 0.121065 |
@@ -47,7 +47,7 @@
 | 32.gru-birnn-seq2seq-contrib-beam-luong                    | 0.223249 |
 | 33.lstm-birnn-seq2seq-contrib-luong-bahdanau-beam          |          |
 | 34.gru-birnn-seq2seq-contrib-luong-bahdanau-beam           |          |
-| 35.bytenet-greedy (prediction sucks)                       |          |
+| 35.bytenet-greedy                                          |          |
 | 36.capsule-lstm-seq2seq-contrib-greedy                     |          |
 | 37.capsule-gru-seq2seq-contrib-greedy                      |          |
 | 38.dnc-seq2seq-bahdanau-greedy                             |          |
