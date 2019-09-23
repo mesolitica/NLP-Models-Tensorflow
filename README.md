@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-308--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-311--models-blue.svg"></a>
 </p>
 
 ---
@@ -17,6 +17,7 @@
   * [Chatbot](#chatbot)
   * [Dependency Parser](#dependency-parser)
   * [Entity Tagging](#entity-tagging)
+  * [Extractive Summarization](#extractive-summarization)
   * [Generator](#generator)
   * [Language Detection](#language-detection)
   * [Neural Machine Translation](neural-machine-translation)
@@ -173,6 +174,16 @@ Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
 6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 69%
 7. Char Ngrams + Attention is you all Need + CRF, test accuracy 90%
 8. BERT, test accuracy 99%
+
+### [Extractive Summarization](extractive-summarization)
+
+Trained on [CNN News dataset](https://cs.nyu.edu/~kcho/DMQA/).
+
+Accuracy based on ROUGE-2.
+
+1. LSTM RNN, test accuracy 16.13%
+2. Dilated-CNN, test accuracy 15.54%
+3. Multihead Attention, test accuracy 26.33%
 
 ### [Generator](generator)
 
