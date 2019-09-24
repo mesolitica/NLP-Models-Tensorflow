@@ -184,6 +184,7 @@ Accuracy based on ROUGE-2.
 1. LSTM RNN, test accuracy 16.13%
 2. Dilated-CNN, test accuracy 15.54%
 3. Multihead Attention, test accuracy 26.33%
+4. BERT-Base
 
 ### [Generator](generator)
 
