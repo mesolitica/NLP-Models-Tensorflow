@@ -161,6 +161,7 @@ Trained on [CONLL English Dependency](dependency-parser/dev.conll.txt).
 3. Residual Network + Bahdanau Attention + CRF
 4. Residual Network + Bahdanau Attention + Char Embedded + CRF
 5. Attention is all you need + CRF
+6. Stackpointer
 
 ### [Entity-Tagging](entity-tagging)
 
