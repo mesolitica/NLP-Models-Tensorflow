@@ -156,12 +156,14 @@ Trained on [Cornell Movie Dialog corpus](chatbot/dataset.tar.gz), accuracy table
 
 Trained on [CONLL English Dependency](https://github.com/UniversalDependencies/UD_English-EWT).
 
+Stackpointer and Biaffine-attention originally from https://github.com/XuezheMax/NeuroNLP2 written in Pytorch.
+
 1. Bidirectional RNN + Bahdanau Attention + CRF
 2. Bidirectional RNN + Luong Attention + CRF
 3. Residual Network + Bahdanau Attention + CRF
 4. Residual Network + Bahdanau Attention + Char Embedded + CRF
 5. Attention is all you need + CRF
-6. Stackpointer
+6. Stackpointer,
 7. Biaffine-attention
 
 ### [Entity-Tagging](entity-tagging)
