@@ -163,7 +163,7 @@ Stackpointer and Biaffine-attention originally from https://github.com/XuezheMax
 3. Residual Network + Bahdanau Attention + CRF
 4. Residual Network + Bahdanau Attention + Char Embedded + CRF
 5. Attention is all you need + CRF
-6. Stackpointer,
+6. Stackpointer
 7. Biaffine-attention
 
 ### [Entity-Tagging](entity-tagging)
