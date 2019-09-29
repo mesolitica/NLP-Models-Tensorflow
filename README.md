@@ -154,7 +154,7 @@ Trained on [Cornell Movie Dialog corpus](chatbot/dataset.tar.gz), accuracy table
 
 ### [Dependency-Parser](dependency-parser)
 
-Trained on [CONLL English Dependency](dependency-parser/dev.conll.txt).
+Trained on [CONLL English Dependency](https://github.com/UniversalDependencies/UD_English-EWT).
 
 1. Bidirectional RNN + Bahdanau Attention + CRF
 2. Bidirectional RNN + Luong Attention + CRF
@@ -162,6 +162,7 @@ Trained on [CONLL English Dependency](dependency-parser/dev.conll.txt).
 4. Residual Network + Bahdanau Attention + Char Embedded + CRF
 5. Attention is all you need + CRF
 6. Stackpointer
+7. Biaffine-attention
 
 ### [Entity-Tagging](entity-tagging)
 
