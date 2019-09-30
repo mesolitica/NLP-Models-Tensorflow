@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-311--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-310--models-blue.svg"></a>
 </p>
 
 ---
@@ -160,11 +160,9 @@ Stackpointer and Biaffine-attention originally from https://github.com/XuezheMax
 
 1. Bidirectional RNN + Bahdanau Attention + CRF
 2. Bidirectional RNN + Luong Attention + CRF
-3. Residual Network + Bahdanau Attention + CRF
-4. Residual Network + Bahdanau Attention + Char Embedded + CRF
-5. Attention is all you need + CRF
-6. Stackpointer
-7. Biaffine-attention
+3. Attention is all you need + CRF
+4. Stackpointer
+5. Biaffine-attention
 
 ### [Entity-Tagging](entity-tagging)
 
