@@ -154,15 +154,19 @@ Trained on [Cornell Movie Dialog corpus](chatbot/dataset.tar.gz), accuracy table
 
 ### [Dependency-Parser](dependency-parser)
 
-Trained on [CONLL English Dependency](https://github.com/UniversalDependencies/UD_English-EWT).
+Trained on [CONLL English Dependency](https://github.com/UniversalDependencies/UD_English-EWT). Train set to train, dev and test sets to test.
 
 Stackpointer and Biaffine-attention originally from https://github.com/XuezheMax/NeuroNLP2 written in Pytorch.
 
-1. Bidirectional RNN + Bahdanau Attention + CRF
-2. Bidirectional RNN + Luong Attention + CRF
-3. Attention is all you need + CRF
-4. Stackpointer
-5. Biaffine-attention
+Accuracy based on arc, types and root accuracies after 15 epochs only.
+
+1. Bidirectional RNN + CRF + Biaffine, arc accuracy 70.48%, types accuracy 65.18%, root accuracy 66.4%
+2. Bidirectional RNN + Bahdanau + CRF + Biaffine, arc accuracy 70.82%, types accuracy 65.33%, root accuracy 66.77%
+3. Bidirectional RNN + Luong + CRF + Biaffine, arc accuracy 71.22%, types accuracy 65.73%, root accuracy 67.23%
+4. BERT Base + CRF + Biaffine, arc accuracy 64.30%, types accuracy 62.89%, root accuracy 74.19%
+5. Bidirectional RNN + Biaffine Attention + Cross Entropy, arc accuracy 72.42%, types accuracy 63.53%, root accuracy 68.51%
+6. BERT Base + Biaffine Attention + Cross Entropy, arc accuracy 72.85%, types accuracy 67.11%, root accuracy 73.93%
+7. Bidirectional RNN + Stackpointer, arc accuracy 61.88%, types accuracy 48.20%, root accuracy 89.39%
 
 ### [Entity-Tagging](entity-tagging)
 
