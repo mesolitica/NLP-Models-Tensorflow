@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-310--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-311--models-blue.svg"></a>
 </p>
 
 ---
@@ -180,6 +180,7 @@ Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
 6. Char Ngrams + Residual Network + Bahdanau Attention + CRF, test accuracy 69%
 7. Char Ngrams + Attention is you all Need + CRF, test accuracy 90%
 8. BERT, test accuracy 99%
+9. XLNET-Base, test accuracy 99%
 
 ### [Extractive Summarization](extractive-summarization)
 
