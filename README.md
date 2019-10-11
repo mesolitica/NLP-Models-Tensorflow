@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-311--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-312--models-blue.svg"></a>
 </p>
 
 ---
@@ -167,6 +167,7 @@ Accuracy based on arc, types and root accuracies after 15 epochs only.
 5. Bidirectional RNN + Biaffine Attention + Cross Entropy, arc accuracy 72.42%, types accuracy 63.53%, root accuracy 68.51%
 6. BERT Base + Biaffine Attention + Cross Entropy, arc accuracy 72.85%, types accuracy 67.11%, root accuracy 73.93%
 7. Bidirectional RNN + Stackpointer, arc accuracy 61.88%, types accuracy 48.20%, root accuracy 89.39%
+8. XLNET Base + Biaffine Attention + Cross Entropy, arc accuracy 74.41%, types accuracy 71.37%, root accuracy 73.17%
 
 ### [Entity-Tagging](entity-tagging)
 
