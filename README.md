@@ -1,11 +1,11 @@
 <p align="center">
     <a href="#readme">
-        <img alt="logo" width="30%" src="tf-nlp.png">
+        <img alt="logo" width="40%" src="tf-nlp.png">
     </a>
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-312--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-313--models-blue.svg"></a>
 </p>
 
 ---
@@ -473,6 +473,7 @@ Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/
 4. Dilated CNN + Cross entropy, test accuracy 72.27%
 5. Transformer + Cross entropy, test accuracy 71.1%
 6. Transfer learning BERT base + Cross entropy, test accuracy 90%
+7. Transfer learning XLNET base + Cross entropy, test accuracy 77.39%
 
 ### [Text to Speech](text-to-speech)
 

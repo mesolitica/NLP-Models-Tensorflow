@@ -1,0 +1,1004 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# !wget http://qim.fs.quoracdn.net/quora_duplicate_questions.tsv\n",
+    "# !wget https://storage.googleapis.com/xlnet/released_models/cased_L-12_H-768_A-12.zip -O xlnet.zip\n",
+    "# !unzip xlnet.zip"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "os.environ['CUDA_VISIBLE_DEVICES'] = '1'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sentencepiece as spm\n",
+    "from prepro_utils import preprocess_text, encode_ids\n",
+    "\n",
+    "sp_model = spm.SentencePieceProcessor()\n",
+    "sp_model.Load('xlnet_cased_L-12_H-768_A-12/spiece.model')\n",
+    "\n",
+    "def tokenize_fn(text):\n",
+    "    text = preprocess_text(text, lower= False)\n",
+    "    return encode_ids(sp_model, text)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "SEG_ID_A   = 0\n",
+    "SEG_ID_B   = 1\n",
+    "SEG_ID_CLS = 2\n",
+    "SEG_ID_SEP = 3\n",
+    "SEG_ID_PAD = 4\n",
+    "\n",
+    "special_symbols = {\n",
+    "    \"<unk>\"  : 0,\n",
+    "    \"<s>\"    : 1,\n",
+    "    \"</s>\"   : 2,\n",
+    "    \"<cls>\"  : 3,\n",
+    "    \"<sep>\"  : 4,\n",
+    "    \"<pad>\"  : 5,\n",
+    "    \"<mask>\" : 6,\n",
+    "    \"<eod>\"  : 7,\n",
+    "    \"<eop>\"  : 8,\n",
+    "}\n",
+    "\n",
+    "VOCAB_SIZE = 32000\n",
+    "UNK_ID = special_symbols[\"<unk>\"]\n",
+    "CLS_ID = special_symbols[\"<cls>\"]\n",
+    "SEP_ID = special_symbols[\"<sep>\"]\n",
+    "MASK_ID = special_symbols[\"<mask>\"]\n",
+    "EOD_ID = special_symbols[\"<eod>\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>id</th>\n",
+       "      <th>qid1</th>\n",
+       "      <th>qid2</th>\n",
+       "      <th>question1</th>\n",
+       "      <th>question2</th>\n",
+       "      <th>is_duplicate</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>2</td>\n",
+       "      <td>What is the step by step guide to invest in sh...</td>\n",
+       "      <td>What is the step by step guide to invest in sh...</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>3</td>\n",
+       "      <td>4</td>\n",
+       "      <td>What is the story of Kohinoor (Koh-i-Noor) Dia...</td>\n",
+       "      <td>What would happen if the Indian government sto...</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "      <td>5</td>\n",
+       "      <td>6</td>\n",
+       "      <td>How can I increase the speed of my internet co...</td>\n",
+       "      <td>How can Internet speed be increased by hacking...</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>3</td>\n",
+       "      <td>3</td>\n",
+       "      <td>7</td>\n",
+       "      <td>8</td>\n",
+       "      <td>Why am I mentally very lonely? How can I solve...</td>\n",
+       "      <td>Find the remainder when [math]23^{24}[/math] i...</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>9</td>\n",
+       "      <td>10</td>\n",
+       "      <td>Which one dissolve in water quikly sugar, salt...</td>\n",
+       "      <td>Which fish would survive in salt water?</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   id  qid1  qid2                                          question1  \\\n",
+       "0   0     1     2  What is the step by step guide to invest in sh...   \n",
+       "1   1     3     4  What is the story of Kohinoor (Koh-i-Noor) Dia...   \n",
+       "2   2     5     6  How can I increase the speed of my internet co...   \n",
+       "3   3     7     8  Why am I mentally very lonely? How can I solve...   \n",
+       "4   4     9    10  Which one dissolve in water quikly sugar, salt...   \n",
+       "\n",
+       "                                           question2  is_duplicate  \n",
+       "0  What is the step by step guide to invest in sh...             0  \n",
+       "1  What would happen if the Indian government sto...             0  \n",
+       "2  How can Internet speed be increased by hacking...             0  \n",
+       "3  Find the remainder when [math]23^{24}[/math] i...             0  \n",
+       "4            Which fish would survive in salt water?             0  "
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "df = pd.read_csv('quora_duplicate_questions.tsv', delimiter='\\t').dropna()\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "left, right = df['question1'].tolist(), df['question2'].tolist()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "100%|██████████| 404287/404287 [00:58<00:00, 6877.24it/s]\n"
+     ]
+    }
+   ],
+   "source": [
+    "from tqdm import tqdm\n",
+    "\n",
+    "input_ids, input_mask, all_seg_ids = [], [], []\n",
+    "for i in tqdm(range(len(left))):\n",
+    "    tokens = tokenize_fn(left[i])\n",
+    "    tokens_right = tokenize_fn(right[i])\n",
+    "    segment_ids = [SEG_ID_A] * len(tokens)\n",
+    "    tokens.append(SEP_ID)\n",
+    "    segment_ids.append(SEG_ID_A)\n",
+    "\n",
+    "    tokens.extend(tokens_right)\n",
+    "    segment_ids.extend([SEG_ID_B] * len(tokens_right))\n",
+    "    tokens.append(SEP_ID)\n",
+    "    segment_ids.append(SEG_ID_B)\n",
+    "\n",
+    "    tokens.append(CLS_ID)\n",
+    "    segment_ids.append(SEG_ID_CLS)\n",
+    "\n",
+    "    cur_input_ids = tokens\n",
+    "    cur_input_mask = [0] * len(cur_input_ids)\n",
+    "    assert len(tokens) == len(cur_input_mask)\n",
+    "    assert len(tokens) == len(segment_ids)\n",
+    "    input_ids.append(tokens)\n",
+    "    input_mask.append(cur_input_mask)\n",
+    "    all_seg_ids.append(segment_ids)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/husein/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_qint8 = np.dtype([(\"qint8\", np.int8, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_quint8 = np.dtype([(\"quint8\", np.uint8, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_qint16 = np.dtype([(\"qint16\", np.int16, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_quint16 = np.dtype([(\"quint16\", np.uint16, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_qint32 = np.dtype([(\"qint32\", np.int32, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  np_resource = np.dtype([(\"resource\", np.ubyte, 1)])\n",
+      "/usr/lib/python3/dist-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.6) or chardet (3.0.4) doesn't match a supported version!\n",
+      "  RequestsDependencyWarning)\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "WARNING:tensorflow:From /home/husein/testing/model_utils.py:295: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.\n",
+      "\n",
+      "WARNING:tensorflow:From /home/husein/testing/xlnet.py:70: The name tf.gfile.Open is deprecated. Please use tf.io.gfile.GFile instead.\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/husein/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_qint8 = np.dtype([(\"qint8\", np.int8, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_quint8 = np.dtype([(\"quint8\", np.uint8, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_qint16 = np.dtype([(\"qint16\", np.int16, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_quint16 = np.dtype([(\"quint16\", np.uint16, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  _np_qint32 = np.dtype([(\"qint32\", np.int32, 1)])\n",
+      "/home/husein/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.\n",
+      "  np_resource = np.dtype([(\"resource\", np.ubyte, 1)])\n"
+     ]
+    }
+   ],
+   "source": [
+    "import xlnet\n",
+    "import model_utils\n",
+    "import tensorflow as tf\n",
+    "import numpy as np\n",
+    "\n",
+    "kwargs = dict(\n",
+    "      is_training=True,\n",
+    "      use_tpu=False,\n",
+    "      use_bfloat16=False,\n",
+    "      dropout=0.1,\n",
+    "      dropatt=0.1,\n",
+    "      init='normal',\n",
+    "      init_range=0.1,\n",
+    "      init_std=0.05,\n",
+    "      clamp_len=-1)\n",
+    "\n",
+    "xlnet_parameters = xlnet.RunConfig(**kwargs)\n",
+    "xlnet_config = xlnet.XLNetConfig(json_path='xlnet_cased_L-12_H-768_A-12/xlnet_config.json')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "379019 37901\n"
+     ]
+    }
+   ],
+   "source": [
+    "epoch = 15\n",
+    "batch_size = 16\n",
+    "warmup_proportion = 0.1\n",
+    "num_train_steps = int(len(input_ids) / batch_size * epoch)\n",
+    "num_warmup_steps = int(num_train_steps * warmup_proportion)\n",
+    "print(num_train_steps, num_warmup_steps)\n",
+    "\n",
+    "training_parameters = dict(\n",
+    "      decay_method = 'poly',\n",
+    "      train_steps = num_train_steps,\n",
+    "      learning_rate = 2e-5,\n",
+    "      warmup_steps = num_warmup_steps,\n",
+    "      min_lr_ratio = 0.0,\n",
+    "      weight_decay = 0.00,\n",
+    "      adam_epsilon = 1e-8,\n",
+    "      num_core_per_host = 1,\n",
+    "      lr_layer_decay_rate = 1,\n",
+    "      use_tpu=False,\n",
+    "      use_bfloat16=False,\n",
+    "      dropout=0.0,\n",
+    "      dropatt=0.0,\n",
+    "      init='normal',\n",
+    "      init_range=0.1,\n",
+    "      init_std=0.02,\n",
+    "      clip = 1.0,\n",
+    "      clamp_len=-1,)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Parameter:\n",
+    "    def __init__(self, decay_method, warmup_steps, weight_decay, adam_epsilon, \n",
+    "                num_core_per_host, lr_layer_decay_rate, use_tpu, learning_rate, train_steps,\n",
+    "                min_lr_ratio, clip, **kwargs):\n",
+    "        self.decay_method = decay_method\n",
+    "        self.warmup_steps = warmup_steps\n",
+    "        self.weight_decay = weight_decay\n",
+    "        self.adam_epsilon = adam_epsilon\n",
+    "        self.num_core_per_host = num_core_per_host\n",
+    "        self.lr_layer_decay_rate = lr_layer_decay_rate\n",
+    "        self.use_tpu = use_tpu\n",
+    "        self.learning_rate = learning_rate\n",
+    "        self.train_steps = train_steps\n",
+    "        self.min_lr_ratio = min_lr_ratio\n",
+    "        self.clip = clip\n",
+    "        \n",
+    "training_parameters = Parameter(**training_parameters)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Model:\n",
+    "    def __init__(\n",
+    "        self,\n",
+    "        dimension_output,\n",
+    "        learning_rate = 2e-5,\n",
+    "    ):\n",
+    "        self.X = tf.placeholder(tf.int32, [None, None])\n",
+    "        self.segment_ids = tf.placeholder(tf.int32, [None, None])\n",
+    "        self.input_masks = tf.placeholder(tf.float32, [None, None])\n",
+    "        self.Y = tf.placeholder(tf.int32, [None])\n",
+    "        \n",
+    "        xlnet_model = xlnet.XLNetModel(\n",
+    "            xlnet_config=xlnet_config,\n",
+    "            run_config=xlnet_parameters,\n",
+    "            input_ids=tf.transpose(self.X, [1, 0]),\n",
+    "            seg_ids=tf.transpose(self.segment_ids, [1, 0]),\n",
+    "            input_mask=tf.transpose(self.input_masks, [1, 0]))\n",
+    "        \n",
+    "        summary = xlnet_model.get_pooled_out(\"last\", True)\n",
+    "        print(summary)\n",
+    "        \n",
+    "        self.logits = tf.layers.dense(summary, dimension_output)\n",
+    "        \n",
+    "        self.cost = tf.reduce_mean(\n",
+    "            tf.nn.sparse_softmax_cross_entropy_with_logits(\n",
+    "                logits = self.logits, labels = self.Y\n",
+    "            )\n",
+    "        )\n",
+    "        self.optimizer, self.learning_rate, _ = model_utils.get_train_op(training_parameters, self.cost)\n",
+    "        \n",
+    "        correct_pred = tf.equal(\n",
+    "            tf.argmax(self.logits, 1, output_type = tf.int32), self.Y\n",
+    "        )\n",
+    "        self.accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "WARNING:tensorflow:From /home/husein/testing/xlnet.py:253: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.\n",
+      "\n",
+      "WARNING:tensorflow:From /home/husein/testing/xlnet.py:253: The name tf.AUTO_REUSE is deprecated. Please use tf.compat.v1.AUTO_REUSE instead.\n",
+      "\n",
+      "WARNING:tensorflow:From /home/husein/testing/modeling.py:686: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.\n",
+      "\n",
+      "INFO:tensorflow:memory input None\n",
+      "INFO:tensorflow:Use float type <dtype: 'float32'>\n",
+      "WARNING:tensorflow:From /home/husein/testing/modeling.py:693: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.\n",
+      "\n",
+      "WARNING:tensorflow:From /home/husein/testing/modeling.py:797: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "Use keras.layers.dropout instead.\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6718888080>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6718888080>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6718888080>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6718888080>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f669c276128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f669c276128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f669c276128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f669c276128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694573f60>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694573f60>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694573f60>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694573f60>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:\n",
+      "The TensorFlow contrib module will not be included in TensorFlow 2.0.\n",
+      "For more information, please see:\n",
+      "  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md\n",
+      "  * https://github.com/tensorflow/addons\n",
+      "  * https://github.com/tensorflow/io (for I/O related ops)\n",
+      "If you depend on functionality not listed there, please file an issue.\n",
+      "\n",
+      "WARNING:tensorflow:From /home/husein/testing/modeling.py:99: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "Use keras.layers.dense instead.\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f669c1dea90>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f669c1dea90>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f669c1dea90>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f669c1dea90>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f6694620f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef9fef98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef9fef98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef9fef98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef9fef98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef8cdeb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef8cdeb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef8cdeb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef8cdeb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6414085128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6414085128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6414085128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f6414085128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef89f8d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef89f8d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef89f8d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef89f8d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef89f8d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef39d9b0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef39d9b0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef39d9b0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef39d9b0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef710940>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef710940>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef710940>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef710940>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ef2f6860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eedb4cf8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eedb4cf8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eedb4cf8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eedb4cf8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eecaf128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eecaf128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eecaf128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eecaf128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef1185c0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef1185c0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef1185c0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ef1185c0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eec21048>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eec21048>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eec21048>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eec21048>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec21048>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee728c88>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee728c88>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee728c88>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee728c88>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee788358>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee788358>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee788358>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee788358>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eeb33e48>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eeb33e48>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eeb33e48>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63eeb33e48>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee6d7da0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee6d7da0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee6d7da0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee6d7da0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee6d7da0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee6d7da0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee6d7da0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee6d7da0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee649e48>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee649e48>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee649e48>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee649e48>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0d3a58>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0d3a58>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0d3a58>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0d3a58>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0b05c0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0b05c0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0b05c0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee0b05c0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ee4bd7b8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63edae1080>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63edae1080>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63edae1080>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63edae1080>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed9df080>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed9df080>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed9df080>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed9df080>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f66a5c9a128>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed45ff98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed45ff98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed45ff98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed45ff98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3b0eb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3b0eb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3b0eb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3b0eb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed8266d8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed8266d8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed8266d8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed8266d8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed3818d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed3818d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed3818d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed3818d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ed3818d0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ece829b0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ece829b0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ece829b0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ece829b0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed1de240>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed1de240>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed1de240>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ed1de240>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecd5f860>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec812cc0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec812cc0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec812cc0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec812cc0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec7130f0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec7130f0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec7130f0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec7130f0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecc88eb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecc88eb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecc88eb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecc88eb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec76ac18>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec76ac18>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec76ac18>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec76ac18>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ec76ac18>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ec76ac18>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ec76ac18>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ec76ac18>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecc88eb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecc88eb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecc88eb8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecc88eb8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec209f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec209f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec209f98>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec209f98>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec0e1fd0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec0e1fd0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec0e1fd0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ec0e1fd0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ecba0e10>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebbb49e8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebbb49e8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebbb49e8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebbb49e8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eba8eac8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eba8eac8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eba8eac8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eba8eac8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebf7c4a8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebf7c4a8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebf7c4a8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebf7c4a8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebf7c4a8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebf7c4a8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebf7c4a8>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebf7c4a8>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebb65a20>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebb65a20>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebb65a20>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebb65a20>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebb65a20>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebb65a20>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebb65a20>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebb65a20>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec45c88>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec45c88>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec45c88>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63eec45c88>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebabdda0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebabdda0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebabdda0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f63ebabdda0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebabdda0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebabdda0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebabdda0>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dropout.call of <tensorflow.python.layers.core.Dropout object at 0x7f63ebabdda0>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "Tensor(\"model_1/sequnece_summary/dropout/dropout/mul_1:0\", shape=(?, 768), dtype=float32)\n",
+      "WARNING:tensorflow:From /home/husein/.local/lib/python3.6/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "Call initializer instance with the dtype argument instead of passing it to the constructor\n",
+      "WARNING:tensorflow:Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a58a8e48>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a58a8e48>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING: Entity <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a58a8e48>> could not be transformed and will be executed as-is. Please report this to the AutgoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: converting <bound method Dense.call of <tensorflow.python.layers.core.Dense object at 0x7f66a58a8e48>>: AssertionError: Bad argument number for Name: 3, expecting 4\n",
+      "WARNING:tensorflow:From /home/husein/testing/model_utils.py:96: The name tf.train.get_or_create_global_step is deprecated. Please use tf.compat.v1.train.get_or_create_global_step instead.\n",
+      "\n",
+      "WARNING:tensorflow:From /home/husein/testing/model_utils.py:108: The name tf.train.polynomial_decay is deprecated. Please use tf.compat.v1.train.polynomial_decay instead.\n",
+      "\n",
+      "WARNING:tensorflow:From /home/husein/.local/lib/python3.6/site-packages/tensorflow/python/keras/optimizer_v2/learning_rate_schedule.py:409: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "Deprecated in favor of operator or tf.math.divide.\n",
+      "WARNING:tensorflow:From /home/husein/testing/model_utils.py:123: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "Use tf.where in 2.0, which has the same broadcast rule as np.where\n",
+      "WARNING:tensorflow:From /home/husein/testing/model_utils.py:131: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "dimension_output = 2\n",
+    "learning_rate = 2e-5\n",
+    "\n",
+    "tf.reset_default_graph()\n",
+    "sess = tf.InteractiveSession()\n",
+    "model = Model(dimension_output, learning_rate)\n",
+    "\n",
+    "sess.run(tf.global_variables_initializer())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import collections\n",
+    "import re\n",
+    "\n",
+    "def get_assignment_map_from_checkpoint(tvars, init_checkpoint):\n",
+    "    \"\"\"Compute the union of the current variables and checkpoint variables.\"\"\"\n",
+    "    assignment_map = {}\n",
+    "    initialized_variable_names = {}\n",
+    "\n",
+    "    name_to_variable = collections.OrderedDict()\n",
+    "    for var in tvars:\n",
+    "        name = var.name\n",
+    "        m = re.match('^(.*):\\\\d+$', name)\n",
+    "        if m is not None:\n",
+    "            name = m.group(1)\n",
+    "        name_to_variable[name] = var\n",
+    "\n",
+    "    init_vars = tf.train.list_variables(init_checkpoint)\n",
+    "\n",
+    "    assignment_map = collections.OrderedDict()\n",
+    "    for x in init_vars:\n",
+    "        (name, var) = (x[0], x[1])\n",
+    "        if name not in name_to_variable:\n",
+    "            continue\n",
+    "        assignment_map[name] = name_to_variable[name]\n",
+    "        initialized_variable_names[name] = 1\n",
+    "        initialized_variable_names[name + ':0'] = 1\n",
+    "\n",
+    "    return (assignment_map, initialized_variable_names)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "tvars = tf.trainable_variables()\n",
+    "checkpoint = 'xlnet_cased_L-12_H-768_A-12/xlnet_model.ckpt'\n",
+    "assignment_map, initialized_variable_names = get_assignment_map_from_checkpoint(tvars, \n",
+    "                                                                                checkpoint)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "WARNING:tensorflow:From /home/husein/.local/lib/python3.6/site-packages/tensorflow/python/training/saver.py:1276: checkpoint_exists (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "Use standard file APIs to check for files with this prefix.\n",
+      "INFO:tensorflow:Restoring parameters from xlnet_cased_L-12_H-768_A-12/xlnet_model.ckpt\n"
+     ]
+    }
+   ],
+   "source": [
+    "saver = tf.train.Saver(var_list = assignment_map)\n",
+    "saver.restore(sess, checkpoint)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from sklearn.model_selection import train_test_split\n",
+    "\n",
+    "train_X, test_X, train_Y, test_Y, train_segment, test_segment, train_mask, test_mask = \\\n",
+    "train_test_split(input_ids, df['is_duplicate'].tolist(), input_mask, all_seg_ids, test_size = 0.2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from tensorflow.keras.preprocessing.sequence import pad_sequences\n",
+    "\n",
+    "batch_x = train_X[:5]\n",
+    "batch_x = pad_sequences(batch_x,padding='post')\n",
+    "batch_y = train_Y[:5]\n",
+    "batch_segments = train_segment[:5]\n",
+    "batch_segments = pad_sequences(batch_segments, padding='post', value = 4)\n",
+    "batch_masks = train_mask[:5]\n",
+    "batch_masks = pad_sequences(batch_masks, padding='post', value = 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0.8, 0.45326415]"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sess.run([model.accuracy, model.cost],\n",
+    "        feed_dict = {model.X: batch_x,\n",
+    "                model.Y: batch_y,\n",
+    "                model.segment_ids: batch_segments,\n",
+    "                model.input_masks: batch_masks})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "train minibatch loop: 100%|██████████| 20215/20215 [51:46<00:00,  6.51it/s, accuracy=0.8, cost=0.374]   \n",
+      "test minibatch loop: 100%|██████████| 5054/5054 [04:40<00:00, 18.04it/s, accuracy=0.5, cost=0.801]  \n",
+      "train minibatch loop:   0%|          | 0/20215 [00:00<?, ?it/s]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "epoch: 0, pass acc: 0.000000, current acc: 0.732872\n",
+      "time taken: 3386.655509710312\n",
+      "epoch: 0, training loss: 0.613765, training acc: 0.677210, valid loss: 0.541196, valid acc: 0.732872\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "train minibatch loop: 100%|██████████| 20215/20215 [52:06<00:00,  6.46it/s, accuracy=1, cost=0.154]     \n",
+      "test minibatch loop: 100%|██████████| 5054/5054 [04:40<00:00, 18.04it/s, accuracy=0.5, cost=0.739]  \n",
+      "train minibatch loop:   0%|          | 0/20215 [00:00<?, ?it/s]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "epoch: 1, pass acc: 0.732872, current acc: 0.761451\n",
+      "time taken: 3406.9526970386505\n",
+      "epoch: 1, training loss: 0.513010, training acc: 0.754075, valid loss: 0.505185, valid acc: 0.761451\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "train minibatch loop: 100%|██████████| 20215/20215 [51:40<00:00,  6.52it/s, accuracy=1, cost=0.0618]    \n",
+      "test minibatch loop: 100%|██████████| 5054/5054 [04:39<00:00, 18.08it/s, accuracy=0.7, cost=0.514]  \n",
+      "train minibatch loop:   0%|          | 0/20215 [00:00<?, ?it/s]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "epoch: 2, pass acc: 0.761451, current acc: 0.768540\n",
+      "time taken: 3380.2917671203613\n",
+      "epoch: 2, training loss: 0.462681, training acc: 0.790511, valid loss: 0.519211, valid acc: 0.768540\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "train minibatch loop: 100%|██████████| 20215/20215 [52:05<00:00,  6.47it/s, accuracy=1, cost=0.0799]    \n",
+      "test minibatch loop: 100%|██████████| 5054/5054 [04:40<00:00, 18.04it/s, accuracy=0.7, cost=0.731]   \n",
+      "train minibatch loop:   0%|          | 0/20215 [00:00<?, ?it/s]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "epoch: 3, pass acc: 0.768540, current acc: 0.773956\n",
+      "time taken: 3405.854062795639\n",
+      "epoch: 3, training loss: 0.414382, training acc: 0.822904, valid loss: 0.552833, valid acc: 0.773956\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "train minibatch loop: 100%|██████████| 20215/20215 [52:29<00:00,  6.42it/s, accuracy=1, cost=0.0567]    \n",
+      "test minibatch loop: 100%|██████████| 5054/5054 [04:28<00:00, 18.85it/s, accuracy=0.7, cost=0.563]   \n",
+      "train minibatch loop:   0%|          | 0/20215 [00:00<?, ?it/s]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "time taken: 3417.4785237312317\n",
+      "epoch: 4, training loss: 0.374338, training acc: 0.847520, valid loss: 0.600461, valid acc: 0.773313\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "train minibatch loop: 100%|██████████| 20215/20215 [55:02<00:00,  6.12it/s, accuracy=1, cost=0.0265]     \n",
+      "test minibatch loop: 100%|██████████| 5054/5054 [04:39<00:00, 18.07it/s, accuracy=0.6, cost=1.03]   "
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "time taken: 3581.9256689548492\n",
+      "epoch: 5, training loss: 0.338192, training acc: 0.868210, valid loss: 0.716454, valid acc: 0.726400\n",
+      "\n",
+      "break epoch:6\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "from tqdm import tqdm\n",
+    "import time\n",
+    "\n",
+    "EARLY_STOPPING, CURRENT_CHECKPOINT, CURRENT_ACC, EPOCH = 2, 0, 0, 0\n",
+    "\n",
+    "while True:\n",
+    "    lasttime = time.time()\n",
+    "    if CURRENT_CHECKPOINT == EARLY_STOPPING:\n",
+    "        print('break epoch:%d\\n' % (EPOCH))\n",
+    "        break\n",
+    "    train_acc, train_loss = [], []\n",
+    "    test_acc, test_loss = [], []\n",
+    "    \n",
+    "    pbar = tqdm(\n",
+    "        range(0, len(train_X), batch_size), desc = 'train minibatch loop'\n",
+    "    )\n",
+    "    for i in pbar:\n",
+    "        index = min(i + batch_size, len(train_X))\n",
+    "        batch_x = train_X[i: index]\n",
+    "        batch_x = pad_sequences(batch_x,padding='post')\n",
+    "        batch_y = train_Y[i: index]\n",
+    "        batch_segments = train_segment[i: index]\n",
+    "        batch_segments = pad_sequences(batch_segments, padding='post', value = 4)\n",
+    "        batch_masks = train_mask[i: index]\n",
+    "        batch_masks = pad_sequences(batch_masks, padding='post', value = 1)\n",
+    "        \n",
+    "        acc, cost, _ = sess.run(\n",
+    "            [model.accuracy, model.cost, model.optimizer],\n",
+    "            feed_dict = {\n",
+    "                model.X: batch_x,\n",
+    "                model.Y: batch_y,\n",
+    "                model.segment_ids: batch_segments,\n",
+    "                model.input_masks: batch_masks\n",
+    "            },\n",
+    "        )\n",
+    "        train_loss.append(cost)\n",
+    "        train_acc.append(acc)\n",
+    "        pbar.set_postfix(cost = cost, accuracy = acc)\n",
+    "        \n",
+    "    pbar = tqdm(\n",
+    "        range(0, len(test_X), batch_size), desc = 'test minibatch loop'\n",
+    "    )\n",
+    "    for i in pbar:\n",
+    "        index = min(i + batch_size, len(test_X))\n",
+    "        batch_x = test_X[i: index]\n",
+    "        batch_x = pad_sequences(batch_x,padding='post')\n",
+    "        batch_y = test_Y[i: index]\n",
+    "        batch_segments = test_segment[i: index]\n",
+    "        batch_segments = pad_sequences(batch_segments, padding='post', value = 4)\n",
+    "        batch_masks = test_mask[i: index]\n",
+    "        batch_masks = pad_sequences(batch_masks, padding='post', value = 1)\n",
+    "        \n",
+    "        acc, cost = sess.run(\n",
+    "            [model.accuracy, model.cost],\n",
+    "            feed_dict = {\n",
+    "                model.X: batch_x,\n",
+    "                model.Y: batch_y,\n",
+    "                model.segment_ids: batch_segments,\n",
+    "                model.input_masks: batch_masks\n",
+    "            },\n",
+    "        )\n",
+    "        test_loss.append(cost)\n",
+    "        test_acc.append(acc)\n",
+    "        pbar.set_postfix(cost = cost, accuracy = acc)\n",
+    "    \n",
+    "    train_loss = np.mean(train_loss)\n",
+    "    train_acc = np.mean(train_acc)\n",
+    "    test_loss = np.mean(test_loss)\n",
+    "    test_acc = np.mean(test_acc)\n",
+    "    \n",
+    "    if test_acc > CURRENT_ACC:\n",
+    "        print(\n",
+    "            'epoch: %d, pass acc: %f, current acc: %f'\n",
+    "            % (EPOCH, CURRENT_ACC, test_acc)\n",
+    "        )\n",
+    "        CURRENT_ACC = test_acc\n",
+    "        CURRENT_CHECKPOINT = 0\n",
+    "    else:\n",
+    "        CURRENT_CHECKPOINT += 1\n",
+    "        \n",
+    "    print('time taken:', time.time() - lasttime)\n",
+    "    print(\n",
+    "        'epoch: %d, training loss: %f, training acc: %f, valid loss: %f, valid acc: %f\\n'\n",
+    "        % (EPOCH, train_loss, train_acc, test_loss, test_acc)\n",
+    "    )\n",
+    "    EPOCH += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
