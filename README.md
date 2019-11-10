@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-313--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-314--models-blue.svg"></a>
 </p>
 
 ---
@@ -26,6 +26,7 @@
   * [Question-Answers](#question-answers)
   * [Sentence pairs](#sentence-pair)
   * [Speech-to-Text](#speech-to-text)
+  * [Spelling correction](#spelling-correction)
   * [SQUAD Question-Answers](#squad-question-answers)
   * [Stemming](#stemming)
   * [Text Augmentation](#text-augmentation)
@@ -335,6 +336,10 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 9. Wavenet, test accuracy 75.11%
 10. Deep Speech 2, test accuracy 81.40%
 11. Wav2Vec Transfer learning BiRNN LSTM, test accuracy 83.24%
+
+### [Spelling correction](spelling-correction)
+
+1. BERT-Base
 
 ### [SQUAD Question-Answers](squad-qa)
 
