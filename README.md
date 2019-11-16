@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-314--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-315--models-blue.svg"></a>
 </p>
 
 ---
@@ -340,6 +340,7 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 ### [Spelling correction](spelling-correction)
 
 1. BERT-Base
+2. XLNET-Base
 
 ### [SQUAD Question-Answers](squad-qa)
 
@@ -369,6 +370,7 @@ Trained on [English Lemmatization](stemming/lemmatization-en.txt).
 4. GRU VAE-seq2seq-beam + Bahdanau Attention TF-probability
 5. VAE + Deterministic Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
 6. VAE + VAE Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
+7. BERT-Base + Nucleus Sampling
 
 ### [Text classification](text-classification)
 
