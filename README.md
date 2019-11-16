@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-315--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-316--models-blue.svg"></a>
 </p>
 
 ---
@@ -341,6 +341,7 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 
 1. BERT-Base
 2. XLNET-Base
+3. BERT-Base Fast
 
 ### [SQUAD Question-Answers](squad-qa)
 
