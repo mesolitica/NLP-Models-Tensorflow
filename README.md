@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-316--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-317--models-blue.svg"></a>
 </p>
 
 ---
@@ -389,8 +389,9 @@ Trained on [English sentiment dataset](text-classification/data), accuracy table
 10. BERT
 11. Dynamic Memory Network
 12. XL-net
+13. ALBERT
 
-<details><summary>Complete list (76 notebooks)</summary>
+<details><summary>Complete list (77 notebooks)</summary>
 
 1. Basic cell RNN
 2. Basic cell RNN + Hinge
@@ -468,6 +469,7 @@ Trained on [English sentiment dataset](text-classification/data), accuracy table
 74. Transfer learning BERT Base drop 6 layers
 75. Transfer learning BERT Large drop 12 layers
 76. Transfer learning XL-net Base
+77. Transfer learning ALBERT
 
 </details>
 
