@@ -388,8 +388,9 @@ Trained on [English sentiment dataset](text-classification/data), accuracy table
 9. Neural Turing Machine
 10. BERT
 11. Dynamic Memory Network
-12. XL-net
+12. XLNET
 13. ALBERT
+14. GPT-2
 
 <details><summary>Complete list (77 notebooks)</summary>
 
