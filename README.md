@@ -372,6 +372,7 @@ Trained on [English Lemmatization](stemming/lemmatization-en.txt).
 5. VAE + Deterministic Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
 6. VAE + VAE Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
 7. BERT-Base + Nucleus Sampling
+8. XLNET-Base + Nucleus Sampling
 
 ### [Text classification](text-classification)
 
