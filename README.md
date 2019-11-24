@@ -342,6 +342,7 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 1. BERT-Base
 2. XLNET-Base
 3. BERT-Base Fast
+4. BERT-Base accurate
 
 ### [SQUAD Question-Answers](squad-qa)
 
