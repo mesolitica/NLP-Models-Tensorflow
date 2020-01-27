@@ -49,7 +49,7 @@ I will attached github repositories for models that I not implemented from scrat
 
 ## Tensorflow version
 
-Tensorflow version 1.10 and above only, not included 2.X version.
+Tensorflow version 1.13 and above only, not included 2.X version. 1.13 < Tensorflow < 2.0 
 
 ```bash
 pip install -r requirements.txt
