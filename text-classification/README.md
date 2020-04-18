@@ -6,7 +6,7 @@
 
 ## Score and average time taken per epoch, not sorted
 
-Based on 20% validation.
+Based on 20% validation, time taken based on single Tesla V100 32GB VRAM.
 
 | name                                 | accuracy | time taken (s) |
 |--------------------------------------|----------|----------------|
@@ -86,3 +86,6 @@ Based on 20% validation.
 | 74. transfer-learning-bert-base-6    | 0.7655   | 494.169        |
 | 75. transfer-learning-bert-large-12  | 0.80     | 1365.30        |
 | 76. transfer-learning-xlnet-base     | 0.820441 | 240.262        |
+| 77. transfer-learning-albert-base    | 0.799053 | 61.8179        |
+| 78. transfer-learning-electra-base   | 0.836336 | 66.0257        |
+| 79. transfer-learning-electra-large  | 0.875248 | 195.37280      |

@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-317--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-319--models-blue.svg"></a>
 </p>
 
 ---
@@ -473,6 +473,8 @@ Trained on [English sentiment dataset](text-classification/data), accuracy table
 75. Transfer learning BERT Large drop 12 layers
 76. Transfer learning XL-net Base
 77. Transfer learning ALBERT
+78. Transfer learning ELECTRA Base
+79. Transfer learning ELECTRA Large
 
 </details>
 
