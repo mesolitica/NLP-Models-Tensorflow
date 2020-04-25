@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-319--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-320--models-blue.svg"></a>
 </p>
 
 ---
@@ -232,6 +232,7 @@ Trained on [English-Vietnam](https://github.com/stefan-it/nmt-en-vi#dataset), ac
 5. Conv Seq2Seq
 6. BERT + Transformer Decoder
 7. XLNET + Transformer Decoder
+8. Evolved Transformer
 
 <details><summary>Complete list (50 notebooks)</summary>
 
@@ -285,6 +286,7 @@ Trained on [English-Vietnam](https://github.com/stefan-it/nmt-en-vi#dataset), ac
 48. google-nmt                              
 49. bert-transformer-decoder-beam
 50. xlnet-base-transformer-decoder-beam
+51. evolved-transformer-tiny
 
 </details>
 

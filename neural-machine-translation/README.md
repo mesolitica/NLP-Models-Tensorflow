@@ -63,3 +63,4 @@
 | 48.google-nmt                                              | 0.330886 |
 | 49.bert-transformer-decoder-beam                           | 0.446938 |
 | 50.xlnet-base-transformer-decoder-beam                     | 0.288339 |
+| 51.evolved-transformer-tiny                                | 0.497402 |
