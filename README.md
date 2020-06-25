@@ -63,6 +63,8 @@ Trained on [India news](abstractive-summarization/dataset).
 
 Accuracy based on 10 epochs only, calculated using word positions.
 
+<details><summary>Complete list (12 notebooks)</summary>
+
 1. LSTM Seq2Seq using topic modelling, test accuracy 13.22%
 2. LSTM Seq2Seq + Luong Attention using topic modelling, test accuracy 12.39%
 3. LSTM Seq2Seq + Beam Decoder using topic modelling, test accuracy 10.67%
@@ -75,6 +77,8 @@ Accuracy based on 10 epochs only, calculated using word positions.
 10. BERT + Dilated CNN Seq2seq, test accuracy 13.5%
 11. self-attention + Pointer-Generator, test accuracy 4.34%
 12. Dilated-CNN Seq2seq + Pointer-Generator, test accuracy 5.57%
+
+</details>
 
 ### [Chatbot](chatbot)
 
@@ -147,6 +151,8 @@ Stackpointer and Biaffine-attention originally from https://github.com/XuezheMax
 
 Accuracy based on arc, types and root accuracies after 15 epochs only.
 
+<details><summary>Complete list (8 notebooks)</summary>
+
 1. Bidirectional RNN + CRF + Biaffine, arc accuracy 70.48%, types accuracy 65.18%, root accuracy 66.4%
 2. Bidirectional RNN + Bahdanau + CRF + Biaffine, arc accuracy 70.82%, types accuracy 65.33%, root accuracy 66.77%
 3. Bidirectional RNN + Luong + CRF + Biaffine, arc accuracy 71.22%, types accuracy 65.73%, root accuracy 67.23%
@@ -156,9 +162,13 @@ Accuracy based on arc, types and root accuracies after 15 epochs only.
 7. Bidirectional RNN + Stackpointer, arc accuracy 61.88%, types accuracy 48.20%, root accuracy 89.39%
 8. XLNET Base + Biaffine Attention + Cross Entropy, arc accuracy 74.41%, types accuracy 71.37%, root accuracy 73.17%
 
+</details>
+
 ### [Entity-Tagging](entity-tagging)
 
 Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
+
+<details><summary>Complete list (9 notebooks)</summary>
 
 1. Bidirectional RNN + CRF, test accuracy 96%
 2. Bidirectional RNN + Luong Attention + CRF, test accuracy 93%
@@ -170,20 +180,28 @@ Trained on [CONLL NER](https://cogcomp.org/page/resource_view/81).
 8. BERT, test accuracy 99%
 9. XLNET-Base, test accuracy 99%
 
+</details>
+
 ### [Extractive Summarization](extractive-summarization)
 
 Trained on [CNN News dataset](https://cs.nyu.edu/~kcho/DMQA/).
 
 Accuracy based on ROUGE-2.
 
+<details><summary>Complete list (4 notebooks)</summary>
+
 1. LSTM RNN, test accuracy 16.13%
 2. Dilated-CNN, test accuracy 15.54%
 3. Multihead Attention, test accuracy 26.33%
 4. BERT-Base
 
+</details>
+
 ### [Generator](generator)
 
 Trained on [Shakespeare dataset](generator/shakespeare.txt).
+
+<details><summary>Complete list (15 notebooks)</summary>
 
 1. Character-wise RNN + LSTM
 2. Character-wise RNN + Beam search
@@ -201,11 +219,17 @@ Trained on [Shakespeare dataset](generator/shakespeare.txt).
 14. Transformer + Beam search
 15. Transformer XL + Beam search
 
+</details>
+
 ### [Language-detection](language-detection)
 
 Trained on [Tatoeba dataset](http://downloads.tatoeba.org/exports/sentences.tar.bz2).
 
+<details><summary>Complete list (1 notebooks)</summary>
+
 1. Fast-text Char N-Grams
+
+</details>
 
 ### [Neural Machine Translation](neural-machine-translation)
 
@@ -271,12 +295,18 @@ Trained on [English-French](https://github.com/tensorflow/tensor2tensor/blob/mas
 
 ### [OCR (optical character recognition)](ocr)
 
+<details><summary>Complete list (12 notebooks)</summary>
+
 1. CNN + LSTM RNN, test accuracy 100%
 2. Im2Latex, test accuracy 100%
+
+</details>
 
 ### [POS-Tagging](pos-tagging)
 
 Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81).
+
+<details><summary>Complete list (8 notebooks)</summary>
 
 1. Bidirectional RNN + CRF, test accuracy 92%
 2. Bidirectional RNN + Luong Attention + CRF, test accuracy 91%
@@ -287,24 +317,36 @@ Trained on [CONLL POS](https://cogcomp.org/page/resource_view/81).
 7. Char Ngrams + Attention is you all Need + CRF, test accuracy 89%
 8. BERT, test accuracy 99%
 
+</details>
+
 ### [Question-Answers](question-answer)
 
 Trained on [bAbI Dataset](https://research.fb.com/downloads/babi/).
+
+<details><summary>Complete list (4 notebooks)</summary>
 
 1. End-to-End Memory Network + Basic cell
 2. End-to-End Memory Network + GRU cell
 3. End-to-End Memory Network + LSTM cell
 4. Dynamic Memory
 
+</details>
+
 ### [Sentence-pair](sentence-pair)
 
 Trained on [Cornell Movie--Dialogs Corpus](https://people.mpi-sws.org/~cristian/Cornell_Movie-Dialogs_Corpus.html)
 
+<details><summary>Complete list (1 notebooks)</summary>
+
 1. BERT
+
+</details>
 
 ### [Speech to Text](speech-to-text)
 
 Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
+
+<details><summary>Complete list (11 notebooks)</summary>
 
 1. Tacotron, https://github.com/Kyubyong/tacotron_asr, test accuracy 77.09%
 2. BiRNN LSTM, test accuracy 84.66%
@@ -318,25 +360,37 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 10. Deep Speech 2, test accuracy 81.40%
 11. Wav2Vec Transfer learning BiRNN LSTM, test accuracy 83.24%
 
+</details>
+
 ### [Spelling correction](spelling-correction)
+
+<details><summary>Complete list (4 notebooks)</summary>
 
 1. BERT-Base
 2. XLNET-Base
 3. BERT-Base Fast
 4. BERT-Base accurate
 
+</details>
+
 ### [SQUAD Question-Answers](squad-qa)
 
 Trained on [SQUAD Dataset](https://rajpurkar.github.io/SQuAD-explorer/).
+
+<details><summary>Complete list (1 notebooks)</summary>
 
 1. BERT,
 ```json
 {"exact_match": 77.57805108798486, "f1": 86.18327335287402}
 ```
 
+</details>
+
 ### [Stemming](stemming)
 
 Trained on [English Lemmatization](stemming/lemmatization-en.txt).
+
+<details><summary>Complete list (6 notebooks)</summary>
 
 1. LSTM + Seq2Seq + Beam
 2. GRU + Seq2Seq + Beam
@@ -345,7 +399,11 @@ Trained on [English Lemmatization](stemming/lemmatization-en.txt).
 5. DNC + Seq2Seq + Greedy
 6. BiRNN + Bahdanau + Copynet
 
+</details>
+
 ### [Text Augmentation](text-augmentation)
+
+<details><summary>Complete list (8 notebooks)</summary>
 
 1. Pretrained Glove
 2. GRU VAE-seq2seq-beam TF-probability
@@ -355,6 +413,8 @@ Trained on [English Lemmatization](stemming/lemmatization-en.txt).
 6. VAE + VAE Bahdanau Attention, https://github.com/HareeshBahuleyan/tf-var-attention
 7. BERT-Base + Nucleus Sampling
 8. XLNET-Base + Nucleus Sampling
+
+</details>
 
 ### [Text classification](text-classification)
 
@@ -448,6 +508,8 @@ Trained on [English sentiment dataset](text-classification/data), accuracy table
 
 Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs).
 
+<details><summary>Complete list (7 notebooks)</summary>
+
 1. BiRNN + Contrastive loss, test accuracy 76.50%
 2. Dilated CNN + Contrastive loss, test accuracy 72.98%
 3. Transformer + Contrastive loss, test accuracy 73.48%
@@ -456,9 +518,13 @@ Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/
 6. Transfer learning BERT base + Cross entropy, test accuracy 90%
 7. Transfer learning XLNET base + Cross entropy, test accuracy 77.39%
 
+</details>
+
 ### [Text to Speech](text-to-speech)
 
 Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
+
+<details><summary>Complete list (8 notebooks)</summary>
 
 1. Tacotron, https://github.com/Kyubyong/tacotron
 2. CNN Seq2seq + Dilated CNN vocoder
@@ -469,34 +535,50 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 7. Deep CNN + Monothonic Attention + Dilated CNN vocoder
 8. Deep CNN + Self Attention + Dilated CNN vocoder
 
+</details>
+
 ### [Topic Generator](topic-generator)
 
 Trained on [Malaysia news](https://github.com/huseinzol05/Malaya-Dataset/raw/master/news/news.zip).
+
+<details><summary>Complete list (4 notebooks)</summary>
 
 1. TAT-LSTM
 2. TAV-LSTM
 3. MTA-LSTM
 4. Dilated CNN Seq2seq
 
+</details>
+
 ### [Topic Modeling](topic-model)
 
-Trained on [English sentiment dataset](text-classification/data).
+Extracted from [English sentiment dataset](text-classification/data).
+
+<details><summary>Complete list (3 notebooks)</summary>
 
 1. LDA2Vec
 2. BERT Attention
 3. XLNET Attention
 
+</details>
+
 ### [Unsupervised Extractive Summarization](unsupervised-extractive-summarization)
 
 Trained on [random books](extractive-summarization/books).
+
+<details><summary>Complete list (3 notebooks)</summary>
 
 1. Skip-thought Vector
 2. Residual Network using Atrous CNN
 3. Residual Network using Atrous CNN + Bahdanau Attention
 
+</details>
+
 ### [Vectorizer](vectorizer)
 
 Trained on [English sentiment dataset](text-classification/data).
+
+<details><summary>Complete list (11 notebooks)</summary>
 
 1. Word Vector using CBOW sample softmax
 2. Word Vector using CBOW noise contrastive estimation
@@ -510,20 +592,32 @@ Trained on [English sentiment dataset](text-classification/data).
 10. ELMO (biLM)
 11. Triplet-loss + BERT
 
+</details>
+
 ### [Visualization](visualization)
+
+<details><summary>Complete list (4 notebooks)</summary>
 
 1. Attention heatmap on Bahdanau Attention
 2. Attention heatmap on Luong Attention
 3. BERT attention, https://github.com/hsm207/bert_attn_viz
 4. XLNET attention
 
+</details>
+
 ### [Old-to-Young Vocoder](vocoder)
 
 Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/1807/24487).
 
+<details><summary>Complete list (1 notebooks)</summary>
+
 1. Dilated CNN
 
+</details>
+
 ### [Attention](attention)
+
+<details><summary>Complete list (8 notebooks)</summary>
 
 1. Bahdanau
 2. Luong
@@ -533,6 +627,8 @@ Trained on [Toronto speech dataset](https://tspace.library.utoronto.ca/handle/18
 6. Attention-over-Attention
 7. Bahdanau API
 8. Luong API
+
+</details>
 
 ### [Not-deep-learning](not-deep-learning)
 
