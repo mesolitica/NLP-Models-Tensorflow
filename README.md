@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/huseinzol05/NLP-Models-Tensorflow/blob/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-329--models-blue.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/total%20notebooks-335--models-blue.svg"></a>
 </p>
 
 ---
@@ -295,7 +295,7 @@ Trained on [English-French](https://github.com/tensorflow/tensor2tensor/blob/mas
 
 ### [OCR (optical character recognition)](ocr)
 
-<details><summary>Complete list (12 notebooks)</summary>
+<details><summary>Complete list (2 notebooks)</summary>
 
 1. CNN + LSTM RNN, test accuracy 100%
 2. Im2Latex, test accuracy 100%
@@ -506,17 +506,20 @@ Trained on [English sentiment dataset](text-classification/data), accuracy table
 
 ### [Text Similarity](text-similarity)
 
-Trained on [First Quora Dataset Release: Question Pairs](https://data.quora.com/First-Quora-Dataset-Release-Question-Pairs).
+Trained on [MNLI](https://cims.nyu.edu/~sbowman/multinli/).
 
-<details><summary>Complete list (7 notebooks)</summary>
+<details><summary>Complete list (10 notebooks)</summary>
 
-1. BiRNN + Contrastive loss, test accuracy 76.50%
-2. Dilated CNN + Contrastive loss, test accuracy 72.98%
-3. Transformer + Contrastive loss, test accuracy 73.48%
-4. Dilated CNN + Cross entropy, test accuracy 72.27%
-5. Transformer + Cross entropy, test accuracy 71.1%
-6. Transfer learning BERT base + Cross entropy, test accuracy 90%
-7. Transfer learning XLNET base + Cross entropy, test accuracy 77.39%
+1. BiRNN + Contrastive loss, test accuracy 73.032%
+2. BiRNN + Cross entropy, test accuracy 74.265%
+3. BiRNN + Circle loss, test accuracy 75.857%
+4. BiRNN + Proxy loss, test accuracy 48.37%
+5. BERT Base + Cross entropy, test accuracy 91.123%
+6. BERT Base + Circle loss, test accuracy 89.903%
+7. ELECTRA Base + Cross entropy, test accuracy 96.317%
+8. ELECTRA Base + Circle loss, test accuracy 95.603%
+9. XLNET Base + Cross entropy, test accuracy 93.998%
+10. XLNET Base + Circle loss, test accuracy 94.033%
 
 </details>
 
